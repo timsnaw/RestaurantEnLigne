@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /FastAndYam/
+
+# Redirect /admin to index.php?page=admin
+RewriteRule ^admin$ index.php?page=admin [L,NC]
+
+# Handle other pages if needed
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?page=$1 [L,QSA]

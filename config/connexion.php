@@ -1,5 +1,5 @@
 <?php
-// data base configuration 
+// la base de donne  configuration 
 $host = 'localhost';
 $dbname = 'fastandyam';
 $username = 'root';

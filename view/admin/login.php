@@ -7,7 +7,15 @@
 </head>
 <body>
 	<div>
-    <h2>Admin Login</h2>
+    <h2>Connexion Administrateur</h2>
+
+    <?php if (isset($_SESSION['error'])): ?>
+        <div>
+            <?php echo htmlspecialchars($_SESSION['error']); ?>
+        </div>
+        <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
+
     <form method="POST" action="index.php?page=admin_login">
         <div>
             <label for="email">Email</label>
@@ -19,7 +27,7 @@
             <input type="password" name="password" required>
         </div>
 
-        <input type="submit" name="connexion">connexion</button>
+        <input type="submit" name="connexion" value="connexion">
     </form>
 </div>
 </body>
