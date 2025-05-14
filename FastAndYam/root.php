@@ -2,11 +2,11 @@
 session_start();
 define('BASE_PATH', __DIR__ . '/');
 
-// Base de donnees 
+//  configuration de la base de donnees 
 require_once BASE_PATH . 'config/connexion.php';
 
 // Root de toutes les pages
-$page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : ''; // Secure the page parameter
+$page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : '';
 error_log("index.php traitement de la page: $page");
 
 switch ($page) {
@@ -48,6 +48,24 @@ switch ($page) {
         require_once BASE_PATH . 'controllers/AdminModificationController.php';
         $adminModificationController = new AdminModificationController($pdo);
         $adminModificationController->gererDemande();
+        break;
+    case 'user_info':
+    case 'user_details':
+    case 'user_edit':
+    case 'user_delete':
+        require_once BASE_PATH . 'controllers/UserModificationController.php';
+        $userModificationController = new UserModificationController($pdo);
+        $userModificationController->gererDemande();
+        break;
+    case 'categorie_details':
+    case 'categorie_edit':
+    case 'categorie_info':
+    case 'categorie_add':
+    case 'categorie_delete':
+    require_once BASE_PATH . 'controllers/CategorieController.php';
+    $categorieController = new CategorieController($pdo);
+    $categorieController->gererDemande();
+    break;
     default:
         echo "page home ";;
         break;
