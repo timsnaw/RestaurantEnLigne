@@ -149,14 +149,36 @@ class CategorieController {
         include BASE_PATH . 'view/admin/categorie_add.php';
     }
 
-    // Supprime une catégorie selon son ID
+    // supprime une categorie selon son ID
     private function SupprimerCategorie() {
-        $categorie_id = isset($_GET['categorie_id']) ? (int)$_GET['categorie_id'] : 0;
-        if ($categorie_id > 0) {
-            $this->model->supprimeCategorie($categorie_id);
+    $categorie_id = isset($_GET['categorie_id']) ? (int)$_GET['categorie_id'] : 0;
+    
+    if ($categorie_id > 0) {
+        // recuperer les informations de la categorie pour obtenir le nom de image
+        $categorieInfo = $this->model->getCategorieId($categorie_id);
+        
+        // si la categorie existe et a une image associe
+        if ($categorieInfo && !empty($categorieInfo['image_categorie'])) {
+            // Construire le chemin complet du fichier image
+            $imagePath = BASE_PATH . 'public/images/' . $categorieInfo['image_categorie'];
+            
+            // verifier si le fichier existe et le supprimer
+            if (file_exists($imagePath)) {
+                if (!unlink($imagePath)) {
+                    $_SESSION['error'] = "Erreur lors de la suppression de l'image associée.";
+                }
+            }
         }
+        
+        // supprimer la categorie de la base de donnes
+        if ($this->model->supprimeCategorie($categorie_id)) {
+            $_SESSION['success'] = "Catégorie supprimée avec succès.";
+        } else {
+            $_SESSION['error'] = "Erreur lors de la suppression de la catégorie.";
+        }
+    }
 
-        // Redirige vers la liste après suppression
+        // Redirige vers la liste apres suppression
         header("Location: index.php?page=categorie_info");
         exit;
     }
