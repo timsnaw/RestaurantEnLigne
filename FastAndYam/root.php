@@ -14,8 +14,8 @@ switch ($page) {
         session_unset();
         session_destroy();
         $_SESSION['success'] = "You have been logged out successfully.";
-        header("Location: ?page=login");
-        exit;
+        header("Location: index.php?page=admin_login");
+        break;
     case 'admin':
         if (!isset($_SESSION['admin_id'])) {
             header("Location: index.php?page=admin_login");
@@ -62,9 +62,26 @@ switch ($page) {
     case 'categorie_info':
     case 'categorie_add':
     case 'categorie_delete':
-    require_once BASE_PATH . 'controllers/CategorieController.php';
-    $categorieController = new CategorieController($pdo);
-    $categorieController->gererDemande();
+        require_once BASE_PATH . 'controllers/CategorieController.php';
+        $categorieController = new CategorieController($pdo);
+        $categorieController->gererDemande();
+        break;
+    case 'plats':
+    case 'plat_info':
+    case 'plat_edit':
+    case 'plat_add':
+    case 'plat_delete':
+        require_once BASE_PATH . 'controllers/PlatController.php';
+        $platController = new PlatController($pdo);
+        $platController->gererDemande();
+        break;
+    case 'commandes_info':
+    case 'commandes_details':
+    case 'commandes_delete':
+    case 'commandes_etat':
+        require_once BASE_PATH . 'controllers/CommandeController.php';
+        $categorieController = new CommandeController($pdo);
+        $categorieController->gererDemande();
     break;
     default:
         echo "page home ";;

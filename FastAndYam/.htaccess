@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /FastAndYam/
+RewriteBase /fastandyam/FastAndYam/
 
 # Redirect /admin to index.php?page=admin
 RewriteRule ^admin$ index.php?page=admin [L,NC]

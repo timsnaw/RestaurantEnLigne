@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo isset($categorieInfo) ? 'Modifier une catégorie' : 'Erreur'; ?></title>
+    <title>Modifier une catégorie</title>
     <style>
         .error-message {
             color: red;
@@ -10,7 +10,7 @@
             margin-top: 5px;
             display: none;
         }
-        #image-preview {
+        .image-preview {
             margin-top: 10px;
             max-width: 150px;
             display: none;
@@ -19,8 +19,7 @@
 </head>
 <body>
     <div>
-        <h2><?php echo isset($categorieInfo) ? 'Modifier une catégorie' : 'Erreur'; ?></h2>
-
+        <h2>Modifier une catégorie</h2>
 
         <?php if (!isset($categorieInfo)): ?>
             <p style="color: red;">Erreur : Aucune catégorie sélectionnée.</p>
@@ -33,10 +32,10 @@
             </div>
             <br>
             <div>
-                <label for="images">Image de la catégorie</label><br>
-                <input type="file" name="images" id="images" accept="image/jpeg,image/png,image/gif">
-                <p id="image-error" class="error-message"></p>
-                <img id="image-preview" src="#" alt="Prévisualisation de l'image">
+                <label for="categorie-images">Image de la catégorie</label><br>
+                <input type="file" name="images" id="categorie-images" accept="image/jpeg,image/png,image/gif">
+                <p id="categorie-image-error" class="error-message"></p>
+                <img id="categorie-image-preview" class="image-preview" src="#" alt="Prévisualisation de l'image">
                 <?php if ($categorieInfo['image_categorie']): ?>
                     <p>Image actuelle : 
                     <img src="public/images/<?php echo htmlspecialchars($categorieInfo['image_categorie']); ?>"
@@ -54,6 +53,6 @@
         <?php endif; ?>
     </div>
 
-    <script src="public/js/categorie.js"></script>
+   <script src="public/js/imageValidation.js"></script>
 </body>
 </html>

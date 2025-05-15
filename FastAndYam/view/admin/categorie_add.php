@@ -10,7 +10,7 @@
             margin-top: 5px;
             display: none;
         }
-        #image-preview {
+        .image-preview {
             margin-top: 10px;
             max-width: 150px;
             display: none;
@@ -40,10 +40,10 @@
             </div>
             <br>
             <div>
-                <label for="images">Image de la catégorie (optionnel)</label><br>
-                <input type="file" name="images" id="images" accept="image/jpeg,image/png,image/gif">
-                <p id="image-error" class="error-message"></p>
-                <img id="image-preview" src="#" alt="Prévisualisation de l'image">
+                <label for="categorie-images">Image de la catégorie (optionnel)</label><br>
+                <input type="file" name="images" id="categorie-images" accept="image/jpeg,image/png,image/gif">
+                <p id="categorie-image-error" class="error-message"></p>
+                <img id="categorie-image-preview" class="image-preview" src="#" alt="Prévisualisation de l'image">
             </div>
             <br>
             <div>
@@ -53,67 +53,6 @@
         </form>
     </div>
 
-    <script>
-        const form = document.getElementById('categorie-form');
-        const imageInput = document.getElementById('images');
-        const imagePreview = document.getElementById('image-preview');
-        const imageError = document.getElementById('image-error');
-
-        const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-        const maxFileSize = 5 * 1024 * 1024;
-
-        function showError(message) {
-            imageError.textContent = message;
-            imageError.style.display = 'block';
-        }
-
-        function clearError() {
-            imageError.textContent = '';
-            imageError.style.display = 'none';
-        }
-
-        imageInput.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            clearError();
-            imagePreview.style.display = 'none';
-
-            if (file) {
-                if (!allowedTypes.includes(file.type)) {
-                    showError('Type de fichier non autorisé. Utilisez jpg, png ou gif.');
-                    imageInput.value = '';
-                    return;
-                }
-                if (file.size > maxFileSize) {
-                    showError('Le fichier est trop volumineux. Maximum 5 Mo.');
-                    imageInput.value = '';
-                    return;
-                }
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    imagePreview.src = e.target.result;
-                    imagePreview.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        form.addEventListener('submit', function(e) {
-            const file = imageInput.files[0];
-            clearError();
-
-            if (file) {
-                if (!allowedTypes.includes(file.type)) {
-                    e.preventDefault();
-                    showError('Type de fichier non autorisé. Utilisez jpg, png ou gif.');
-                    return;
-                }
-                if (file.size > maxFileSize) {
-                    e.preventDefault();
-                    showError('Le fichier est trop volumineux. Maximum 5 Mo.');
-                    return;
-                }
-            }
-        });
-    </script>
+    <script src="public/js/imageValidation.js"></script>
 </body>
 </html>

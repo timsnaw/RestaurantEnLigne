@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails de la commande</title>
+</head>
+<body>
+    <div>
+        <h2>Détails de la commande</h2>
+        <?php if (isset($commandeInfo) && $commandeInfo): ?>
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <td><?php echo htmlspecialchars($commandeInfo['commande_id']); ?></td>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td><?php echo htmlspecialchars($commandeInfo['date_commande'] ?? 'N/A'); ?></td>
+                </tr>
+                <tr>
+                    <th>Statut</th>
+                    <td>
+                       <?php
+                        $etat_labels = [
+                            1 => 'En cours',
+                            2 => 'En livraison',
+                            3 => 'Livrée',
+                            4 => 'Annulée'
+                        ];
+                        ?>
+                        <form action="index.php?page=commandes_etat" method="POST">
+                            <input type="hidden" name="commande_id" value="<?php echo htmlspecialchars($commandeInfo['commande_id']); ?>">
+                            
+                            <select name="etat_commande" onchange="this.form.submit()">
+                                <?php foreach ($etat_labels as $value => $label): ?>
+                                    <option value="<?php echo $value; ?>" <?php echo $commandeInfo['etat_commande'] == $value ? 'selected' : ''; ?>>
+                                        <?php echo htmlspecialchars($label); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Adresse de livraison</th>
+                    <td><?php echo htmlspecialchars($commandeInfo['adresse']); ?></td>
+                </tr>
+                <tr>
+                    <th>ID client</th>
+                    <td><?php echo htmlspecialchars($commandeInfo['client_id']); ?></td>
+                </tr>
+            </table>
+
+            <h3>Lignes de commande</h3>
+            <?php if (empty($lignes)): ?>
+                <p>Aucune ligne de commande trouvée.</p>
+            <?php else: ?>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>ID ligne</th>
+                            <th>Plat</th>
+                            <th>Prix</th>
+                            <th>Quantité</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($lignes as $ligne): ?>
+                            <tr>
+                                <td><?php echo $ligne['ligne_id']; ?></td>
+                                <td><?php echo htmlspecialchars($ligne['titre'] ?? 'Plat ID: ' . $ligne['plat_id']); ?></td>
+                                <td><?php echo $ligne['prix']; ?></td>
+                                <td><?php echo htmlspecialchars($ligne['quantite']); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
+
+            <a href="index.php?page=commandes_delete&commande_id=<?php echo htmlspecialchars($commandeInfo['commande_id']); ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette commande ?');">Supprimer</a>
+        <?php else: ?>
+            <p>Aucun détail de commande disponible.</p>
+        <?php endif; ?>
+        <a href="index.php?page=commandes_info">Retour à la liste</a>
+    </div>
+</body>
+</html>

@@ -7,9 +7,20 @@
 <body>
     <div>
         <h2>Informations sur les catégories</h2>
+        <?php if (isset($_SESSION['error'])): ?>
+            <p style="color: red;">
+                <?php echo htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?>
+            </p>
+        <?php endif; ?>
+
+        <?php if (isset($_SESSION['success'])): ?>
+            <p style="color: green;">
+                <?php echo htmlspecialchars($_SESSION['success']); unset($_SESSION['success']); ?>
+            </p>
+        <?php endif; ?>
+
          <a href="index.php?page=categorie_add">Ajouter</a>
         <table border="1" cellpadding="5" cellspacing="0">
-          
                 <tr>
                     <th>Identifiant</th>
                     <th>Nom</th>
