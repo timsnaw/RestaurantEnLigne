@@ -83,6 +83,14 @@ switch ($page) {
         $categorieController = new CommandeController($pdo);
         $categorieController->gererDemande();
     break;
+    case 'promotion_info':
+    case 'promotion_add':
+    case 'promotion_edit':
+    case 'promotion_delete':
+        require_once BASE_PATH . 'controllers/PromotionController.php';
+        $controller = new PromotionController($pdo);
+        $controller->gererDemande();
+    break;
     default:
         echo "page home ";;
         break;

@@ -35,6 +35,7 @@
             <input type="password" id="confirm_password" name="confirm_password" required>
         </div>
         <input type="submit" name="inscrire" value="inscrire">
+        <a href="index.php?page=admin_info" >Retour aux informations</a>
     </form>
 </div>
 

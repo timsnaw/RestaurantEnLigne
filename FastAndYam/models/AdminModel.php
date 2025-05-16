@@ -1,12 +1,13 @@
 <?php
 class AdminModel {
     private $pdo;
+
     // Constructeur
     public function __construct($pdo) {
         $this->pdo = $pdo;
     }
 
-    // permet de verifie l'existe d'un admin
+    // Permet de vérifier l'existence d'un admin
     public function verifieAdmin($email, $password) {
         try {
             $stmt = $this->pdo->prepare("SELECT admin_id, password FROM admin WHERE email = ?");
@@ -18,7 +19,7 @@ class AdminModel {
         }
     }
 
-    // permet de cree un admin 
+    // Permet de créer un admin 
     public function creerAdmin($username, $email, $password) {
         try {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -28,7 +29,8 @@ class AdminModel {
             return false;
         }
     }
-    // permet de verifie email existe 
+
+    // Permet de vérifier si un email existe 
     public function emailExiste($email) {
         try {
             $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM admin WHERE email = ?");
@@ -38,7 +40,8 @@ class AdminModel {
             return false;
         }
     }
-    // permet de verifie username existe
+
+    // Permet de vérifier si un username existe
     public function usernameExiste($username) {
         try {
             $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM admin WHERE username = ?");
@@ -48,7 +51,8 @@ class AdminModel {
             return false;
         }
     }
-    // permet de voir statistiques 
+
+    // Permet de voir les statistiques 
     public function getStatistique() {
         try {
             return [
@@ -62,6 +66,19 @@ class AdminModel {
                     FROM ligne_commande l
                     JOIN commande c ON l.commande_id = c.commande_id
                     WHERE c.etat_commande = 3
+                ")->fetchColumn(), 2),
+                'dailyOrders' => $this->pdo->query("
+                    SELECT COUNT(*) 
+                    FROM commande 
+                    WHERE etat_commande = 3 
+                    AND DATE(date_commande) = CURDATE()
+                ")->fetchColumn(),
+                'dailyRevenue' => number_format($this->pdo->query("
+                    SELECT COALESCE(SUM(l.prix * l.quantite), 0)
+                    FROM ligne_commande l
+                    JOIN commande c ON l.commande_id = c.commande_id
+                    WHERE c.etat_commande = 3 
+                    AND DATE(c.date_commande) = CURDATE()
                 ")->fetchColumn(), 2)
             ];
         } catch (PDOException $e) {
@@ -71,11 +88,14 @@ class AdminModel {
                 'nbOrders' => 0,
                 'nbDishes' => 0,
                 'nbCategories' => 0,
-                'revenue' => '0.00'
+                'revenue' => '0.00',
+                'dailyOrders' => 0,
+                'dailyRevenue' => '0.00'
             ];
         }
     }
-    // permet de verifie les mois existe dans les commandes
+
+    // Permet de vérifier les mois disponibles dans les commandes
     public function getMoisDisponible() {
         try {
             $stmt = $this->pdo->query("

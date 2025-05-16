@@ -59,15 +59,16 @@ class AdminController {
 
     //permet de voir les deffairent statistique
     public function adminStatistique() {
-        if (!isset($_SESSION['admin_id'])) {
-            header("Location: index.php?page=admin_login");
-            exit;
-        }
-        $data = [
-            'stats' => $this->model->getStatistique(),
-            'availableMonths' => $this->model->getMoisDisponible()
-        ];
-        require_once BASE_PATH . 'view/admin/statistique.php';
+    if (!isset($_SESSION['admin_id'])) {
+        header("Location: index.php?page=admin_login");
+        exit;
     }
+    $date = isset($_GET['date']) ? $_GET['date'] : null;
+    $data = [
+        'stats' => $this->model->getStatistique($date),
+        'availableMonths' => $this->model->getMoisDisponible()
+    ];
+    require_once BASE_PATH . 'view/admin/statistique.php';
+}
 }
 ?>

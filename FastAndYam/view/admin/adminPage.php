@@ -15,6 +15,7 @@
         <li><a href="index.php?page=categorie_info" target="content-frame">Informations Catégorie</a></li>
         <li><a href="index.php?page=commandes_info" target="content-frame">Informations Commandes</a></li>
         <li><a href="index.php?page=plats" target="content-frame">Informations Plats</a></li>
+        <li><a href="index.php?page=promotion_info" target="content-frame">Informations Promotion</a></li>
     </ul>
     <a href="index.php?page=logout" class="btn btn-danger" style="width: 100%;">Déconnecter</a>
     </div>

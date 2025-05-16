@@ -25,6 +25,7 @@ if (!isset($data)) {
 </head>
 <body>
     <div class="container">
+        <h2>Statistique globale</h2>
         <div class="stats">
             <div class="stat-box"><span>Clients</span><p><?= htmlspecialchars($data['stats']['nbUsers']) ?></p></div>
             <div class="stat-box"><span>Admins</span><p><?= htmlspecialchars($data['stats']['nbAdmins']) ?></p></div>
@@ -32,6 +33,11 @@ if (!isset($data)) {
             <div class="stat-box"><span>Plats</span><p><?= htmlspecialchars($data['stats']['nbDishes']) ?></p></div>
             <div class="stat-box"><span>Catégories</span><p><?= htmlspecialchars($data['stats']['nbCategories']) ?></p></div>
             <div class="stat-box"><span>Revenus</span><p><?= htmlspecialchars($data['stats']['revenue']) ?> DH</p></div>
+        </div>
+        <h2>Statistique de ce jour</h2>
+        <div class="stats">
+            <div class="stat-box"><span>Commandes</span><p><?= htmlspecialchars($data['stats']['dailyOrders']) ?></p></div>
+            <div class="stat-box"><span>Revenu</span><p><?= htmlspecialchars($data['stats']['dailyRevenue']) ?> DH</p></div>
         </div>
         <h2>Télécharger PDF</h2>
         <form method="get" action="view/admin/export_pdf.php">
