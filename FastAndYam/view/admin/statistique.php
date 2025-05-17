@@ -1,10 +1,3 @@
-<?php
-// Prevent direct access
-if (!isset($data)) {
-    header("Location: index.php?page=statistique");
-    exit;
-}
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -40,17 +33,18 @@ if (!isset($data)) {
             <div class="stat-box"><span>Revenu</span><p><?= htmlspecialchars($data['stats']['dailyRevenue']) ?> DH</p></div>
         </div>
         <h2>Télécharger PDF</h2>
-        <form method="get" action="view/admin/export_pdf.php">
-            <select name="month" required>
-                <option value="">Sélectionner un mois</option>
-                <?php foreach ($data['availableMonths'] as $month): ?>
-                    <option value="<?= htmlspecialchars($month) ?>">
-                        <?= date('F Y', strtotime($month . '-01')) ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-            <button type="submit">Télécharger</button>
-        </form>
+        <form method="get" action="index.php">
+    <input type="hidden" name="page" value="export_pdf">
+    <select name="month" required>
+        <option value="">Sélectionner un mois</option>
+        <?php foreach ($data['availableMonths'] as $month): ?>
+            <option value="<?= htmlspecialchars($month) ?>">
+                <?= date('F Y', strtotime($month . '-01')) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+    <button type="submit">Télécharger</button>
+</form>
     </div>
 </body>
 </html>

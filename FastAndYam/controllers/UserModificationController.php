@@ -44,15 +44,15 @@ class UserModificationController {
 
     // Affiche les détails d'un client
     private function afficherClientDetils() {
-        $client_id = (int)($_GET['client_id'] ?? 0);
-        if ($client_id <= 0) {
+        $user_id = (int)($_GET['user_id'] ?? 0);
+        if ($user_id <= 0) {
             $_SESSION['error'] = "Identifiant utilisateur invalide.";
             header("Location: index.php?page=user_info");
             exit;
         }
 
-        $userInfo = $this->model->getClientId($client_id);
-        $avis = $userInfo ? $this->model->getClientAvis($client_id) : [];
+        $userInfo = $this->model->getClientId($user_id);
+        $avis = $userInfo ? $this->model->getClientAvis($user_id) : [];
         if (!$userInfo) {
             $_SESSION['error'] = "Utilisateur introuvable.";
         }
@@ -61,14 +61,14 @@ class UserModificationController {
 
     // Permet de modifier les informations d'un client
     private function modifierClient() {
-        $client_id = (int)($_GET['client_id'] ?? 0);
-        if ($client_id <= 0) {
+        $user_id = (int)($_GET['user_id'] ?? 0);
+        if ($user_id <= 0) {
             $_SESSION['error'] = "Identifiant utilisateur invalide.";
             header("Location: index.php?page=user_info");
             exit;
         }
 
-        $userInfo = $this->model->getClientId($client_id);
+        $userInfo = $this->model->getClientId($user_id);
         if (!$userInfo) {
             $_SESSION['error'] = "Utilisateur introuvable.";
             header("Location: index.php?page=user_info");
@@ -89,19 +89,19 @@ class UserModificationController {
                 if (empty($username) || empty($prenom) || empty($nom) || empty($email) || empty($telephone) || empty($adresse)) {
                     throw new Exception("Tous les champs sont obligatoires.");
                 }
-                if ($this->model->usernameExiste($username, $client_id)) {
+                if ($this->model->usernameExiste($username, $user_id)) {
                     throw new Exception("Nom d'utilisateur déjà utilisé.");
                 }
-                if ($this->model->emailExiste($email, $client_id)) {
+                if ($this->model->emailExiste($email, $user_id)) {
                     throw new Exception("Adresse e-mail déjà utilisée.");
                 }
                 if ($password && $password !== $confirm_password) {
                     throw new Exception("Les mots de passe ne correspondent pas.");
                 }
 
-                $this->model->ModifierClient($client_id, $username, $prenom, $nom, $email, $telephone, $adresse, $password ?: null);
+                $this->model->ModifierClient($user_id, $username, $prenom, $nom, $email, $telephone, $adresse, $password ?: null);
                 $_SESSION['success'] = "Utilisateur modifié avec succes.";
-                header("Location: index.php?page=user_details&client_id=$client_id");
+                header("Location: index.php?page=user_details&user_id=$user_id");
                 exit;
             } catch (Exception $e) {
                 $_SESSION['error'] = $e->getMessage();
@@ -113,9 +113,9 @@ class UserModificationController {
 
     // Supprime un client
     private function supprimerClient() {
-        $client_id = $this->validateClientId();
+        $user_id = $this->validateClientId();
         try {
-            if ($this->model->SupprimerClient($client_id)) {
+            if ($this->model->SupprimerClient($user_id)) {
                 $_SESSION['success'] = "Client supprimé avec succes.";
             } else {
                 $_SESSION['error'] = "Échec de la suppression du client.";
@@ -130,13 +130,13 @@ class UserModificationController {
 
     // Valider l'ID du client
     private function validateClientId() {
-        $client_id = isset($_GET['client_id']) ? (int)$_GET['client_id'] : 0;
-        if ($client_id <= 0) {
+        $user_id = isset($_GET['user_id']) ? (int)$_GET['user_id'] : 0;
+        if ($user_id <= 0) {
             $_SESSION['error'] = "Identifiant client invalide.";
             header("Location: index.php?page=user_info");
             exit;
         }
-        return $client_id;
+        return $user_id;
     }
 }
 ?>

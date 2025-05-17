@@ -39,12 +39,12 @@
                 <?php else: ?>
                     <?php foreach ($admins as $admin): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($admin['admin_id']); ?></td>
+                            <td><?php echo htmlspecialchars($admin['user_id']); ?></td>
                             <td><?php echo htmlspecialchars($admin['username']); ?></td>
                             <td><?php echo htmlspecialchars($admin['email']); ?></td>
                             <td><?php echo htmlspecialchars($admin['date_inscription']); ?></td>
                             <td>
-                                <a href="index.php?page=admin_details&admin_id=<?php echo $admin['admin_id']; ?>" class="btn btn-info btn-sm">Voir</a>
+                                <a href="index.php?page=admin_details&user_id=<?php echo $admin['user_id']; ?>" class="btn btn-info btn-sm">Voir</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

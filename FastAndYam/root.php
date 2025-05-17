@@ -17,7 +17,7 @@ switch ($page) {
         header("Location: index.php?page=admin_login");
         break;
     case 'admin':
-        if (!isset($_SESSION['admin_id'])) {
+        if (!isset($_SESSION['user_id'])) {
             header("Location: index.php?page=admin_login");
             exit;
         }
@@ -25,21 +25,12 @@ switch ($page) {
         break;
 
     case 'admin_login':
-        require_once BASE_PATH . 'controllers/AdminController.php';
-        $adminController = new AdminController($pdo);
-        $adminController->adminLogin();
-        break;
-
     case 'register':
-        require_once BASE_PATH . 'controllers/AdminController.php';
-        $adminController = new AdminController($pdo);
-        $adminController->adminRegister();
-        break;
-
+    case 'export_pdf':
     case 'statistique':
         require_once BASE_PATH . 'controllers/AdminController.php';
         $adminController = new AdminController($pdo);
-        $adminController->adminStatistique();
+        $adminController->gereDemande();
         break;
     case 'admin_info':
     case 'admin_details':

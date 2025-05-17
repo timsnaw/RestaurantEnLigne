@@ -8,7 +8,7 @@
     <div>
         <h2>Détails de la commande</h2>
         <?php if (isset($commandeInfo) && $commandeInfo): ?>
-            <table border="1">
+            <table>
                 <tr>
                     <th>ID</th>
                     <td><?php echo htmlspecialchars($commandeInfo['commande_id']); ?></td>
@@ -18,19 +18,10 @@
                     <td><?php echo htmlspecialchars($commandeInfo['date_commande'] ?? 'N/A'); ?></td>
                 </tr>
                 <tr>
-                    <th>Statut</th>
+                    <th>État</th>
                     <td>
-                       <?php
-                        $etat_labels = [
-                            1 => 'En cours',
-                            2 => 'En livraison',
-                            3 => 'Livrée',
-                            4 => 'Annulée'
-                        ];
-                        ?>
                         <form action="index.php?page=commandes_etat" method="POST">
                             <input type="hidden" name="commande_id" value="<?php echo htmlspecialchars($commandeInfo['commande_id']); ?>">
-                            
                             <select name="etat_commande" onchange="this.form.submit()">
                                 <?php foreach ($etat_labels as $value => $label): ?>
                                     <option value="<?php echo $value; ?>" <?php echo $commandeInfo['etat_commande'] == $value ? 'selected' : ''; ?>>
@@ -42,12 +33,24 @@
                     </td>
                 </tr>
                 <tr>
+                    <th>Paiement</th>
+                    <td><?php echo htmlspecialchars($commandeInfo['paiement_status']); ?></td>
+                </tr>
+                <tr>
+                    <th>Mode de paiement</th>
+                    <td><?php echo htmlspecialchars($commandeInfo['mode_paiement']); ?></td>
+                </tr>
+                <tr>
+                    <th>Date de paiement</th>
+                    <td><?php echo htmlspecialchars($commandeInfo['date_paiement']); ?></td>
+                </tr>
+                <tr>
                     <th>Adresse de livraison</th>
                     <td><?php echo htmlspecialchars($commandeInfo['adresse']); ?></td>
                 </tr>
                 <tr>
                     <th>ID client</th>
-                    <td><?php echo htmlspecialchars($commandeInfo['client_id']); ?></td>
+                    <td><?php echo htmlspecialchars($commandeInfo['user_id']); ?></td>
                 </tr>
             </table>
 
@@ -55,7 +58,7 @@
             <?php if (empty($lignes)): ?>
                 <p>Aucune ligne de commande trouvée.</p>
             <?php else: ?>
-                <table border="1">
+                <table>
                     <thead>
                         <tr>
                             <th>ID ligne</th>
@@ -67,9 +70,9 @@
                     <tbody>
                         <?php foreach ($lignes as $ligne): ?>
                             <tr>
-                                <td><?php echo $ligne['ligne_id']; ?></td>
+                                <td><?php echo htmlspecialchars($ligne['ligne_id']); ?></td>
                                 <td><?php echo htmlspecialchars($ligne['titre'] ?? 'Plat ID: ' . $ligne['plat_id']); ?></td>
-                                <td><?php echo $ligne['prix']; ?></td>
+                                <td><?php echo htmlspecialchars($ligne['prix']); ?></td>
                                 <td><?php echo htmlspecialchars($ligne['quantite']); ?></td>
                             </tr>
                         <?php endforeach; ?>
@@ -78,10 +81,11 @@
             <?php endif; ?>
 
             <a href="index.php?page=commandes_delete&commande_id=<?php echo htmlspecialchars($commandeInfo['commande_id']); ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette commande ?');">Supprimer</a>
+            <a href="index.php?page=commandes_info">Retour à la liste</a>
         <?php else: ?>
             <p>Aucun détail de commande disponible.</p>
+            <a href="index.php?page=commandes_info">Retour à la liste</a>
         <?php endif; ?>
-        <a href="index.php?page=commandes_info">Retour à la liste</a>
     </div>
 </body>
 </html>

@@ -17,7 +17,7 @@
             <table border="1" cellpadding="5" cellspacing="0">
                 <tr>
                     <th>Identifiant</th>
-                    <td><?php echo htmlspecialchars($userInfo['client_id']); ?></td>
+                    <td><?php echo htmlspecialchars($userInfo['user_id']); ?></td>
                 </tr>
                 <tr>
                     <th>Nom d'utilisateur</th>
@@ -86,9 +86,9 @@
             <?php endif; ?>
 
             <p>
-                <a href="index.php?page=user_edit&client_id=<?php echo $userInfo['client_id']; ?>">Modifier</a>
+                <a href="index.php?page=user_edit&user_id=<?php echo $userInfo['user_id']; ?>">Modifier</a>
                 &nbsp;|&nbsp;
-                <a href="index.php?page=user_delete&client_id=<?php echo $userInfo['client_id']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">Supprimer</a>
+                <a href="index.php?page=user_delete&user_id=<?php echo $userInfo['user_id']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">Supprimer</a>
             </p>
         <?php else: ?>
             <p>Aucun détail disponible pour cet utilisateur.</p>

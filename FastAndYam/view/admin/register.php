@@ -1,43 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>register</title>
+  <meta charset="utf-8" />
+  <title>Inscription Administrateur</title>
 </head>
 <body>
-<div>
-    <h2>Inscription Administrateur</h2>
 
-    <?php if (isset($error)): ?>
-        <div><?php echo htmlspecialchars($error); ?></div>
-    <?php endif; ?>
+  <h2>Inscription Administrateur</h2>
 
-    <?php if (isset($success)): ?>
-        <div><?php echo htmlspecialchars($success); ?></div>
-    <?php endif; ?>
+  <?php
+    // Affichage conditionnel des messages (sans classe, seulement inline style)
+    if (!empty($_SESSION['error'])) {
+      echo '<div style="color: red; margin-bottom: 15px;">' . htmlspecialchars($_SESSION['error']) . '</div>';
+      unset($_SESSION['error']);
+    } elseif (!empty($_SESSION['success'])) {
+      echo '<div style="color: green; margin-bottom: 15px;">' . htmlspecialchars($_SESSION['success']) . '</div>';
+      unset($_SESSION['success']);
+    }
+  ?>
 
-    <form method="POST" action="index.php?page=admin_register">
-        <div>
-            <label for="username">Nom d'utilisateur</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div>
-            <label for="email">Adresse e-mail</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div>
-            <label for="password">Mot de passe</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div>
-            <label for="confirm_password">Confirmer le mot de passe</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
-        </div>
-        <input type="submit" name="inscrire" value="inscrire">
-        <a href="index.php?page=admin_info" >Retour aux informations</a>
-    </form>
-</div>
+  <form method="POST" action="index.php?page=register">
 
+    <label>Nom d'utilisateur<br />
+      <input type="text" name="username" required />
+    </label><br /><br />
+
+    <label>Prénom<br />
+      <input type="text" name="prenom" required />
+    </label><br /><br />
+
+    <label>Nom<br />
+      <input type="text" name="nom" required />
+    </label><br /><br />
+
+    <label>Adresse e-mail<br />
+      <input type="email" name="email" required />
+    </label><br /><br />
+
+    <label>Mot de passe<br />
+      <input type="password" name="password" required />
+    </label><br /><br />
+
+    <label>Confirmer le mot de passe<br />
+      <input type="password" name="confirm_password" required />
+    </label><br /><br />
+
+    <input type="submit" value="S'inscrire" name="inscrire" />
+
+  </form>
+  <a href="index.php?page=admin_info">Retour à la liste</a>
 </body>
 </html>

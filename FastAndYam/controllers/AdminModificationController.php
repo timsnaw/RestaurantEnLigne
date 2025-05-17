@@ -12,7 +12,8 @@ class AdminModificationController {
     public function __construct($pdo) {
         $this->model = new AdminModificationModel($pdo);
     }
-// gere demande pour les deffairent page 
+
+    // Gère les demandes pour les différentes pages
     public function gererDemande() {
         $action = isset($_GET['page']) ? $_GET['page'] : 'admin_info';
 
@@ -30,18 +31,19 @@ class AdminModificationController {
                 $this->gererAdminDelete();
                 break;
             default:
-                $_SESSION['error'] = "Invalid action requested.";
+                $_SESSION['error'] = "Action invalide demandée.";
                 header("Location: index.php?page=admin_info");
                 exit;
         }
     }
-// Affiche la liste de tous les administrateurs
+
+    // Affiche la liste de tous les administrateurs
     private function gererAdminInfo() {
         try {
             $admins = $this->model->getToutAdmin();
             $view_file = BASE_PATH . 'view/admin/admin_info.php';
             if (!file_exists($view_file)) {
-                throw new Exception("View file not found: $view_file");
+                throw new Exception("Fichier de vue introuvable: $view_file");
             }
             require_once $view_file;
         } catch (Exception $e) {
@@ -50,64 +52,69 @@ class AdminModificationController {
             if (file_exists($view_file)) {
                 require_once $view_file;
             } else {
-                die("Error dans le controller gererDemande: " . $e->getMessage());
+                die("Erreur dans le contrôleur gererDemande: " . $e->getMessage());
             }
         }
     }
-// Affiche les details d'un administrateur a partir de son ID
+
+    // Affiche les détails d'un administrateur à partir de son ID
     private function gererAdminDetails() {
-        $admin_id = $this->validerAdminId();
-        $adminInfo = $this->getAdminInfo($admin_id);
+        $user_id = $this->validerUserId();
+        $adminInfo = $this->getAdminInfo($user_id);
         $view_file = BASE_PATH . 'view/admin/admin_details.php';
         if (!file_exists($view_file)) {
-            throw new Exception("Error dans le controller gererAdminDetails: $view_file");
+            throw new Exception("Erreur dans le contrôleur gererAdminDetails: $view_file");
         }
         require_once $view_file;
     }
-// permet de modifier les information d'un admin
+
+    // Permet de modifier les informations d'un admin
     private function gererAdminEdit() {
-        $admin_id = $this->validerAdminId();
-        $adminInfo = $this->getAdminInfo($admin_id);
+        $user_id = $this->validerUserId();
+        $adminInfo = $this->getAdminInfo($user_id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $this->modifierForm($admin_id);
+            $this->modifierForm($user_id);
         }
 
         $view_file = BASE_PATH . 'view/admin/admin_edit.php';
         if (!file_exists($view_file)) {
-            throw new Exception("Error dans le controller gererAdminEdit: $view_file");
+            throw new Exception("Erreur dans le contrôleur gererAdminEdit: $view_file");
         }
         require_once $view_file;
     }
-// permet de supprimer un admin
+
+    // Permet de supprimer un admin
     private function gererAdminDelete() {
-        $admin_id = $this->validerAdminId();
+        $user_id = $this->validerUserId();
         try {
-            if ($this->model->deleteAdmin($admin_id)) {
+            if ($this->model->deleteAdmin($user_id)) {
                 $_SESSION['success'] = "L'administrateur a été supprimé avec succès.";
             } else {
-                $_SESSION['error'] = "Echec de la suppression de l'administrateur.";
+                $_SESSION['error'] = "Échec de la suppression de l'administrateur.";
             }
         } catch (Exception $e) {
-            $_SESSION['error'] = "Error de suppression admin: " . $e->getMessage();
+            $_SESSION['error'] = "Erreur de suppression admin: " . $e->getMessage();
         }
         header("Location: index.php?page=admin_info");
         exit;
     }
-// permet de valider admin
-    private function validerAdminId() {
-        $admin_id = isset($_GET['admin_id']) ? (int)$_GET['admin_id'] : 0;
-        if ($admin_id <= 0) {
-            $_SESSION['error'] = "ID administrateur non valide.";
+
+    // Valide l'ID de l'utilisateur
+    private function validerUserId() {
+        $user_id = isset($_GET['user_id']) ? (int)$_GET['user_id'] : 0;
+        if ($user_id <= 0) {
+            $_SESSION['error'] = "ID utilisateur non valide.";
             header("Location: index.php?page=admin_info");
             exit;
         }
-        return $admin_id;
+        return $user_id;
     }
-// Recupere les informations d’un administrateur par son ID.
-    private function getAdminInfo($admin_id) {
+
+    // Récupère les informations d’un administrateur par son ID
+    private function getAdminInfo($user_id) {
         try {
-            $adminInfo = $this->model->getAdminById($admin_id);
+            $adminInfo = $this->model->getAdminById($user_id);
             if (!$adminInfo) {
                 $_SESSION['error'] = "Administrateur non trouvé.";
                 header("Location: index.php?page=admin_info");
@@ -120,34 +127,36 @@ class AdminModificationController {
             exit;
         }
     }
-// Traite le formulaire de modification d’un administrateur : vérifie les champs, les conflits et met à jour les données si tout est valide.
 
-    private function modifierForm($admin_id) {
+    // Traite le formulaire de modification d’un administrateur
+    private function modifierForm($user_id) {
         $username = trim($_POST['username'] ?? '');
+        $prenom = trim($_POST['prenom'] ?? '');
+        $nom = trim($_POST['nom'] ?? '');
         $email = trim($_POST['email'] ?? '');
         $password = $_POST['password'] ?? '';
         $confirm_password = $_POST['confirm_password'] ?? '';
 
-        if (empty($username) || empty($email)) {
-            $_SESSION['error'] = "Username et email sont obligatoires.";
-        } elseif ($this->model->usernameExiste($username, $admin_id)) {
-            $_SESSION['error'] = "Username deja existe.";
-        } elseif ($this->model->emailExiste($email, $admin_id)) {
-            $_SESSION['error'] = "Email deja existe.";
+        if (empty($username) || empty($prenom) || empty($nom) || empty($email)) {
+            $_SESSION['error'] = "Tous les champs sont obligatoires.";
+        } elseif ($this->model->usernameExiste($username, $user_id)) {
+            $_SESSION['error'] = "Username déjà existant.";
+        } elseif ($this->model->emailExiste($email, $user_id)) {
+            $_SESSION['error'] = "Email déjà existant.";
         } elseif ($password && $password !== $confirm_password) {
             $_SESSION['error'] = "Les mots de passe ne correspondent pas.";
         } elseif ($password && strlen($password) < 6) {
             $_SESSION['error'] = "Le mot de passe doit comporter au moins 6 caractères.";
         } else {
             try {
-                if ($this->model->modifierAdmin($admin_id, $username, $email, $password ?: null)) {
+                if ($this->model->modifierAdmin($user_id, $username, $prenom, $nom, $email, $password ?: null)) {
                     $_SESSION['success'] = "L'administrateur a été mis à jour avec succès.";
-                    header("Location: index.php?page=admin_details&admin_id=$admin_id");
+                    header("Location: index.php?page=admin_details&user_id=$user_id");
                     exit;
                 }
-                $_SESSION['error'] = "Echec de la mise à jour de l'administrateur.";
+                $_SESSION['error'] = "Échec de la mise à jour de l'administrateur.";
             } catch (Exception $e) {
-                $_SESSION['error'] = "Erreur lors de la mise a jour de l'administrateur: " . $e->getMessage();
+                $_SESSION['error'] = "Erreur lors de la mise à jour de l'administrateur: " . $e->getMessage();
             }
         }
     }

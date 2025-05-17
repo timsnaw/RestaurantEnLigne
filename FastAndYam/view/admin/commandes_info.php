@@ -8,32 +8,28 @@
     <div>
         <h2>Informations de commande</h2>
         <?php if (isset($_SESSION['error'])): ?>
-            <div style="color:red;padding:10px;border:1px solid red;margin-bottom:10px;">
-                <?php echo htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?>
-            </div>
+            <p style="color:red;"><?php echo htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?></p>
         <?php endif; ?>
         <?php if (isset($_SESSION['success'])): ?>
-            <div style="color:green;padding:10px;border:1px solid green;margin-bottom:10px;">
-                <?php echo htmlspecialchars($_SESSION['success']); unset($_SESSION['success']); ?>
-            </div>
+            <p style="color:green;"><?php echo htmlspecialchars($_SESSION['success']); unset($_SESSION['success']); ?></p>
         <?php endif; ?>
-        <form method="GET" action="" style="margin-bottom:15px;">
+        <form method="GET" action="">
             <input type="hidden" name="page" value="commandes_info">
             <div>
-                <div style="display:inline-block;width:40%;">
+                <div style="width:40%;">
                     <label>Rechercher par ID de commande :</label>
                     <input type="text" name="search_commande_id" value="<?php echo isset($_GET['search_commande_id']) ? htmlspecialchars($_GET['search_commande_id']) : ''; ?>">
                 </div>
-                <div style="display:inline-block;">
+                <div>
                     <input type="submit" value="Rechercher">
                 </div>
             </div>
         </form>
-        <form method="GET" action="index.php" style="margin-bottom:15px;">
+        <form method="GET" action="index.php">
             <input type="hidden" name="page" value="commandes_info">
             <div>
-                <div style="display:inline-block;width:25%;">
-                    <label>Filtrer par statut :</label>
+                <div style="width:25%;">
+                    <label>Filtrer par état :</label>
                     <select name="etat_commande">
                         <option value="">Tous</option>
                         <option value="1" <?php echo isset($_GET['etat_commande']) && $_GET['etat_commande'] == 1 ? 'selected' : ''; ?>>En cours</option>
@@ -42,7 +38,7 @@
                         <option value="4" <?php echo isset($_GET['etat_commande']) && $_GET['etat_commande'] == 4 ? 'selected' : ''; ?>>Annulée</option>
                     </select>
                 </div>
-                <div style="display:inline-block;width:25%;">
+                <div style="width:25%;">
                     <label>Filtrer par période :</label>
                     <select name="period" onchange="this.form.submit()">
                         <option value="day" <?php echo isset($_GET['period']) && $_GET['period'] == 'day' ? 'selected' : ''; ?>>Jour</option>
@@ -50,7 +46,7 @@
                         <option value="year" <?php echo isset($_GET['period']) && $_GET['period'] == 'year' ? 'selected' : ''; ?>>Année</option>
                     </select>
                 </div>
-                <div style="display:inline-block;width:15%;">
+                <div style="width:15%;">
                     <label>Année :</label>
                     <select name="filter_year">
                         <?php
@@ -68,7 +64,7 @@
                 $selected_day = isset($_GET['filter_day']) ? $_GET['filter_day'] : ($selected_period == 'day' ? date('d') : '');
                 ?>
                 <?php if ($selected_period == 'month' || $selected_period == 'day'): ?>
-                    <div style="display:inline-block;width:15%;">
+                    <div style="width:15%;">
                         <label>Mois :</label>
                         <select name="filter_month">
                             <?php for ($m = 1; $m <= 12; $m++): ?>
@@ -78,7 +74,7 @@
                     </div>
                 <?php endif; ?>
                 <?php if ($selected_period == 'day'): ?>
-                    <div style="display:inline-block;width:15%;">
+                    <div style="width:15%;">
                         <label>Jour :</label>
                         <select name="filter_day">
                             <?php for ($d = 1; $d <= 31; $d++): ?>
@@ -87,17 +83,18 @@
                         </select>
                     </div>
                 <?php endif; ?>
-                <div style="display:inline-block;">
+                <div>
                     <input type="submit" value="Filtrer">
                 </div>
             </div>
         </form>
-        <table border="1" style="width:100%;border-collapse:collapse;">
+        <table>
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Date</th>
-                    <th>Statut</th>
+                    <th>État</th>
+                    <th>Paiement</th>
                     <th>Adresse de livraison</th>
                     <th>ID client</th>
                     <th>Action</th>
@@ -106,22 +103,23 @@
             <tbody>
                 <?php if (empty($commandes)): ?>
                     <tr>
-                        <td colspan="6">Aucune commande trouvée.</td>
+                        <td colspan="7">Aucune commande trouvée.</td>
                     </tr>
                 <?php else: ?>
-                    <?php foreach ($commandes as $commande){ ?>
+                    <?php foreach ($commandes as $commande): ?>
                         <tr>
                             <td><?php echo htmlspecialchars($commande['commande_id']); ?></td>
                             <td><?php echo htmlspecialchars($commande['date_commande'] ?? 'N/A'); ?></td>
-                            <td><?php echo htmlspecialchars($commande['etat_commande']); ?></td>
+                            <td><?php echo htmlspecialchars($commande['etat_label']); ?></td>
+                            <td><?php echo htmlspecialchars($commande['paiement_status']); ?></td>
                             <td><?php echo htmlspecialchars($commande['adresse']); ?></td>
-                            <td><?php echo htmlspecialchars($commande['client_id']); ?></td>
+                            <td><?php echo htmlspecialchars($commande['user_id']); ?></td>
                             <td>
                                 <a href="index.php?page=commandes_details&commande_id=<?php echo $commande['commande_id']; ?>">Voir</a>
                                 <a href="index.php?page=commandes_delete&commande_id=<?php echo $commande['commande_id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette commande ?');">Supprimer</a>
                             </td>
                         </tr>
-                    <?php } ?>
+                    <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>
         </table>

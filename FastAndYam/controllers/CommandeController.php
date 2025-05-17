@@ -9,12 +9,10 @@ require_once BASE_PATH . 'models/CommandeModel.php';
 class CommandeController {
     private $model;
 
-    // Constructeur du controleur
     public function __construct($pdo) {
         $this->model = new CommandeModel($pdo);
     }
 
-    // Gère les différentes pages selon la demande
     public function gererDemande() {
         $page = isset($_GET['page']) ? $_GET['page'] : 'commandes_info';
         switch ($page) {
@@ -36,40 +34,52 @@ class CommandeController {
         }
     }
 
-    // Affiche la liste des commande
     private function afficherCommandesList() {
-    $search_id = isset($_GET['search_commande_id']) ? $_GET['search_commande_id'] : '';
-    $etat_commande = isset($_GET['etat_commande']) ? $_GET['etat_commande'] : '';
-    $period = isset($_GET['period']) ? $_GET['period'] : 'day';
-    
-    // Si on fait une recherche par ID, on ignore les filtres de période
-    if (!empty($search_id)) {
-        $filter_year = '';
-        $filter_month = '';
-        $filter_day = '';
-    } else {
-        $filter_year = isset($_GET['filter_year']) ? $_GET['filter_year'] : date('Y');
-        $filter_month = isset($_GET['filter_month']) ? $_GET['filter_month'] : ($period == 'day' || $period == 'month' ? date('m') : '');
-        $filter_day = isset($_GET['filter_day']) ? $_GET['filter_day'] : ($period == 'day' ? date('d') : '');
+        $search_id = isset($_GET['search_commande_id']) ? $_GET['search_commande_id'] : '';
+        $etat_commande = isset($_GET['etat_commande']) ? $_GET['etat_commande'] : '';
+        $period = isset($_GET['period']) ? $_GET['period'] : 'day';
+        
+        if (!empty($search_id)) {
+            $filter_year = '';
+            $filter_month = '';
+            $filter_day = '';
+        } else {
+            $filter_year = isset($_GET['filter_year']) ? $_GET['filter_year'] : date('Y');
+            $filter_month = isset($_GET['filter_month']) ? $_GET['filter_month'] : ($period == 'day' || $period == 'month' ? date('m') : '');
+            $filter_day = isset($_GET['filter_day']) ? $_GET['filter_day'] : ($period == 'day' ? date('d') : '');
+        }
+
+        $commandes = $this->model->getToutCommandes($search_id, $etat_commande, $period, $filter_year, $filter_month, $filter_day);
+        foreach ($commandes as &$commande) {
+            $payment_details = $this->model->getPaymentStatus($commande['commande_id']);
+            $commande['paiement_status'] = $payment_details['statut'];
+            $etat_labels = $this->model->getEtatLabels();
+            $commande['etat_label'] = isset($etat_labels[$commande['etat_commande']]) ? $etat_labels[$commande['etat_commande']] : 'Inconnu';
+        }
+        unset($commande);
+
+        include BASE_PATH . 'view/admin/commandes_info.php';
     }
 
-    $commandes = $this->model->getToutCommandes($search_id, $etat_commande, $period, $filter_year, $filter_month, $filter_day);
-    include BASE_PATH . 'view/admin/commandes_info.php';
-}
-
-    // Affiche les details d'une commande
     private function afficherCommandesDetails() {
-    $commande_id = isset($_GET['commande_id']) ? (int)$_GET['commande_id'] : 0;
-    $commandeInfo = $commande_id > 0 ? $this->model->getCommandeId($commande_id) : false;
-    $lignes = $commande_id > 0 ? $this->model->getLigneCommandes($commande_id) : [];
-    $file_path = BASE_PATH . 'view/admin/commandes_details.php';
-    if (!file_exists($file_path)) {
-        die("Erreur : Le fichier '$file_path' n'existe pas.");
+        $commande_id = isset($_GET['commande_id']) ? (int)$_GET['commande_id'] : 0;
+        $commandeInfo = $commande_id > 0 ? $this->model->getCommandeId($commande_id) : false;
+        $lignes = $commande_id > 0 ? $this->model->getLigneCommandes($commande_id) : [];
+        $etat_labels = $this->model->getEtatLabels();
+        if ($commandeInfo) {
+            $payment_details = $this->model->getPaymentStatus($commande_id);
+            $commandeInfo['paiement_status'] = $payment_details['statut'];
+            $commandeInfo['mode_paiement'] = $payment_details['mode_paiement'];
+            $commandeInfo['date_paiement'] = $payment_details['date_paiement'];
+            $commandeInfo['etat_label'] = isset($etat_labels[$commandeInfo['etat_commande']]) ? $etat_labels[$commandeInfo['etat_commande']] : 'Inconnu';
+        }
+        $file_path = BASE_PATH . 'view/admin/commandes_details.php';
+        if (!file_exists($file_path)) {
+            die("Erreur : Le fichier '$file_path' n'existe pas.");
+        }
+        include $file_path;
     }
-    include $file_path;
-}
 
-    // Supprime une commande
     private function supprimerCommandes() {
         $commande_id = isset($_GET['commande_id']) ? (int)$_GET['commande_id'] : 0;
         if ($commande_id > 0) {
@@ -79,7 +89,6 @@ class CommandeController {
         exit;
     }
 
-    // Modifie l'etat d'une commande
     private function modifierEtat() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $commande_id = isset($_POST['commande_id']) ? (int)$_POST['commande_id'] : 0;

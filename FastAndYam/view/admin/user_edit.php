@@ -18,7 +18,7 @@
         <?php endif; ?>
 
         <?php if (isset($userInfo) && $userInfo): ?>
-            <form method="POST" action="index.php?page=user_edit&client_id=<?php echo $userInfo['client_id']; ?>">
+            <form method="POST" action="index.php?page=user_edit&user_id=<?php echo $userInfo['user_id']; ?>">
 
                 <div>
                     <label>Nom d'utilisateur</label>
@@ -61,7 +61,7 @@
                 </div>
 
                 <button type="submit">Mettre à jour</button>
-                <a href="index.php?page=user_details&client_id=<?php echo $userInfo['client_id']; ?>">Annuler</a>
+                <a href="index.php?page=user_details&user_id=<?php echo $userInfo['user_id']; ?>">Annuler</a>
             </form>
         <?php else: ?>
             <p>Aucune information disponible pour cet utilisateur.</p>

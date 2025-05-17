@@ -176,9 +176,4 @@ class PromotionController {
         exit;
     }
 }
-
-if (!isset($pdo)) {
-    header("Location: index.php?page=admin_login");
-    exit;
-}
 ?>

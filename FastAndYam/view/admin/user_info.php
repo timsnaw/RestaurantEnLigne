@@ -2,7 +2,6 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <title>Informations Utilisateur</title>
 </head>
 <body>
@@ -34,7 +33,7 @@
                 <?php else: ?>
                     <?php foreach ($users as $user): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($user['client_id']); ?></td>
+                            <td><?php echo htmlspecialchars($user['user_id']); ?></td>
                             <td><?php echo htmlspecialchars($user['username']); ?></td>
                             <td><?php echo htmlspecialchars($user['prenom']); ?></td>
                             <td><?php echo htmlspecialchars($user['nom']); ?></td>
@@ -42,7 +41,7 @@
                             <td><?php echo htmlspecialchars($user['telephone']); ?></td>
                             <td><?php echo htmlspecialchars($user['date_inscription'] ?? 'N/A'); ?></td>
                             <td>
-                                <a href="index.php?page=user_details&client_id=<?php echo $user['client_id']; ?>">Voir</a>
+                                <a href="index.php?page=user_details&user_id=<?php echo $user['user_id']; ?>">Voir</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
