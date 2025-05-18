@@ -45,7 +45,6 @@ class PlatController {
     }
 
     // Ajouter un nouveau plat
-    // Ajouter un nouveau plat
 private function ajouterPlat() {
     $categories = $this->platModel->getCategories();
     $message = '';
