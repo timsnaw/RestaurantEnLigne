@@ -36,10 +36,10 @@
                         <td><?= htmlspecialchars($plat['titre']); ?></td>
                         <td><?= htmlspecialchars($categorieInfo['nom_categorie'] ?? 'Non disponible'); ?></td>
                         <td><?= htmlspecialchars($plat['description'] ?? 'Non disponible'); ?></td>
-                        <td><?= htmlspecialchars(number_format($plat['prix'], 2)); ?> €</td>
+                        <td><?= htmlspecialchars(number_format($plat['prix'], 2)); ?> DH</td>
                         <td>
                             <?php if (!empty($plat['image'])): ?>
-                                <img src="/FastAndYam/<?= htmlspecialchars($plat['image']); ?>" alt="Image du plat" style="max-width: 100px;">
+                                <img src="public/images/<?= htmlspecialchars($plat['image']); ?>" alt="Image du plat" style="max-width: 100px;">
                             <?php else: ?>
                                 Pas d'image
                             <?php endif; ?>

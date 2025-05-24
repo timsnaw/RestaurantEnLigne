@@ -58,13 +58,26 @@ class CategorieModel {
         }
     }
 
-    // Supprime une catégorie par son ID
+    // Supprime une categorie par son ID et tous les plats associés
     public function supprimeCategorie($categorie_id) {
         try {
-            $stmt = $this->pdo->prepare("DELETE FROM categorie WHERE categorie_id = ?");
-            return $stmt->execute([$categorie_id]);
+            $this->pdo->beginTransaction();
+
+            $stmtPlats = $this->pdo->prepare("DELETE FROM plat WHERE categorie_id = ?");
+            $stmtPlats->execute([$categorie_id]);
+
+            // Supprimer la catégorie
+            $stmtCategorie = $this->pdo->prepare("DELETE FROM categorie WHERE categorie_id = ?");
+            $result = $stmtCategorie->execute([$categorie_id]);
+
+            // Valider la transaction
+            $this->pdo->commit();
+
+            return $result;
         } catch (PDOException $e) {
-            throw new Exception("Erreur lors de la suppression de la catégorie : " . $e->getMessage());
+            // Annuler la transaction en cas d'erreur
+            $this->pdo->rollBack();
+            throw new Exception("Erreur lors de la suppression de la catégorie ou des plats associés : " . $e->getMessage());
         }
     }
 

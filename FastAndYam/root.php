@@ -82,6 +82,21 @@ switch ($page) {
         $controller = new PromotionController($pdo);
         $controller->gererDemande();
     break;
+    case 'userPage':
+    case 'utilisateur_info':
+    case 'utilisateur_edit':
+    case 'commande_user_info':
+    case 'update_user':
+    case 'update_password':
+    case 'delete_account':
+    case 'cancel_order':
+    case 'login_user':
+    case 'register_user':
+    case 'logout_user':
+        require_once BASE_PATH . 'controllers/UserController.php';
+        $userController = new UserController($pdo);
+        $userController->gererDemande($page);
+        break;
     default:
         echo "page home ";;
         break;
