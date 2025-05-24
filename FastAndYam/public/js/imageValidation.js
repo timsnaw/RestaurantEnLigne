@@ -1,13 +1,14 @@
-// Function to validate and preview main image
+// Fonction pour valider et prévisualiser l'image principale
 function setupImageValidation(formId, imageInputId, previewId, errorId) {
     const form = document.getElementById(formId);
     const imageInput = document.getElementById(imageInputId);
     const imagePreview = document.getElementById(previewId);
     const imageError = document.getElementById(errorId);
 
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-    const maxFileSize = 5 * 1024 * 1024; // 5MB
+    const typesAutorises = ['image/jpeg', 'image/png', 'image/gif'];
+    const tailleMaxFichier = 5 * 1024 * 1024; // 5 Mo
 
+    // Afficher un message d'erreur
     function showError(message) {
         if (imageError) {
             imageError.textContent = message;
@@ -15,6 +16,7 @@ function setupImageValidation(formId, imageInputId, previewId, errorId) {
         }
     }
 
+    // Effacer le message d'erreur
     function clearError() {
         if (imageError) {
             imageError.textContent = '';
@@ -22,6 +24,7 @@ function setupImageValidation(formId, imageInputId, previewId, errorId) {
         }
     }
 
+    // Validation à la sélection d'un fichier
     if (imageInput) {
         imageInput.addEventListener('change', function(e) {
             const file = e.target.files[0];
@@ -29,12 +32,12 @@ function setupImageValidation(formId, imageInputId, previewId, errorId) {
             if (imagePreview) imagePreview.style.display = 'none';
 
             if (file) {
-                if (!allowedTypes.includes(file.type)) {
+                if (!typesAutorises.includes(file.type)) {
                     showError('Type de fichier non autorisé. Utilisez jpg, png ou gif.');
                     imageInput.value = '';
                     return;
                 }
-                if (file.size > maxFileSize) {
+                if (file.size > tailleMaxFichier) {
                     showError('Le fichier est trop volumineux. Maximum 5 Mo.');
                     imageInput.value = '';
                     return;
@@ -51,18 +54,19 @@ function setupImageValidation(formId, imageInputId, previewId, errorId) {
         });
     }
 
+    // Validation avant l'envoi du formulaire
     if (form) {
         form.addEventListener('submit', function(e) {
             const file = imageInput?.files[0];
             clearError();
 
             if (file) {
-                if (!allowedTypes.includes(file.type)) {
+                if (!typesAutorises.includes(file.type)) {
                     e.preventDefault();
                     showError('Type de fichier non autorisé. Utilisez jpg, png ou gif.');
                     return;
                 }
-                if (file.size > maxFileSize) {
+                if (file.size > tailleMaxFichier) {
                     e.preventDefault();
                     showError('Le fichier est trop volumineux. Maximum 5 Mo.');
                     return;
@@ -72,14 +76,15 @@ function setupImageValidation(formId, imageInputId, previewId, errorId) {
     }
 }
 
-// Function to handle secondary images
+// Fonction pour gérer les images secondaires
 function setupSecondaryImages() {
     const secondaryImagesContainer = document.getElementById('secondary-images-inputs');
     const addImageButton = document.getElementById('add-secondary-image');
     const secondaryError = document.getElementById('plat-images-secondary-error');
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-    const maxFileSize = 5 * 1024 * 1024; // 5MB
+    const typesAutorises = ['image/jpeg', 'image/png', 'image/gif'];
+    const tailleMaxFichier = 5 * 1024 * 1024; // 5 Mo
 
+    // Afficher une erreur pour les images secondaires
     function showSecondaryError(message) {
         if (secondaryError) {
             secondaryError.textContent = message;
@@ -87,6 +92,7 @@ function setupSecondaryImages() {
         }
     }
 
+    // Effacer l'erreur des images secondaires
     function clearSecondaryError() {
         if (secondaryError) {
             secondaryError.textContent = '';
@@ -94,10 +100,10 @@ function setupSecondaryImages() {
         }
     }
 
-    // Add new secondary image input
+    // Ajouter un nouveau champ d'image secondaire
     if (addImageButton) {
         addImageButton.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent any default behavior
+            e.preventDefault(); // Empêcher le comportement par défaut
             const imageGroup = document.createElement('div');
             imageGroup.className = 'image-group';
             imageGroup.innerHTML = `
@@ -106,28 +112,28 @@ function setupSecondaryImages() {
                 <img class="secondary-image-preview" src="#" alt="Aperçu de l'image" style="display: none;">
             `;
             secondaryImagesContainer.appendChild(imageGroup);
-            console.log('New image group added'); // Debugging
+            console.log('Nouveau champ d’image ajouté'); // Débogage
         });
     } else {
-        console.error('Add secondary image button not found');
+        console.error("Bouton d'ajout d'image secondaire introuvable");
     }
 
-    // Handle file input changes for secondary images (event delegation)
+    // Gérer les changements de fichiers pour les images secondaires
     if (secondaryImagesContainer) {
         secondaryImagesContainer.addEventListener('change', function(e) {
             if (e.target && e.target.type === 'file') {
                 const file = e.target.files[0];
-                const preview = e.target.nextElementSibling?.nextElementSibling; // Get the preview image
+                const preview = e.target.nextElementSibling?.nextElementSibling; // Récupère l'élément image pour l'aperçu
                 clearSecondaryError();
 
                 if (file) {
-                    if (!allowedTypes.includes(file.type)) {
+                    if (!typesAutorises.includes(file.type)) {
                         showSecondaryError('Type de fichier non autorisé. Utilisez jpg, png ou gif.');
                         e.target.value = '';
                         if (preview) preview.style.display = 'none';
                         return;
                     }
-                    if (file.size > maxFileSize) {
+                    if (file.size > tailleMaxFichier) {
                         showSecondaryError('Le fichier est trop volumineux. Maximum 5 Mo.');
                         e.target.value = '';
                         if (preview) preview.style.display = 'none';
@@ -147,24 +153,24 @@ function setupSecondaryImages() {
             }
         });
 
-        // Handle remove button clicks (event delegation)
+        // Gérer le clic sur le bouton "Supprimer"
         secondaryImagesContainer.addEventListener('click', function(e) {
             if (e.target.classList.contains('remove-image')) {
-                e.preventDefault(); // Prevent any default behavior
+                e.preventDefault(); // Empêcher le comportement par défaut
                 const imageGroup = e.target.parentElement;
                 if (imageGroup) {
                     imageGroup.remove();
                     clearSecondaryError();
-                    console.log('Image group removed'); // Debugging
+                    console.log('Champ d’image supprimé'); // Débogage
                 }
             }
         });
     } else {
-        console.error('Secondary images container not found');
+        console.error("Conteneur des images secondaires introuvable");
     }
 }
 
-// Initialize main image validation
+// Initialisation de la validation de l'image principale
 setupImageValidation(
     'plat-form',
     'plat-image',
@@ -172,5 +178,5 @@ setupImageValidation(
     'plat-image-error'
 );
 
-// Initialize secondary images handling
+// Initialisation de la gestion des images secondaires
 setupSecondaryImages();

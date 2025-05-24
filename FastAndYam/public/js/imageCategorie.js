@@ -1,4 +1,4 @@
-// Function to validate and preview images for category form
+// Fonction pour valider et prévisualiser les images du formulaire de catégorie
 function setupImageValidation(formId, imageInputId, previewId, errorId) {
     const form = document.getElementById(formId);
     const imageInput = document.getElementById(imageInputId);
@@ -6,17 +6,19 @@ function setupImageValidation(formId, imageInputId, previewId, errorId) {
     const imageError = document.getElementById(errorId);
 
     const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-    const maxFileSize = 5 * 1024 * 1024; // 5MB
+    const maxFileSize = 5 * 1024 * 1024; // 5 Mo
 
+    // Affiche un message d'erreur
     function showError(message) {
         if (imageError) {
             imageError.textContent = message;
             imageError.style.display = 'block';
         } else {
-            console.error(`Error element with ID ${errorId} not found`);
+            console.error(`Élément d'erreur avec l'ID ${errorId} introuvable`);
         }
     }
 
+    // Efface le message d'erreur
     function clearError() {
         if (imageError) {
             imageError.textContent = '';
@@ -25,15 +27,15 @@ function setupImageValidation(formId, imageInputId, previewId, errorId) {
     }
 
     if (!form) {
-        console.error(`Form with ID ${formId} not found`);
+        console.error(`Formulaire avec l'ID ${formId} introuvable`);
         return;
     }
     if (!imageInput) {
-        console.error(`Image input with ID ${imageInputId} not found`);
+        console.error(`Champ d'image avec l'ID ${imageInputId} introuvable`);
         return;
     }
 
-    // Handle image input change
+    // gere le changement d'image
     imageInput.addEventListener('change', function(e) {
         const file = e.target.files[0];
         clearError();
@@ -42,39 +44,39 @@ function setupImageValidation(formId, imageInputId, previewId, errorId) {
         }
 
         if (file) {
-            // Validate file type
+            // Vérifie le type de fichier
             if (!allowedTypes.includes(file.type)) {
                 showError('Type de fichier non autorisé. Utilisez jpg, png ou gif.');
                 imageInput.value = '';
                 return;
             }
 
-            // Validate file size
+            // Vérifie la taille du fichier
             if (file.size > maxFileSize) {
                 showError('Le fichier est trop volumineux. Maximum 5 Mo.');
                 imageInput.value = '';
                 return;
             }
 
-            // Show preview
+            // Affiche l'aperçu de l'image
             if (imagePreview) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     imagePreview.src = e.target.result;
                     imagePreview.style.display = 'block';
-                    console.log(`Image preview updated for ${imageInputId}`);
+                    console.log(`Aperçu de l'image mis à jour pour ${imageInputId}`);
                 };
                 reader.readAsDataURL(file);
             }
         }
     });
 
-    // Validate on form submission
+    // Valide le fichier lors de la soumission du formulaire
     form.addEventListener('submit', function(e) {
         const file = imageInput.files[0];
         clearError();
 
-        // Only validate if a file is selected (image is optional)
+        // Valide uniquement si un fichier est sélectionné (l'image est facultative)
         if (file) {
             if (!allowedTypes.includes(file.type)) {
                 e.preventDefault();
@@ -87,11 +89,11 @@ function setupImageValidation(formId, imageInputId, previewId, errorId) {
                 return;
             }
         }
-        console.log(`Form ${formId} submitted`);
+        console.log(`Formulaire ${formId} soumis`);
     });
 }
 
-// Initialize for category form only
+// Initialisation pour le formulaire de catégorie uniquement
 setupImageValidation(
     'categorie-form',
     'categorie-images',

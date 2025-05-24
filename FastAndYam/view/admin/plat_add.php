@@ -36,7 +36,7 @@
 </head>
 <body>
     <div>
-        <h2>Ajouter Plat hhh</h2>
+        <h2>Ajouter Plat</h2>
         <?php if (isset($_SESSION['error'])): ?>
             <div style="color: red;"><?php echo htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?></div>
         <?php endif; ?>

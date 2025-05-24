@@ -56,13 +56,13 @@ class AdminModificationModel {
     }
 
     // Vérifie si un email existe déjà dans la table 'utilisateur'
-    public function emailExiste($email, $exclude_user_id = null) {
+    public function emailExiste($email, $exclure_user_id = null) {
         try {
             $query = "SELECT COUNT(*) FROM utilisateur WHERE email = ?";
-            if ($exclude_user_id) {
+            if ($exclure_user_id) {
                 $query .= " AND user_id != ?";
                 $stmt = $this->pdo->prepare($query);
-                $stmt->execute([$email, $exclude_user_id]);
+                $stmt->execute([$email, $exclure_user_id]);
             } else {
                 $stmt = $this->pdo->prepare($query);
                 $stmt->execute([$email]);
@@ -74,13 +74,13 @@ class AdminModificationModel {
     }
 
     // Vérifie si un username existe déjà dans la table 'utilisateur'
-    public function usernameExiste($username, $exclude_user_id = null) {
+    public function usernameExiste($username, $exclure_user_id = null) {
         try {
             $query = "SELECT COUNT(*) FROM utilisateur WHERE username = ?";
-            if ($exclude_user_id) {
+            if ($exclure_user_id) {
                 $query .= " AND user_id != ?";
                 $stmt = $this->pdo->prepare($query);
-                $stmt->execute([$username, $exclude_user_id]);
+                $stmt->execute([$username, $exclure_user_id]);
             } else {
                 $stmt = $this->pdo->prepare($query);
                 $stmt->execute([$username]);
