@@ -53,6 +53,6 @@
         </form>
     </div>
 
-    <script src="public/js/imageValidation.js"></script>
+    <script src="public/js/imageCategorie.js"></script>
 </body>
 </html>

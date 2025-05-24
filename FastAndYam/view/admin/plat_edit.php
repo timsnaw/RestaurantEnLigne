@@ -120,7 +120,7 @@
                 <div class="info-message">Vous pouvez ajouter jusqu'à 5 images secondaires, une à la fois.</div>
                 <div id="secondary-images-preview" class="secondary-image-container">
                     <?php
-                    $secondaryImages = $this->platModel->getSecondaryImages($platInfo['plat_id']);
+                    $secondaryImages = $this->platModel->getSecondairesImages($platInfo['plat_id']);
                     foreach ($secondaryImages as $image): ?>
                         <div class="secondary-image" data-image-id="<?php echo $image['image_id']; ?>">
                             <img src="public/images/<?php echo htmlspecialchars($image['image_plat']); ?>" alt="Image secondaire">

@@ -9,7 +9,7 @@ class UserModificationModel {
 
     // Recupere tous les clients depuis la base de données
     public function getToutClient() {
-        $stmt = $this->pdo->query("SELECT * FROM utilisateur");
+        $stmt = $this->pdo->query("SELECT * FROM utilisateur WHERE role='client'");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
