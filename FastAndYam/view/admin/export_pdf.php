@@ -22,7 +22,7 @@ class PDF extends FPDF {
         $this->SetFont('Arial', 'B', 14);
         $this->Cell(0, 10, 'FastYndYam - Facture', 0, 1, 'C');
         $this->SetFont('Arial', '', 10);
-        $this->Cell(0, 8, 'Générée le: ' . date('d/m/Y H:i'), 0, 1, 'C');
+        $this->Cell(0, 8, 'Generee le: ' . date('d/m/Y H:i'), 0, 1, 'C');
         $this->Ln(5);
     }
 
@@ -47,7 +47,7 @@ try {
     $pdf->Cell(0, 8, $restaurant['name'], 0, 1);
     $pdf->SetFont('Arial', '', 10);
     $pdf->Cell(0, 8, $restaurant['address'], 0, 1);
-    $pdf->Cell(0, 8, 'Tél: ' . $restaurant['phone'], 0, 1);
+    $pdf->Cell(0, 8, 'Tel: ' . $restaurant['phone'], 0, 1);
     $pdf->Cell(0, 8, 'Email: ' . $restaurant['email'], 0, 1);
     $pdf->Ln(8);
 
@@ -57,7 +57,7 @@ try {
     $pdf->SetFont('Arial', '', 10);
     $pdf->Cell(0, 8, 'Nom: ' . ($order['prenom'] ?? '') . ' ' . ($order['nom'] ?? ''), 0, 1);
     $pdf->Cell(0, 8, 'Email: ' . ($order['email'] ?? ''), 0, 1);
-    $pdf->Cell(0, 8, 'Téléphone: ' . ($order['telephone'] ?? ''), 0, 1);
+    $pdf->Cell(0, 8, 'Telephone: ' . ($order['telephone'] ?? ''), 0, 1);
     $pdf->Cell(0, 8, 'Adresse: ' . ($order['adresse'] ?? ''), 0, 1);
     $pdf->Ln(8);
 
@@ -66,7 +66,7 @@ try {
     $pdf->SetFillColor(220, 220, 220);
     $pdf->Cell(50, 8, 'Plat', 1, 0, 'C', true);
     $pdf->Cell(30, 8, 'Prix', 1, 0, 'C', true);
-    $pdf->Cell(20, 8, 'Quantité', 1, 0, 'C', true);
+    $pdf->Cell(20, 8, 'Quantite', 1, 0, 'C', true);
     $pdf->Cell(50, 8, 'Ajouts', 1, 0, 'C', true);
     $pdf->Cell(30, 8, 'Total', 1, 1, 'C', true);
 
@@ -93,7 +93,7 @@ try {
     $pdf->Output('D', 'facture_commande_' . $order['commande_id'] . '.pdf');
 } catch (Exception $e) {
     error_log("PDF generation error: " . $e->getMessage());
-    $_SESSION['error'] = "Erreur lors de la génération de la facture.";
+    $_SESSION['error'] = "Erreur lors de la generation de la facture.";
     header('Location: index.php?page=commande_user_info');
     exit;
 }
