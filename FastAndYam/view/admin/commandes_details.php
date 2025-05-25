@@ -65,6 +65,7 @@
                             <th>Plat</th>
                             <th>Prix</th>
                             <th>Quantité</th>
+                            <th>Ajout</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,6 +75,7 @@
                                 <td><?php echo htmlspecialchars($ligne['titre'] ?? 'Plat ID: ' . $ligne['plat_id']); ?></td>
                                 <td><?php echo htmlspecialchars($ligne['prix']); ?></td>
                                 <td><?php echo htmlspecialchars($ligne['quantite']); ?></td>
+                                <td><?php echo htmlspecialchars($ligne['ajout']); ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

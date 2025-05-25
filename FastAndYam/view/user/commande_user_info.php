@@ -36,17 +36,28 @@ if (!isset($orders)) {
                 </thead>
                 <tbody>
                     <?php foreach ($orders as $order): ?>
+                        <?php
+                        // Map numeric etat_commande to human-readable status
+                        $etat_affiche = match ($order['etat_commande']) {
+                            1 => 'En cours',
+                            2 => 'En livraison',
+                            2 => 'Livrée',
+                            4 => 'Annulée',
+                            default => 'Inconnu',
+                        };
+                        ?>
                         <tr>
                             <td><?php echo htmlspecialchars($order['commande_id']); ?></td>
                             <td><?php echo htmlspecialchars($order['date_commande']); ?></td>
                             <td><?php echo htmlspecialchars($order['titre']); ?></td>
                             <td><?php echo htmlspecialchars($order['quantite']); ?></td>
-                            <td><?php echo htmlspecialchars($order['prix']); ?> €</td>
-                            <td><?php echo htmlspecialchars($order['etat_commande']); ?></td>
+                            <td><?php echo htmlspecialchars(number_format($order['prix'], 2)); ?> DH</td>
+                            <td><?php echo htmlspecialchars($etat_affiche); ?></td>
                             <td>
-                                <?php if ($order['etat_commande'] === 'pending'): ?>
+                                <?php if ($order['etat_commande'] == '1'): ?>
                                     <a href="index.php?page=cancel_order&commande_id=<?php echo $order['commande_id']; ?>" class="btn btn-danger btn-sm">Annuler</a>
                                 <?php endif; ?>
+                                <a href="index.php?page=export_facture&commande_id=<?php echo $order['commande_id']; ?>" class="btn btn-primary btn-sm">Exporter Facture</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

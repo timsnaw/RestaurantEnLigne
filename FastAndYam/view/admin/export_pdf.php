@@ -1,15 +1,31 @@
 <?php
-require('fpdf/fpdf.php');
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', __DIR__ . '/../../');
+}
 
+require_once BASE_PATH . 'vendor/fpdf/fpdf.php'; // Updated path to FPDF
+
+// Verify data (passed from UserController)
+if (!isset($data)) {
+    header("Location: index.php?page=commande_user_info");
+    exit;
+}
+
+$order = $data['order'];
+$order_lines = $data['order_lines'];
+$payment = $data['payment'];
+$restaurant = $data['restaurant'];
+
+// Create custom PDF class
 class PDF extends FPDF {
     function Header() {
         $this->SetFont('Arial', 'B', 14);
-        $this->Cell(0, 10, 'Fast&Yum - Rapport Statistique', 0, 1, 'C');
+        $this->Cell(0, 10, 'FastYndYam - Facture', 0, 1, 'C');
         $this->SetFont('Arial', '', 10);
-        $this->Cell(0, 8, 'Genere le: ' . date('d/m/Y H:i'), 0, 1, 'C');
+        $this->Cell(0, 8, 'Générée le: ' . date('d/m/Y H:i'), 0, 1, 'C');
         $this->Ln(5);
     }
-    
+
     function Footer() {
         $this->SetY(-15);
         $this->SetFont('Arial', 'I', 8);
@@ -17,95 +33,68 @@ class PDF extends FPDF {
     }
 }
 
-// Verifier les donnees
-if (!isset($data)) {
-    header("Location: index.php?page=admin_statistique");
-    exit;
-}
+// Create PDF
+try {
+    $pdf = new PDF();
+    $pdf->AddPage();
+    $pdf->SetFont('Arial', 'B', 12);
+    $title = 'Facture Commande #' . $order['commande_id'];
+    $pdf->Cell(0, 10, $title, 0, 1, 'C');
+    $pdf->Ln(8);
 
-$stats = $data['stats'];
-$dailyRevenue = $data['dailyRevenue'];
-$debugDetails = $data['debugDetails'];
-$month = $data['month'];
-$day = $data['day'];
-$hasDataForSelection = $data['hasDataForSelection'];
+    // Restaurant details
+    $pdf->SetFont('Arial', 'B', 10);
+    $pdf->Cell(0, 8, $restaurant['name'], 0, 1);
+    $pdf->SetFont('Arial', '', 10);
+    $pdf->Cell(0, 8, $restaurant['address'], 0, 1);
+    $pdf->Cell(0, 8, 'Tél: ' . $restaurant['phone'], 0, 1);
+    $pdf->Cell(0, 8, 'Email: ' . $restaurant['email'], 0, 1);
+    $pdf->Ln(8);
 
-// Creer PDF
-$pdf = new PDF();
-$pdf->AddPage();
-$pdf->SetFont('Arial', 'B', 12);
-$title = 'Statistiques ' . ($hasDataForSelection ? 'pour ' . ($month ? $month : 'toutes periodes') . ($day ? ' Jour ' . $day : '') : 'Globales');
-$pdf->Cell(0, 10, $title, 0, 1, 'C');
-$pdf->SetFont('Arial', 'B', 10);
+    // Client details
+    $pdf->SetFont('Arial', 'B', 10);
+    $pdf->Cell(0, 8, 'Client', 0, 1);
+    $pdf->SetFont('Arial', '', 10);
+    $pdf->Cell(0, 8, 'Nom: ' . ($order['prenom'] ?? '') . ' ' . ($order['nom'] ?? ''), 0, 1);
+    $pdf->Cell(0, 8, 'Email: ' . ($order['email'] ?? ''), 0, 1);
+    $pdf->Cell(0, 8, 'Téléphone: ' . ($order['telephone'] ?? ''), 0, 1);
+    $pdf->Cell(0, 8, 'Adresse: ' . ($order['adresse'] ?? ''), 0, 1);
+    $pdf->Ln(8);
 
-// Statistiques simples
-$pdf->Cell(63, 10, 'Clients', 1, 0, 'C');
-$pdf->Cell(64, 10, 'Commandes', 1, 0, 'C');
-$pdf->Cell(63, 10, 'Revenu Total', 1, 1, 'C');
-$pdf->SetFont('Arial', '', 10);
-$pdf->Cell(63, 10, number_format($stats['total_clients']), 1, 0, 'C');
-$pdf->Cell(64, 10, number_format($stats['total_orders']), 1, 0, 'C');
-$pdf->Cell(63, 10, number_format($stats['total_revenue'], 2) . ' DH', 1, 1, 'C');
+    // Order details table
+    $pdf->SetFont('Arial', 'B', 10);
+    $pdf->SetFillColor(220, 220, 220);
+    $pdf->Cell(50, 8, 'Plat', 1, 0, 'C', true);
+    $pdf->Cell(30, 8, 'Prix', 1, 0, 'C', true);
+    $pdf->Cell(20, 8, 'Quantité', 1, 0, 'C', true);
+    $pdf->Cell(50, 8, 'Ajouts', 1, 0, 'C', true);
+    $pdf->Cell(30, 8, 'Total', 1, 1, 'C', true);
 
-$pdf->Ln(8);
-
-// Details Quotidiens
-$pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(0, 10, 'Details Quotidiens', 0, 1, 'C');
-$pdf->SetFont('Arial', '', 10);
-
-// En-tête du tableau
-$pdf->SetFillColor(220, 220, 220);
-$pdf->Cell(63, 8, 'Jour', 1, 0, 'C', true);
-$pdf->Cell(64, 8, 'Revenu (DH)', 1, 0, 'C', true);
-$pdf->Cell(63, 8, 'Commandes', 1, 1, 'C', true);
-
-// Donnees du tableau
-foreach ($dailyRevenue as $row) {
-    $pdf->Cell(63, 8, date('d F Y', strtotime($row['day'])), 1, 0, 'C');
-    $pdf->Cell(64, 8, number_format($row['revenue'], 2), 1, 0, 'C');
-    $pdf->Cell(63, 8, $row['orders'], 1, 1, 'C');
-}
-
-$pdf->Ln(8);
-
-// Details de Debogage
-$pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(0, 10, 'Details de Debogage (Commandes)', 0, 1);
-$pdf->SetFont('Arial', '', 10);
-$pdf->Cell(35, 8, 'Commande ID', 1, 0, 'C', true);
-$pdf->Cell(35, 8, 'User ID', 1, 0, 'C', true);
-$pdf->Cell(50, 8, 'Date', 1, 0, 'C', true);
-$pdf->Cell(40, 8, 'etat', 1, 0, 'C', true);
-$pdf->Cell(30, 8, 'Montant', 1, 1, 'C', true);
-
-foreach ($debugDetails as $debugRow) {
-    $etat = $debugRow['etat_commande'];
-    switch ($etat) {
-        case '1':
-            $etat_affiche = 'En cours';
-            break;
-        case '2':
-            $etat_affiche = 'En livraison';
-            break;
-        case '3':
-            $etat_affiche = 'Livree';
-            break;
-        case '4':
-            $etat_affiche = 'Annulee';
-            break;
-        default:
-            $etat_affiche = 'Inconnu';
-            break;
+    // Table data
+    $total = 0;
+    $pdf->SetFont('Arial', '', 10);
+    foreach ($order_lines as $line) {
+        $line_total = $line['prix'] * $line['quantite'];
+        $total += $line_total;
+        $pdf->Cell(50, 8, $line['titre'] ?? '-', 1, 0, 'C');
+        $pdf->Cell(30, 8, number_format($line['prix'], 2) . ' DH', 1, 0, 'C');
+        $pdf->Cell(20, 8, $line['quantite'] ?? '-', 1, 0, 'C');
+        $pdf->Cell(50, 8, $line['ajout'] ?? '-', 1, 0, 'C');
+        $pdf->Cell(30, 8, number_format($line_total, 2) . ' DH', 1, 1, 'C');
     }
 
-    $pdf->Cell(35, 8, $debugRow['commande_id'], 1, 0, 'C');
-    $pdf->Cell(35, 8, $debugRow['user_id'], 1, 0, 'C');
-    $pdf->Cell(50, 8, $debugRow['date_commande'], 1, 0, 'C');
-    $pdf->Cell(40, 8, $etat_affiche, 1, 0, 'C');
-    $pdf->Cell(30, 8, number_format($debugRow['prix'], 2), 1, 1, 'C');
-}
+    // Total amount
+    $pdf->Ln(8);
+    $pdf->SetFont('Arial', 'B', 10);
+    $pdf->Cell(150, 8, 'Total', 1, 0, 'R', true);
+    $pdf->Cell(30, 8, number_format($total, 2) . ' DH', 1, 1, 'C');
 
-// Output PDF
-$pdf->Output();
+    // Output PDF
+    $pdf->Output('D', 'facture_commande_' . $order['commande_id'] . '.pdf');
+} catch (Exception $e) {
+    error_log("PDF generation error: " . $e->getMessage());
+    $_SESSION['error'] = "Erreur lors de la génération de la facture.";
+    header('Location: index.php?page=commande_user_info');
+    exit;
+}
 ?>

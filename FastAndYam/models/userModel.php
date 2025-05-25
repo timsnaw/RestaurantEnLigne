@@ -153,5 +153,51 @@ class UserModel {
             return false;
         }
     }
+    // recupere les donnees pour facture 
+    public function exportFactureInfo($commande_id) {
+        // Fetch order details
+        $query = "SELECT c.commande_id, c.date_commande, c.etat_commande, u.user_id, u.prenom, u.nom, u.email, u.telephone, u.adresse
+                  FROM commande c
+                  JOIN utilisateur u ON c.user_id = u.user_id
+                  WHERE c.commande_id = :commande_id";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':commande_id', $commande_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $order = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Fetch order lines
+        $query = "SELECT lc.ligne_id, lc.prix, lc.quantite, lc.ajout, p.titre, p.description
+                  FROM ligne_commande lc
+                  JOIN plat p ON lc.plat_id = p.plat_id
+                  WHERE lc.commande_id = :commande_id";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':commande_id', $commande_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $order_lines = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Fetch payment details
+        $query = "SELECT montant, mode_paiement, date_paiement, statut
+                  FROM paiement
+                  WHERE commande_id = :commande_id";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':commande_id', $commande_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $payment = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Restaurant details
+        $restaurant = [
+            'name' => 'FastYndYam',
+            'address' => '123 Rue targa, Errachidia, Maroc',
+            'phone' => '0535123456',
+            'email' => 'FastAndYam@gmail.com'
+        ];
+
+        return [
+            'order' => $order,
+            'order_lines' => $order_lines,
+            'payment' => $payment,
+            'restaurant' => $restaurant
+        ];
+    }
 }
 ?>

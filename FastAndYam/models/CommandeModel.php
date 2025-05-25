@@ -134,7 +134,7 @@ class CommandeModel {
         try {
             $stmt = $this->pdo->prepare("
                 SELECT 
-                    ligne_id, l.prix, quantite, p.titre, p.plat_id
+                    ligne_id, l.prix, quantite,ajout, p.titre, p.plat_id
                 FROM ligne_commande l
                 LEFT JOIN plat p ON l.plat_id = p.plat_id
                 WHERE commande_id = ?

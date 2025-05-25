@@ -93,6 +93,7 @@ switch ($page) {
     case 'login_user':
     case 'register_user':
     case 'logout_user':
+    case 'export_facture':
         require_once BASE_PATH . 'controllers/UserController.php';
         $userController = new UserController($pdo);
         $userController->gererDemande($page);
