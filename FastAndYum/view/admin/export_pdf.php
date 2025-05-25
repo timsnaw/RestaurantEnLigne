@@ -4,7 +4,7 @@ if (!defined('BASE_PATH')) {
     define('BASE_PATH', __DIR__ . '/../../');
 }
 
-// Inclusion de la bibliothèque FPDF 
+// Inclusion de la bibliotheque FPDF 
 require_once BASE_PATH . 'view/fpdf/fpdf.php'; 
 
 class PDF extends FPDF {
