@@ -103,7 +103,7 @@
                 <div id="plat-image-error" class="error-message"></div>
                 <img id="plat-image-preview" class="image-preview" src="#" alt="Aperçu de l'image">
                 <?php if ($platInfo['image']): ?>
-                    <p>Image principale actuelle : <img src="public/images/<?php echo htmlspecialchars($platInfo['image']); ?>" alt="Image principale du plat" style="max-width: 100px;"></p>
+                    <p>Image principale actuelle : <img src="public/img/<?php echo htmlspecialchars($platInfo['image']); ?>" alt="Image principale du plat" style="max-width: 100px;"></p>
                 <?php endif; ?>
             </div>
             <div>
@@ -123,7 +123,7 @@
                     $secondaryImages = $this->platModel->getSecondairesImages($platInfo['plat_id']);
                     foreach ($secondaryImages as $image): ?>
                         <div class="secondary-image" data-image-id="<?php echo $image['image_id']; ?>">
-                            <img src="public/images/<?php echo htmlspecialchars($image['image_plat']); ?>" alt="Image secondaire">
+                            <img src="public/img/<?php echo htmlspecialchars($image['image_plat']); ?>" alt="Image secondaire">
                             <button type="button" class="remove-btn" onclick="window.location.href='index.php?page=plat_edit&plat_id=<?php echo $platInfo['plat_id']; ?>&delete_image_id=<?php echo $image['image_id']; ?>'">supprimer</button>
                         </div>
                     <?php endforeach; ?>

@@ -33,7 +33,7 @@
                     <th>Image</th>
                     <td>
                         <?php if ($categorieInfo['image_categorie']): ?>
-                            <img src="public/images/<?php echo htmlspecialchars($categorieInfo['image_categorie']); ?>" alt="Image Catégorie" style="max-width: 100px;">
+                            <img src="public/img/<?php echo htmlspecialchars($categorieInfo['image_categorie']); ?>" alt="Image Catégorie" style="max-width: 100px;">
                         <?php else: ?>
                             Aucune image
                         <?php endif; ?>
@@ -65,7 +65,7 @@
                             <td><?php echo htmlspecialchars($plat['prix']); ?></td>
                             <td>
                                 <?php if ($plat['image']): ?>
-                                    <img src="public/images/<?php echo htmlspecialchars($plat['image']); ?>" alt="Image Plat" style="max-width: 50px;">
+                                    <img src="public/img/<?php echo htmlspecialchars($plat['image']); ?>" alt="Image Plat" style="max-width: 50px;">
                                 <?php else: ?>
                                     Aucune image
                                 <?php endif; ?>

@@ -41,7 +41,7 @@
             <br>
             <div>
                 <label for="categorie-images">Image de la catégorie (optionnel)</label><br>
-                <input type="file" name="images" id="categorie-images" accept="image/jpeg,image/png,image/gif">
+                <input type="file" name="img" id="categorie-images" accept="image/jpeg,image/png,image/gif">
                 <p id="categorie-image-error" class="error-message"></p>
                 <img id="categorie-image-preview" class="image-preview" src="#" alt="Prévisualisation de l'image">
             </div>

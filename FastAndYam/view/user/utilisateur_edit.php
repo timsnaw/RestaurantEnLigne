@@ -52,7 +52,7 @@ if (!isset($_SESSION['csrf_token'])) {
         <label for="image_client">Image de profil</label>
         <input type="file" id="image_client" name="image_client" accept="image/jpeg,image/png,image/gif"><br>
         <?php if (!empty($user['image_client'])): ?>
-            <img src="<?php echo htmlspecialchars('public/images/' . $user['image_client']); ?>" alt="Image de profil" width="100"><br>
+            <img src="<?php echo htmlspecialchars('public/img/' . $user['image_client']); ?>" alt="Image de profil" width="100"><br>
         <?php endif; ?>
 
         <label>

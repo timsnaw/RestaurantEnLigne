@@ -47,7 +47,7 @@
                     <th>Image de profil</th>
                     <td>
                         <?php if ($userInfo['image_client'] !== '1'): ?>
-                            <img src="public/images/<?php echo htmlspecialchars($userInfo['image_client']); ?>" alt="Image de profil" style="max-width: 100px;">
+                            <img src="public/img/<?php echo htmlspecialchars($userInfo['image_client']); ?>" alt="Image de profil" style="max-width: 100px;">
                         <?php else: ?>
                             Image par défaut
                         <?php endif; ?>

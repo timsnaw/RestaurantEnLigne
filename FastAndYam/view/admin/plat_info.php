@@ -39,7 +39,7 @@
                         <td><?= htmlspecialchars(number_format($plat['prix'], 2)); ?> DH</td>
                         <td>
                             <?php if (!empty($plat['image'])): ?>
-                                <img src="public/images/<?= htmlspecialchars($plat['image']); ?>" alt="Image du plat" style="max-width: 100px;">
+                                <img src="public/img/<?= htmlspecialchars($plat['image']); ?>" alt="Image du plat" style="max-width: 100px;">
                             <?php else: ?>
                                 Pas d'image
                             <?php endif; ?>

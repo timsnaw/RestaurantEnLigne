@@ -64,7 +64,7 @@ class PlatController {
 
             // Gestion de l'image principale
             $image = $_FILES['image'] ?? null;
-            $upload_dir = BASE_PATH . 'public/images/';
+            $upload_dir = BASE_PATH . 'public/img/';
             if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
 
             $image_path = '';
@@ -164,8 +164,8 @@ class PlatController {
             try {
                 $plat = $this->platModel->getPlatId($plat_id);
                 if ($plat) {
-                    if (!empty($plat['image']) && file_exists(BASE_PATH . 'public/images/' . $plat['image'])) {
-                        unlink(BASE_PATH . 'public/images/' . $plat['image']); // Supprimer l’image
+                    if (!empty($plat['image']) && file_exists(BASE_PATH . 'public/img/' . $plat['image'])) {
+                        unlink(BASE_PATH . 'public/img/' . $plat['image']); // Supprimer l’image
                     }
                     $this->platModel->supprimerPlat($plat_id);
                     $message = 'Plat supprimé avec succès.';
@@ -200,8 +200,8 @@ private function modifierPlat() {
         if ($image_id) {
             try {
                 $image_name = $this->platModel->supprimerImageSecondaire($image_id);
-                if ($image_name && file_exists(BASE_PATH . 'public/images/' . $image_name)) {
-                    unlink(BASE_PATH . 'public/images/' . $image_name);
+                if ($image_name && file_exists(BASE_PATH . 'public/img/' . $image_name)) {
+                    unlink(BASE_PATH . 'public/img/' . $image_name);
                 }
                 $_SESSION['success'] = "Image secondaire supprimée avec succès.";
                 header("Location: index.php?page=plat_edit&plat_id=$plat_id");
@@ -228,7 +228,7 @@ private function modifierPlat() {
         // Gestion de l'image principale
         $image = $_FILES['image'] ?? null;
         $image_path = $platInfo['image'];
-        $upload_dir = BASE_PATH . 'public/images/';
+        $upload_dir = BASE_PATH . 'public/img/';
         if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
 
         if ($image && $image['error'] === UPLOAD_ERR_OK) {
@@ -236,8 +236,8 @@ private function modifierPlat() {
             $image_name = uniqid() . '.' . $ext;
             $full_path = $upload_dir . $image_name;
             if (move_uploaded_file($image['tmp_name'], $full_path)) {
-                if (!empty($platInfo['image']) && file_exists(BASE_PATH . 'public/images/' . $platInfo['image'])) {
-                    unlink(BASE_PATH . 'public/images/' . $platInfo['image']);
+                if (!empty($platInfo['image']) && file_exists(BASE_PATH . 'public/img/' . $platInfo['image'])) {
+                    unlink(BASE_PATH . 'public/img/' . $platInfo['image']);
                 }
                 $image_path = $image_name;
             } else {

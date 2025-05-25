@@ -119,7 +119,7 @@ class UserController {
 
             // Gestion de l'upload d'image
             if (!empty($_FILES['image_client']['name']) && $_FILES['image_client']['error'] === UPLOAD_ERR_OK) {
-                $upload_img = 'public/images/';
+                $upload_img = 'public/img/';
                 if (!is_dir($upload_img)) {
                     mkdir($upload_img, 0755, true);
                 }

@@ -33,12 +33,12 @@
             <br>
             <div>
                 <label for="categorie-images">Image de la catégorie</label><br>
-                <input type="file" name="images" id="categorie-images" accept="image/jpeg,image/png,image/gif">
+                <input type="file" name="img" id="categorie-images" accept="image/jpeg,image/png,image/gif">
                 <p id="categorie-image-error" class="error-message"></p>
                 <img id="categorie-image-preview" class="image-preview" src="#" alt="Prévisualisation de l'image">
                 <?php if ($categorieInfo['image_categorie']): ?>
                     <p>Image actuelle : 
-                    <img src="public/images/<?php echo htmlspecialchars($categorieInfo['image_categorie']); ?>"
+                    <img src="public/img/<?php echo htmlspecialchars($categorieInfo['image_categorie']); ?>"
                          alt="Image Catégorie" 
                          style="max-width: 100px;">
                     </p>

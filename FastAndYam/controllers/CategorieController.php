@@ -58,9 +58,9 @@ class CategorieController {
 
     // Gère l’upload et la validation de l’image (format, taille, nom unique)
     private function gererImageUpload($existingImage = '') {
-        if (isset($_FILES['images']) && $_FILES['images']['error'] === UPLOAD_ERR_OK) {
-            $uploadDir = BASE_PATH . 'public/images/';
-            $fileName = basename($_FILES['images']['name']);
+        if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = BASE_PATH . 'public/img/';
+            $fileName = basename($_FILES['img']['name']);
             $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
             $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
             $newFileName = uniqid() . '.' . $fileExtension;
@@ -73,13 +73,13 @@ class CategorieController {
             }
 
             // Verifie la taille du fichier (max 5 Mo)
-            if ($_FILES['images']['size'] > 5 * 1024 * 1024) {
+            if ($_FILES['img']['size'] > 5 * 1024 * 1024) {
                 $_SESSION['error'] = "Le fichier est trop volumineux. Maximum 5 Mo.";
                 return $existingImage;
             }
 
             // Deplace le fichier vers le dossier de destination
-            if (move_uploaded_file($_FILES['images']['tmp_name'], $uploadPath)) {
+            if (move_uploaded_file($_FILES['img']['tmp_name'], $uploadPath)) {
                 return $newFileName;
             } else {
                 $_SESSION['error'] = "Erreur lors du téléchargement de l'image.";
@@ -159,7 +159,7 @@ class CategorieController {
             // Si la catégorie existe et a une image associe
             if ($categorieInfo && !empty($categorieInfo['image_categorie'])) {
                 // Construire le chemin complet du fichier image
-                $imagePath = BASE_PATH . 'public/images/' . $categorieInfo['image_categorie'];
+                $imagePath = BASE_PATH . 'public/img/' . $categorieInfo['image_categorie'];
 
                 // Verifier si le fichier existe et le supprimer
                 if (file_exists($imagePath)) {

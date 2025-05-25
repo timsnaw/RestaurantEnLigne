@@ -9,7 +9,7 @@
 
     <h2>Profil de l'utilisateur</h2>
     <p>
-        <img src="./public/images/<?php echo htmlspecialchars($user['image_client'] ?? ''); ?>" alt="Image de profil" width="150" height="150">
+        <img src="./public/img/<?php echo htmlspecialchars($user['image_client'] ?? ''); ?>" alt="Image de profil" width="150" height="150">
     </p>
     <p>Nom d'utilisateur : <?php echo htmlspecialchars($user['username']); ?></p>
     <p>Prénom : <?php echo htmlspecialchars($user['prenom'] ?? 'Non défini'); ?></p>
