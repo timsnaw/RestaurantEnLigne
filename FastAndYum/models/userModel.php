@@ -166,7 +166,7 @@ class UserModel {
         $order = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // Fetch order lines
-        $query = "SELECT lc.ligne_id, lc.prix, lc.quantite, lc.ajout, p.titre, p.description
+        $query = "SELECT lc.ligne_id, lc.prix, lc.quantite, p.titre, p.description
                   FROM ligne_commande lc
                   JOIN plat p ON lc.plat_id = p.plat_id
                   WHERE lc.commande_id = :commande_id";

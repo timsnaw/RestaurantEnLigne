@@ -60,14 +60,8 @@ class UserController {
             case 'logout_user':
                 $this->logout();
                 break;
-            case 'export_facture': // Fixed case to match URL
-                $commande_id = filter_input(INPUT_GET, 'commande_id', FILTER_SANITIZE_NUMBER_INT);
-                if (!$commande_id) {
-                    $_SESSION['error'] = "Commande ID invalide.";
-                    header('Location: index.php?page=commande_user_info');
-                    exit;
-                }
-                $this->exportFacture($commande_id);
+            case 'export_facture': 
+                $this->exportFacture();
                 break;
             default:
                 include BASE_PATH . 'view/user/userPage.php';
@@ -374,9 +368,13 @@ class UserController {
     }
 
     // Gère la génération du fichier facture PDF
-    private function exportFacture($commande_id) {
-        // Verify order belongs to user
-        $order_check = $this->model->getOrderStatus($commande_id, $_SESSION['user_id']);
+    private function exportFacture() {
+        $commande_id = filter_input(INPUT_GET, 'commande_id', FILTER_SANITIZE_NUMBER_INT);
+            if (!$commande_id) {
+                    $_SESSION['error'] = "Commande ID invalide.";
+                    header('Location: index.php?page=commande_user_info');
+                    exit;
+                }        $order_check = $this->model->getOrderStatus($commande_id, $_SESSION['user_id']);
         if (!$order_check) {
             $_SESSION['error'] = "Commande non trouvée ou accès non autorisé.";
             header('Location: index.php?page=commande_user_info');

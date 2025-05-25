@@ -14,7 +14,7 @@ class AdminController {
         $this->model = new AdminModel($pdo);
     }
 
-    // Gère les demandes pour les différentes pages
+    // Gere les demandes pour les differentes pages
     public function gereDemande() {
         $page = isset($_GET['page']) ? $_GET['page'] : 'admin_login';
 
@@ -77,23 +77,23 @@ class AdminController {
             } elseif ($password !== $confirm_password) {
                 $_SESSION['error'] = "Les mots de passe ne correspondent pas.";
             } elseif ($this->model->emailExiste($email)) {
-                $_SESSION['error'] = "Email déjà utilisé.";
+                $_SESSION['error'] = "Email dejà utilise.";
             } elseif ($this->model->usernameExiste($username)) {
-                $_SESSION['error'] = "Nom d'utilisateur déjà pris.";
+                $_SESSION['error'] = "Nom d'utilisateur dejà pris.";
             } else {
                 if ($this->model->creerAdmin($username, $email, $password, $prenom, $nom)) {
-                    $_SESSION['success'] = "Inscription réussie. Veuillez vous connecter.";
+                    $_SESSION['success'] = "Inscription reussie. Veuillez vous connecter.";
                     header("Location: index.php?page=register");
                     exit;
                 } else {
-                    $_SESSION['error'] = "Échec de l'inscription.";
+                    $_SESSION['error'] = "echec de l'inscription.";
                 }
             }
         }
         require_once BASE_PATH . 'view/admin/register.php';
     }
 
-    // Permet de voir les différentes statistiques
+    // Permet de voir les differentes statistiques
     public function adminStatistique() {
         if (!isset($_SESSION['user_id'])) {
             header("Location: index.php?page=admin_login");
@@ -107,7 +107,7 @@ class AdminController {
         require_once BASE_PATH . 'view/admin/statistique.php';
     }
 
-    // Gère l'exportation du PDF
+    // Gere l'exportation du PDF
     public function exportPDF() {
         if (!isset($_SESSION['user_id'])) {
             header("Location: index.php?page=admin_login");
@@ -129,7 +129,7 @@ class AdminController {
         require_once BASE_PATH . 'view/admin/export_pdf.php';
     }
 
-    // Gère la déconnexion
+    // Gere la deconnexion
     public function logout() {
         session_unset();
         session_destroy();
