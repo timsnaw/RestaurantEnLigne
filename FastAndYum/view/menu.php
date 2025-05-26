@@ -28,7 +28,7 @@
 
     <!-- CSS Stylesheet -->
     <link href="/FastAndYumProject/FastAndYum/public/css/fastyum.css" rel="stylesheet">
-   
+
 
 </head>
 
@@ -48,7 +48,8 @@
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="/FastAndYumProject/FastAndYum/public/img/NosPlatsss.jpg" alt="Image" width="200px">
+                    <img class="w-100" src="/FastAndYumProject/FastAndYum/public/img/NosPlatsss.jpg" alt="Image"
+                        width="200px">
 
                     <div class="carousel-caption">
                         <div class="container">
@@ -78,8 +79,7 @@
                                             style="font-size: 1.8rem; color: #E4405F;">
                                             <i class="fab fa-instagram"></i>
                                         </a>
-                                        <a href="" target="_blank"
-                                            style="font-size: 1.8rem; color: #E4405F;">
+                                        <a href="" target="_blank" style="font-size: 1.8rem; color: #E4405F;">
                                             <i class="fab fa-facebook"></i>
 
                                         </a>
@@ -95,10 +95,12 @@
     </div>
     <!-- premier partie End -->
 
-<div class=" text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h1 class="display-5 mb-3"><FONT color="brown">Menu</FONT></h1>
-                
-            </div>
+    <div class=" text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+        <h1 class="display-5 mb-3">
+            <FONT color="brown">Menu</FONT>
+        </h1>
+
+    </div>
     <!-- Products Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -118,6 +120,9 @@
                         <li class="nav-item">
                             <a class="btn-orange border-2" data-bs-toggle="pill" href="#tab-4">Salades</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="btn-orange border-2" data-bs-toggle="pill" href="#tab-5">Jus et Cocktails</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -131,10 +136,19 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/pizza-4952508_1280.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/STAR BACON.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Pizza</div>
+                                    <div class="text-start fw-bold mb-2">STAR BACON</div>
+                                    <div class="quantity d-flex align-items-center" style="gap: 4px;">
+                                        <button class="btn btn-outline-secondary btn-sm px-1 py-0"
+                                            style="font-size: 10px;">-</button>
+                                        <input type="text" name="quantity" value="1" readonly
+                                            style="width: 30px; height: 24px; text-align: center; font-size: 12px; border: 1px solid #ccc; border-radius: 4px;">
+                                        <button class="btn btn-outline-secondary btn-sm px-1 py-0"
+                                            style="font-size: 10px;">+</button>
+                                    </div>
                                     <div class="product-info">
                                         <div class="product-price">19.00 MAD</div>
 
@@ -164,10 +178,11 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/pizza-4952508_1280.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/BUFFALO.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Pizza</div>
+                                    <div class="text-start fw-bold mb-2">BUFFALO</div>
                                     <div class="product-info">
                                         <div class="product-price">19.00 MAD</div>
 
@@ -197,10 +212,11 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/pizza-4952508_1280.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/VÉGÉTARIENNE.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Pizza</div>
+                                    <div class="text-start fw-bold mb-2">VÉGÉTARIENNE</div>
                                     <div class="product-info">
                                         <div class="product-price">19.00 MAD</div>
 
@@ -229,10 +245,11 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/pizza-4952508_1280.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/LA REINE.png" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Pizza</div>
+                                    <div class="text-start fw-bold mb-2">LA REINE</div>
                                     <div class="product-info">
                                         <div class="product-price">19.00 MAD</div>
 
@@ -262,10 +279,11 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/pizza-4952508_1280.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/QUATRE FROMAGE.png" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Pizza</div>
+                                    <div class="text-start fw-bold mb-2">QUATRE FROMAGE</div>
                                     <div class="product-info">
                                         <div class="product-price">19.00 MAD</div>
 
@@ -300,10 +318,11 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/pizza-4952508_1280.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/MARGARITA.png" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Pizza</div>
+                                    <div class="text-start fw-bold mb-2">MARGARITA</div>
                                     <div class="product-info">
                                         <div class="product-price">19.00 MAD</div>
 
@@ -333,10 +352,11 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/pizza-4952508_1280.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/LA FROMAGÈRE.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Pizza</div>
+                                    <div class="text-start fw-bold mb-2">LA FROMAGÈRE</div>
                                     <div class="product-info">
                                         <div class="product-price">19.00 MAD</div>
 
@@ -366,10 +386,11 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/pizza-4952508_1280.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/LA QATARIE.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Pizza</div>
+                                    <div class="text-start fw-bold mb-2">LA QATARIE</div>
                                     <div class="product-info">
                                         <div class="product-price">19.00 MAD</div>
 
@@ -398,19 +419,296 @@
                     </div>
                 </div>
 
-                <!-- TACOS -->
+                <!-- BURGERS -->
+                <div id="tab-3" class="tab-pane fade">
+                    <div class="row g-4">
+                        <!-- B 1 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Double Beef Burger.png"
+                                        alt="">
+                                </div>
+                                <div class="text-center p-4">
+                                    <div class="text-start fw-bold mb-2">Double Beef </div>
+                                    <div class="product-info">
+                                        <div class="product-price">25.00 MAD</div>
+                                        <div class="product-rating text-warning">
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
+                                            <i class="far fa-star" style="font-size: 12px;"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <a class="text-body" href=""><i
+                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <!--END B 1-->
+                        <!-- B2 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Double GRILL Burger.png"
+                                        alt="">
+                                </div>
+                                <div class="text-center p-4">
+                                    <div class="text-start fw-bold mb-2">Double GRILL </div>
+                                    <div class="product-info">
+                                        <div class="product-price">25.00 MAD</div>
+                                        <div class="product-rating text-warning">
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
+                                            <i class="far fa-star" style="font-size: 12px;"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <a class="text-body" href=""><i
+                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <!--END B 2-->
+                        <!-- B 3 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Big Flamme Burger.jpg"
+                                        alt="">
+                                </div>
+                                <div class="text-center p-4">
+                                    <div class="text-start fw-bold mb-2">Big Flamme Burger</div>
+                                    <div class="product-info">
+                                        <div class="product-price">25.00 MAD</div>
+                                        <div class="product-rating text-warning">
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
+                                            <i class="far fa-star" style="font-size: 12px;"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <a class="text-body" href=""><i
+                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <!--END B 3-->
+                        <!-- B 4 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Double cheese burger.png"
+                                        alt="">
+                                </div>
+                                <div class="text-center p-4">
+                                    <div class="text-start fw-bold mb-2">Double cheese </div>
+                                    <div class="product-info">
+                                        <div class="product-price">25.00 MAD</div>
+                                        <div class="product-rating text-warning">
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
+                                            <i class="far fa-star" style="font-size: 12px;"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <a class="text-body" href=""><i
+                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <!--END B 4-->
+                        <!-- B 5 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Touareg.jpg" alt="">
+                                </div>
+                                <div class="text-center p-4">
+                                    <div class="text-start fw-bold mb-2">Touareg</div>
+                                    <div class="product-info">
+                                        <div class="product-price">25.00 MAD</div>
+                                        <div class="product-rating text-warning">
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
+                                            <i class="far fa-star" style="font-size: 12px;"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <a class="text-body" href=""><i
+                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <!--END B 5-->
+                        <!-- B 6 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Double Chicken Burger.jpg"
+                                        alt="">
+                                </div>
+                                <div class="text-center p-4">
+                                    <div class="text-start fw-bold mb-2"> Double Chicken </div>
+                                    <div class="product-info">
+                                        <div class="product-price">25.00 MAD</div>
+                                        <div class="product-rating text-warning">
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
+                                            <i class="far fa-star" style="font-size: 12px;"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <a class="text-body" href=""><i
+                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <!--END B 6-->
+                        <!-- B 7 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Chicken Burger.jpg" alt="">
+                                </div>
+                                <div class="text-center p-4">
+                                    <div class="text-start fw-bold mb-2">Chicken Burger</div>
+                                    <div class="product-info">
+                                        <div class="product-price">25.00 MAD</div>
+                                        <div class="product-rating text-warning">
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
+                                            <i class="far fa-star" style="font-size: 12px;"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <a class="text-body" href=""><i
+                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <!--END B 7-->
+                        <!-- B 8 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Double FishBurger.jpg"
+                                        alt="">
+                                </div>
+                                <div class="text-center p-4">
+                                    <div class="text-start fw-bold mb-2">Double FishBurger</div>
+                                    <div class="product-info">
+                                        <div class="product-price">25.00 MAD</div>
+                                        <div class="product-rating text-warning">
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
+                                            <i class="far fa-star" style="font-size: 12px;"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <a class="text-body" href=""><i
+                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <!--END B 8-->
+                    </div>
+                </div>
+
+                <!-- TACOSES -->
                 <div id="tab-2" class="tab-pane fade">
                     <div class="row g-4">
                         <!-- TACOS 1 -->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/tacos.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Tacos Buffalo.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Tacos Poulet</div>
+                                    <div class="text-start fw-bold mb-2">Tacos Buffalo</div>
                                     <div class="product-info">
-                                        <div class="product-price">25.00 MAD</div>
+                                        <div class="product-price">30.00 MAD</div>
                                         <div class="product-rating text-warning">
                                             <i class="fas fa-star" style="font-size: 12px;"></i>
                                             <i class="fas fa-star" style="font-size: 12px;"></i>
@@ -432,245 +730,16 @@
                                 </div>
                             </div>
                         </div>
-                        <!--END TACOS 1-->
-                          <!-- TACOS 2 -->
+                        <!-- END TACOS  1 -->
+                        <!--  TACOS 2 -->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/tacos.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Big Yummy.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Tacos Poulet</div>
-                                    <div class="product-info">
-                                        <div class="product-price">25.00 MAD</div>
-                                        <div class="product-rating text-warning">
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
-                                            <i class="far fa-star" style="font-size: 12px;"></i>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i
-                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <!--END TACOS 2-->
-                          <!-- TACOS 3 -->
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/tacos.jpg" alt="">
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Tacos Poulet</div>
-                                    <div class="product-info">
-                                        <div class="product-price">25.00 MAD</div>
-                                        <div class="product-rating text-warning">
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
-                                            <i class="far fa-star" style="font-size: 12px;"></i>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i
-                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <!--END TACOS 3-->
-                          <!-- TACOS 4 -->
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/tacos.jpg" alt="">
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Tacos Poulet</div>
-                                    <div class="product-info">
-                                        <div class="product-price">25.00 MAD</div>
-                                        <div class="product-rating text-warning">
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
-                                            <i class="far fa-star" style="font-size: 12px;"></i>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i
-                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <!--END TACOS 4-->
-                          <!-- TACOS 5 -->
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/tacos.jpg" alt="">
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Tacos Poulet</div>
-                                    <div class="product-info">
-                                        <div class="product-price">25.00 MAD</div>
-                                        <div class="product-rating text-warning">
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
-                                            <i class="far fa-star" style="font-size: 12px;"></i>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i
-                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <!--END TACOS 5-->
-                          <!-- TACOS 6 -->
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/tacos.jpg" alt="">
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Tacos Poulet</div>
-                                    <div class="product-info">
-                                        <div class="product-price">25.00 MAD</div>
-                                        <div class="product-rating text-warning">
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
-                                            <i class="far fa-star" style="font-size: 12px;"></i>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i
-                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <!--END TACOS 6-->
-                          <!-- TACOS 7 -->
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/tacos.jpg" alt="">
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Tacos Poulet</div>
-                                    <div class="product-info">
-                                        <div class="product-price">25.00 MAD</div>
-                                        <div class="product-rating text-warning">
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
-                                            <i class="far fa-star" style="font-size: 12px;"></i>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i
-                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <!--END TACOS 7-->
-                          <!-- TACOS 8 -->
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/tacos.jpg" alt="">
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Tacos Poulet</div>
-                                    <div class="product-info">
-                                        <div class="product-price">25.00 MAD</div>
-                                        <div class="product-rating text-warning">
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
-                                            <i class="far fa-star" style="font-size: 12px;"></i>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i
-                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <!--END TACOS 8-->
-                    </div>
-                </div>
-
-                <!-- BURGERS -->
-                <div id="tab-3" class="tab-pane fade">
-                    <div class="row g-4">
-                        <!-- BURGER 1 -->
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/burger.jpg" alt="">
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Cheeseburger</div>
+                                    <div class="text-start fw-bold mb-2">Big Yummy</div>
                                     <div class="product-info">
                                         <div class="product-price">30.00 MAD</div>
                                         <div class="product-rating text-warning">
@@ -694,15 +763,115 @@
                                 </div>
                             </div>
                         </div>
-                          <!-- END BURGER 1 -->
-                           <!-- BURGER 2 -->
+                        <!-- END  TACOS 2-->
+                        <!--  TACOS 3 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Tacos farmer.jpg" alt="">
+                                </div>
+                                <div class="text-center p-4">
+                                    <div class="text-start fw-bold mb-2">Tacos farmer</div>
+                                    <div class="product-info">
+                                        <div class="product-price">30.00 MAD</div>
+                                        <div class="product-rating text-warning">
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
+                                            <i class="far fa-star" style="font-size: 12px;"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <a class="text-body" href=""><i
+                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END  TACOS 3 -->
+                        <!--  TACOS 4 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Monster.jpg" alt="">
+                                </div>
+                                <div class="text-center p-4">
+                                    <div class="text-start fw-bold mb-2">Monster</div>
+                                    <div class="product-info">
+                                        <div class="product-price">30.00 MAD</div>
+                                        <div class="product-rating text-warning">
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
+                                            <i class="far fa-star" style="font-size: 12px;"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <a class="text-body" href=""><i
+                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END  TACOS 4 -->
+                        <!--  TACOS 5 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Tacos Fromagaire.jpg" alt="">
+                                </div>
+                                <div class="text-center p-4">
+                                    <div class="text-start fw-bold mb-2">Tacos Fromagaire</div>
+                                    <div class="product-info">
+                                        <div class="product-price">30.00 MAD</div>
+                                        <div class="product-rating text-warning">
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
+                                            <i class="far fa-star" style="font-size: 12px;"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <a class="text-body" href=""><i
+                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END TACOS 5 -->
+                        <!-- TACOS 6 -->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/burger.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Tacos Fish.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Cheeseburger</div>
+                                    <div class="text-start fw-bold mb-2">Tacos Fish</div>
                                     <div class="product-info">
                                         <div class="product-price">30.00 MAD</div>
                                         <div class="product-rating text-warning">
@@ -726,15 +895,16 @@
                                 </div>
                             </div>
                         </div>
-                          <!-- END BURGER 2-->
-                           <!-- BURGER 3 -->
+                        <!-- END TACOS 6 -->
+                        <!-- TACOS 7 -->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/burger.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Tacos Chicken.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Cheeseburger</div>
+                                    <div class="text-start fw-bold mb-2">Tacos Chicken</div>
                                     <div class="product-info">
                                         <div class="product-price">30.00 MAD</div>
                                         <div class="product-rating text-warning">
@@ -758,15 +928,16 @@
                                 </div>
                             </div>
                         </div>
-                          <!-- END BURGER 3 -->
-                           <!-- BURGER 4 -->
+                        <!-- END TACOS 7-->
+                        <!--  TACOS 8 -->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/burger.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Tacos Chili.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Cheeseburger</div>
+                                    <div class="text-start fw-bold mb-2">Tacos Chili</div>
                                     <div class="product-info">
                                         <div class="product-price">30.00 MAD</div>
                                         <div class="product-rating text-warning">
@@ -790,136 +961,8 @@
                                 </div>
                             </div>
                         </div>
-                          <!-- END BURGER 4 -->
-                           <!-- BURGER 5 -->
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/burger.jpg" alt="">
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Cheeseburger</div>
-                                    <div class="product-info">
-                                        <div class="product-price">30.00 MAD</div>
-                                        <div class="product-rating text-warning">
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
-                                            <i class="far fa-star" style="font-size: 12px;"></i>
-                                        </div>
+                        <!-- END TACOS 8 -->
 
-                                    </div>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i
-                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                          <!-- END BURGER 5 -->
-                           <!-- BURGER 6 -->
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/burger.jpg" alt="">
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Cheeseburger</div>
-                                    <div class="product-info">
-                                        <div class="product-price">30.00 MAD</div>
-                                        <div class="product-rating text-warning">
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
-                                            <i class="far fa-star" style="font-size: 12px;"></i>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i
-                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                          <!-- END BURGER 6 -->
-                           <!-- BURGER 7 -->
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/burger.jpg" alt="">
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Cheeseburger</div>
-                                    <div class="product-info">
-                                        <div class="product-price">30.00 MAD</div>
-                                        <div class="product-rating text-warning">
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
-                                            <i class="far fa-star" style="font-size: 12px;"></i>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i
-                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                          <!-- END BURGER 7-->
-                           <!-- BURGER 8 -->
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/burger.jpg" alt="">
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Cheeseburger</div>
-                                    <div class="product-info">
-                                        <div class="product-price">30.00 MAD</div>
-                                        <div class="product-rating text-warning">
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star" style="font-size: 12px;"></i>
-                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
-                                            <i class="far fa-star" style="font-size: 12px;"></i>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i
-                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                          <!-- END BURGER 8 -->
-                       
                     </div>
                 </div>
 
@@ -930,10 +973,11 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/salad.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Salade Marocaine.png" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Salade Mixte</div>
+                                    <div class="text-start fw-bold mb-2">Salade Marocaine</div>
                                     <div class="product-info">
                                         <div class="product-price">18.00 MAD</div>
                                         <div class="product-rating text-warning">
@@ -958,14 +1002,15 @@
                             </div>
                         </div>
                         <!-- END-SALADE 1-->
-                         <!-- SALADE 2-->
+                        <!-- SALADE 2-->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/salad.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Salade Niçoise.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Salade Mixte</div>
+                                    <div class="text-start fw-bold mb-2">Salade Niçoise</div>
                                     <div class="product-info">
                                         <div class="product-price">18.00 MAD</div>
                                         <div class="product-rating text-warning">
@@ -990,14 +1035,15 @@
                             </div>
                         </div>
                         <!-- END-SALADE 2-->
-                         <!-- SALADE 3-->
+                        <!-- SALADE 3-->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/salad.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Salade varieé.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Salade Mixte</div>
+                                    <div class="text-start fw-bold mb-2">Salade varieé</div>
                                     <div class="product-info">
                                         <div class="product-price">18.00 MAD</div>
                                         <div class="product-rating text-warning">
@@ -1022,14 +1068,16 @@
                             </div>
                         </div>
                         <!-- END-SALADE 3-->
-                         <!-- SALADE 4-->
+                        <!-- SALADE 4-->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/salad.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/salade Pates froide.jpg"
+                                        alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Salade Mixte</div>
+                                    <div class="text-start fw-bold mb-2">Salade Pates froide</div>
                                     <div class="product-info">
                                         <div class="product-price">18.00 MAD</div>
                                         <div class="product-rating text-warning">
@@ -1054,14 +1102,16 @@
                             </div>
                         </div>
                         <!-- END-SALADE 4-->
-                         <!-- SALADE 5-->
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+
+                        <!-- SALADE 5-->
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/salad.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Salade Crispy.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Salade Mixte</div>
+                                    <div class="text-start fw-bold mb-2">Salade Crispy</div>
                                     <div class="product-info">
                                         <div class="product-price">18.00 MAD</div>
                                         <div class="product-rating text-warning">
@@ -1086,16 +1136,56 @@
                             </div>
                         </div>
                         <!-- END-SALADE 5-->
-                         <!-- SALADE 6-->
+
+                    </div>
+                </div>
+                <!-- Jus  -->
+                <div id="tab-5" class="tab-pane fade">
+                    <div class="row g-4">
+                        <!-- Jus 1 -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="product-item">
+                                <div class="position-relative bg-light overflow-hidden">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/menu//Milkshaky Shaky.jpg" alt="">
+                                </div>
+                                <div class="text-center p-4">
+                                    <div class="text-start fw-bold mb-2">Milkshaky Shaky</div>
+                                    <div class="product-info">
+                                        <div class="product-price">30.00 MAD</div>
+                                        <div class="product-rating text-warning">
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star" style="font-size: 12px;"></i>
+                                            <i class="fas fa-star-half-alt" style="font-size: 12px;"></i>
+                                            <i class="far fa-star" style="font-size: 12px;"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex border-top">
+                                    <small class="w-50 text-center border-end py-2">
+                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Voir</a>
+                                    </small>
+                                    <small class="w-50 text-center py-2">
+                                        <a class="text-body" href=""><i
+                                                class="fa fa-shopping-bag text-primary me-2"></i>Ajouter</a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Jus 1 -->
+                        <!-- Jus 2 -->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/salad.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Mojito citron.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Salade Mixte</div>
+                                    <div class="text-start fw-bold mb-2">Mojito citron</div>
                                     <div class="product-info">
-                                        <div class="product-price">18.00 MAD</div>
+                                        <div class="product-price">30.00 MAD</div>
                                         <div class="product-rating text-warning">
                                             <i class="fas fa-star" style="font-size: 12px;"></i>
                                             <i class="fas fa-star" style="font-size: 12px;"></i>
@@ -1117,17 +1207,18 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- END-SALADE 6-->
-                         <!-- SALADE 7-->
+                        <!-- END Jus 2-->
+                        <!-- Jus 3 -->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/salad.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Mojito Passion.jpg" alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Salade Mixte</div>
+                                    <div class="text-start fw-bold mb-2">Mojito Passion</div>
                                     <div class="product-info">
-                                        <div class="product-price">18.00 MAD</div>
+                                        <div class="product-price">30.00 MAD</div>
                                         <div class="product-rating text-warning">
                                             <i class="fas fa-star" style="font-size: 12px;"></i>
                                             <i class="fas fa-star" style="font-size: 12px;"></i>
@@ -1149,17 +1240,20 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- END-SALADE 7-->
-                         <!-- SALADE 8-->
+                        <!-- END Jus 3 -->
+
+                        <!-- Jus 4 -->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="/FastAndYumProject/FastAndYum/public/img/salad.jpg" alt="">
+                                    <img class="img-fluid w-100"
+                                        src="/FastAndYumProject/FastAndYum/public/img/Menu/Smoothie Tropical.jpg"
+                                        alt="">
                                 </div>
                                 <div class="text-center p-4">
-                                    <div class="text-start fw-bold mb-2">Salade Mixte</div>
+                                    <div class="text-start fw-bold mb-2">Smoothie Tropical</div>
                                     <div class="product-info">
-                                        <div class="product-price">18.00 MAD</div>
+                                        <div class="product-price">30.00 MAD</div>
                                         <div class="product-rating text-warning">
                                             <i class="fas fa-star" style="font-size: 12px;"></i>
                                             <i class="fas fa-star" style="font-size: 12px;"></i>
@@ -1181,8 +1275,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- END-SALADE 8-->
-
+                        <!-- End Jus 4 -->
                     </div>
                 </div>
             </div>
@@ -1190,17 +1283,17 @@
         </div>
     </div>
     <!-- Products End -->
-     <br><br>
-<!--promo-->
+    <br><br>
+    <!--promo-->
     <section class="promo-section">
         <a href="index.php?url=promotions" class="promo-button">Order Now</a>
     </section>
     <!--end promo-->
 
 
-<br><br><br>
+    <br><br><br>
 
- <!-- AVIS -->
+    <!-- AVIS -->
     <div class="container-fluid py-6 mb-5"
         style="background: linear-gradient(to bottom, rgba(255, 165, 0, 0.4), rgba(255, 255, 255, 0.8));">
 
@@ -1215,7 +1308,8 @@
                 <div class="testimonial-item bg-white p-5 mt-4">
                     <p class="mb-4">"Service exceptionnel ! Je recommande vivement."</p>
                     <div class="d-flex align-items-center">
-                        <img class="flex-shrink-0 rounded-circle" src="/FastAndYumProject/FastAndYum/public/img/1.jpg" alt="Karim El Amrani">
+                        <img class="flex-shrink-0 rounded-circle" src="/FastAndYumProject/FastAndYum/public/img/1.jpg"
+                            alt="Karim El Amrani">
                         <div class="ms-3">
                             <h5 class="mb-1">Karim El Amrani</h5>
                             <span>Entrepreneur - Casablanca</span>
@@ -1225,7 +1319,8 @@
                 <div class="testimonial-item position-relative bg-white p-5 mt-4">
                     <p class="mb-4">"Toujours délicieux et rapide !"</p>
                     <div class="d-flex align-items-center">
-                        <img class="flex-shrink-0 rounded-circle" src="/FastAndYumProject/FastAndYum/public/img/111.jpg" alt="Mohamed Benjelloun">
+                        <img class="flex-shrink-0 rounded-circle" src="/FastAndYumProject/FastAndYum/public/img/111.jpg"
+                            alt="Mohamed Benjelloun">
                         <div class="ms-3">
                             <h5 class="mb-1">Mohamed Benjelloun</h5>
                             <span>Directeur Marketing - Rabat</span>
@@ -1235,7 +1330,8 @@
                 <div class="testimonial-item position-relative bg-white p-5 mt-4">
                     <p class="mb-4"><br>"Frites parfaites à chaque fois"</p>
                     <div class="d-flex align-items-center">
-                        <img class="flex-shrink-0 rounded-circle" src="/FastAndYumProject/FastAndYum/public/img/1111.jpg" alt="Mehdi Alaoui">
+                        <img class="flex-shrink-0 rounded-circle"
+                            src="/FastAndYumProject/FastAndYum/public/img/1111.jpg" alt="Mehdi Alaoui">
                         <div class="ms-3">
                             <h5 class="mb-1">Mehdi Alaoui</h5>
                             <span>Etudiant - Marrakech</span>
@@ -1245,7 +1341,8 @@
                 <div class="testimonial-item position-relative bg-white p-5 mt-4">
                     <p class="mb-4">"Service souriant et ultra rapide. 10/10 !"</p>
                     <div class="d-flex align-items-center">
-                        <img class="flex-shrink-0 rounded-circle" src="/FastAndYumProject/FastAndYum/public/img/2.jpg" alt="Amina Belhaj">
+                        <img class="flex-shrink-0 rounded-circle" src="/FastAndYumProject/FastAndYum/public/img/2.jpg"
+                            alt="Amina Belhaj">
                         <div class="ms-3">
                             <h5 class="mb-1">Amina Belhaj</h5>
                             <span>Architecte d'intérieur - Tanger</span>
@@ -1259,8 +1356,8 @@
     <!-- Avis End -->
 
 
-   <!--footer-->
-     
+    <!--footer-->
+
     <!-- Footer End -->
 
 
@@ -1275,7 +1372,7 @@
 
     <!-- Javascript -->
     <script src="/FastAndYumProject/FastAndYum/public/js/main.js"></script>
-    
+
 
 
 </body>
