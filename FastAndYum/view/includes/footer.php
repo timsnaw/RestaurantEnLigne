@@ -21,8 +21,8 @@
         <div class="footer-col">
         <h4>Menu</h4>
         <ul>
-          <a href="index.php?url=menu#tab-1"><li>&rsaquo; Burgers</li></a>
-          <a href="index.php?url=menu#tab-3"><li>&rsaquo; Pizza</li></a>
+          <a href="index.php?url=menu#tab-3"><li>&rsaquo; Burgers</li></a>
+          <a href="index.php?url=menu#tab-1"><li>&rsaquo; Pizza</li></a>
           <a href="index.php?url=menu#tab-2"><li>&rsaquo; Tacos</li></a>
           <a href="index.php?url=menu#tab-4"><li>&rsaquo; Salades</li></a>
           <a href="index.php?url=menu#tab-5"><li>&rsaquo; Jus</li></a>
