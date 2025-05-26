@@ -957,7 +957,7 @@ header.scrolled .logo {
     font-size: 26px;
     cursor: pointer;
     border: none;
-    background: none;
+    background-color: none;
     color: orange;
   }
 
@@ -977,6 +977,8 @@ header.scrolled .logo {
 
     nav.active {
       display: flex;
+
+      left: 40px;
     }
 
     .nav-toggle {
