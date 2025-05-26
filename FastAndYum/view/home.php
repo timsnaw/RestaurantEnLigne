@@ -134,6 +134,62 @@
         </div>
     </div>
     <!-- premier partie End -->
+    <!-- Categories start -->
+<div class="container-fluid py-5" style="background: linear-gradient(135deg, #f9f7f1, #e6d9b8);">
+  <section class="section2">
+    <h2 class="text-center mb-5 text-uppercase fw-bold wow fadeIn" data-wow-delay="0.1s" style="color:#5b4b2d;">Catégories</h2>
+
+    <div class="row justify-content-center g-4">
+      <!-- Tacos -->
+      <div class="col-6 col-lg-2 text-center wow fadeInUp" data-wow-delay="0.1s">
+        <a href="index.php?url=menu#tab-2" class="d-inline-block circle-card">
+          <img src="/FastAndYumProject/FastAndYum/public/img/i146583-tacos-poulet-curry.jpg" alt="Tacos">
+        </a>
+        <h5 class="mt-3 text-warning fw-semibold">TACOS</h5>
+      </div>
+
+      <!-- Burgers -->
+      <div class="col-6 col-lg-2 text-center wow fadeInUp" data-wow-delay="0.2s">
+        <a href="index.php?url=menu#tab-3" class="d-inline-block circle-card">
+          <img src="/FastAndYumProject/FastAndYum/public/img/burger.jpg" alt="Burgers">
+        </a>
+        <h5 class="mt-3 text-warning fw-semibold">Burgers</h5>
+      </div>
+
+      <!-- Pizza -->
+      <div class="col-6 col-lg-2 text-center wow fadeInUp" data-wow-delay="0.3s">
+        <a href="index.php?url=menu#tab-1" class="d-inline-block circle-card">
+          <img src="/FastAndYumProject/FastAndYum/public/img/pizza3.webp" alt="Pizza">
+        </a>
+        <h5 class="mt-3 text-warning fw-semibold">Pizza’s</h5>
+      </div>
+
+      <!-- Salade -->
+      <div class="col-6 col-lg-2 text-center wow fadeInUp" data-wow-delay="0.4s">
+        <a href="index.php?url=menu#tab-4" class="d-inline-block circle-card">
+          <img src="/FastAndYumProject/FastAndYum/public/img/saladenicoise.jpeg" alt="Salade">
+        </a>
+        <h5 class="mt-3 text-warning fw-semibold">Salade</h5>
+      </div>
+
+      <!-- Jus -->
+      <div class="col-6 col-lg-2 text-center wow fadeInUp" data-wow-delay="0.5s">
+        <a href="index.php?url=menu#tab-5" class="d-inline-block circle-card">
+          <img src="/FastAndYumProject/FastAndYum/public/img/Menu/Milkshaky Shaky.jpg" alt="Jus">
+        </a>
+        <h5 class="mt-3 text-warning fw-semibold">Jus et Cocktails</h5>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="index.php?url=menu">
+        <button class="btn btn-warning btn-lg rounded shadow-sm">Voir plus de produits</button>
+      </a>
+    </div>
+  </section>
+</div>
+<!-- Categories end -->
+
     <br><br><br><br>
 
     <!-- About Start -->
@@ -172,53 +228,7 @@
     </div>
     <!-- About End -->
      <br><br><br><br><br>
-<!-- Categories start -->
-<div class="container-fluid py-5" style="background: linear-gradient(135deg, #f9f7f1, #e6d9b8);">
-  <section class="section2">
-    <h2 class="text-center mb-5 text-uppercase fw-bold wow fadeIn" data-wow-delay="0.1s" style="color:#5b4b2d;">Catégories</h2>
 
-    <div class="row justify-content-center g-4">
-      <!-- Tacos -->
-      <div class="col-6 col-md-3 text-center wow fadeInUp" data-wow-delay="0.1s">
-        <a href="index.php?url=menu#tab-2" class="d-inline-block circle-card">
-          <img src="/FastAndYumProject/FastAndYum/public/img/i146583-tacos-poulet-curry.jpg" alt="Tacos">
-        </a>
-        <h5 class="mt-3 text-warning fw-semibold">TACOS</h5>
-      </div>
-
-      <!-- Burgers -->
-      <div class="col-6 col-md-3 text-center wow fadeInUp" data-wow-delay="0.2s">
-        <a href="index.php?url=menu#tab-3" class="d-inline-block circle-card">
-          <img src="/FastAndYumProject/FastAndYum/public/img/burger.jpg" alt="Burgers">
-        </a>
-        <h5 class="mt-3 text-warning fw-semibold">Burgers</h5>
-      </div>
-
-      <!-- Pizza -->
-      <div class="col-6 col-md-3 text-center wow fadeInUp" data-wow-delay="0.3s">
-        <a href="index.php?url=menu#tab-1" class="d-inline-block circle-card">
-          <img src="/FastAndYumProject/FastAndYum/public/img/pizza3.webp" alt="Pizza">
-        </a>
-        <h5 class="mt-3 text-warning fw-semibold">Pizza’s</h5>
-      </div>
-
-      <!-- Salade -->
-      <div class="col-6 col-md-3 text-center wow fadeInUp" data-wow-delay="0.4s">
-        <a href="index.php?url=menu#tab-4" class="d-inline-block circle-card">
-          <img src="/FastAndYumProject/FastAndYum/public/img/saladenicoise.jpeg" alt="Salade">
-        </a>
-        <h5 class="mt-3 text-warning fw-semibold">Salade</h5>
-      </div>
-    </div>
-
-    <div class="text-center mt-5">
-      <a href="index.php?url=menu">
-        <button class="btn btn-warning btn-lg rounded shadow-sm">Voir plus de produits</button>
-      </a>
-    </div>
-  </section>
-</div>
-<!-- Categories end -->
 
 <!-- Style cercle -->
 <style>
