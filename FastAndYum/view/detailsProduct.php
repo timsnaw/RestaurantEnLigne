@@ -82,19 +82,7 @@
 </div>
 
 
-              <div class="mb-3">
-    <strong>Extras :</strong>
-    <div class="d-flex">
-        <label class="option-extra">
-            <img src="/FastAndYumProject/FastAndYum/public/img/frites.png"> FRITE   &nbsp;
-             <input type="checkbox" name="extras[]" value="frite">
-        </label>
-        <label class="option-extra">
-            <img src="/FastAndYumProject/FastAndYum/public/img/soda.png"> SODA  &nbsp;
-           <input type="checkbox" name="extras[]" value="soda">
-        </label>
-    </div>
-</div>
+ 
 
 
                 <div class="mt-4 d-flex gap-3">
