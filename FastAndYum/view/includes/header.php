@@ -18,6 +18,7 @@
                     <a href="/FastAndYumProject/FastAndYum/index.php?url=menu#tab-1" class="dropdown-link" data-tab="#tab-1">Pizza</a>
                     <a href="/FastAndYumProject/FastAndYum/index.php?url=menu#tab-3" class="dropdown-link" data-tab="#tab-3">Burgers</a>
                     <a href="/FastAndYumProject/FastAndYum/index.php?url=menu#tab-4" class="dropdown-link" data-tab="#tab-4">Salades</a>
+                    <a href="/FastAndYumProject/FastAndYum/index.php?url=menu#tab-5" class="dropdown-link" data-tab="#tab-5">Jus et Cocktails</a>
                 </div>
             </div>
 
