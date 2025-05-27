@@ -37,7 +37,7 @@
 <div class="container my-5">
     <form action="#" method="post">
     <div class="mb-3">
-        <a href="index.php?url=menu.php" class="text-decoration-none">&larr; Poursuivre les achats</a>
+        <a href="#" class="text-decoration-none">&larr; Poursuivre les achats</a>
     </div>
 
     <h5 class="text-warning mb-4">Panier</h5>
@@ -56,7 +56,29 @@
             </div>
         </div>
 
-       
+        <div class="col-md-4">
+         
+            <h5 class="text-center bg-white text-dark py-2 rounded-top">Détails de la facture</h5>
+
+            <div class="cart-summary rounded-top-0">
+                <div class="d-flex justify-content-between mb-2">
+                    <div>Sous-total</div>
+                    <div>50.00DH</div>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <div>Livraison</div>
+                    <div>Gratuit</div>
+                </div>
+                <div class="d-flex justify-content-between mb-4">
+                    <strong>Total</strong>
+                    <strong>50.00DH</strong>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-buy">Acheter →</button>
+                    <button type="button" class="btn btn-return">Retour</button>
+                </div>
+            </div>
+        </div>
     </div>
 </form>
 
