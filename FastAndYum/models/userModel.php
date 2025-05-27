@@ -199,5 +199,12 @@ class UserModel {
             'restaurant' => $restaurant
         ];
     }
+        // Get Tout categories
+    public function getCategories() {
+        $stmt = "SELECT categorie_id, nom_categorie, date_ajout, image_categorie 
+                  FROM categorie";
+        $result = $this->pdo->query($stmt);
+        return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>

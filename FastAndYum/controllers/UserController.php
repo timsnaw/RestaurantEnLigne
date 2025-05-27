@@ -7,6 +7,7 @@ if (!defined('BASE_PATH')) {
 require_once BASE_PATH . 'config/connexion.php';
 require_once BASE_PATH . 'models/UserModel.php';
 
+
 class UserController {
     private $model;
 
@@ -21,8 +22,8 @@ class UserController {
             session_start();
         }
 
-        if (!isset($_SESSION['user_id']) && !in_array($page, ['login_user', 'register_user'])) {
-            header('Location: index.php?page=login_user');
+        if (!isset($_SESSION['user_id']) && !in_array($page, ['connexion', 'register_user'])) {
+            header('Location: index.php?page=connexion');
             exit;
         }
 
@@ -51,8 +52,8 @@ class UserController {
             case 'cancel_order':
                 $this->AnnuleCommande();
                 break;
-            case 'login_user':
-                $this->login_user();
+            case 'connexion':
+                $this->connexion();
                 break;
             case 'register_user':
                 $this->register();
@@ -72,7 +73,7 @@ class UserController {
     // Affiche les informations de l'utilisateur
     private function userInfo() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: index.php?page=login_user');
+            header('Location: index.php?page=connexion');
             exit;
         }
         $user = $this->model->getUserInfo($_SESSION['user_id']);
@@ -82,7 +83,7 @@ class UserController {
     // Affiche le formulaire d'édition du profil
     private function userEdit() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: index.php?page=login_user');
+            header('Location: index.php?page=connexion');
             exit;
         }
         $user = $this->model->getUserInfo($_SESSION['user_id']);
@@ -92,7 +93,7 @@ class UserController {
     // Affiche les commandes de l'utilisateur
     private function commandesInfo() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: index.php?page=login_user');
+            header('Location: index.php?page=connexion');
             exit;
         }
         $orders = $this->model->getUserOrders($_SESSION['user_id']);
@@ -229,13 +230,13 @@ class UserController {
             $csrf_token = $_POST['csrf_token'] ?? '';
             if (empty($csrf_token) || !isset($_SESSION['csrf_token']) || $csrf_token !== $_SESSION['csrf_token']) {
                 $_SESSION['error'] = "Erreur de validation du formulaire.";
-                header('Location: index.php?page=login_user');
+                header('Location: index.php?page=connexion');
                 exit;
             }
 
             if ($this->model->deleteUser($_SESSION['user_id'])) {
                 session_destroy();
-                header('Location: index.php?page=login_user');
+                header('Location: index.php?page=connexion');
                 exit;
             } else {
                 $_SESSION['error'] = "Erreur lors de la suppression du compte.";
@@ -266,13 +267,13 @@ class UserController {
     }
 
     // Gère la connexion de l'utilisateur
-    private function login_user() {
+    private function connexion() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $csrf_token = $_POST['csrf_token'] ?? '';
             if (empty($csrf_token) || !isset($_SESSION['csrf_token']) || $csrf_token !== $_SESSION['csrf_token']) {
                 $_SESSION['error'] = "Erreur de validation du formulaire.";
                 error_log("CSRF validation failed: Sent=$csrf_token, Expected=" . ($_SESSION['csrf_token'] ?? 'none'));
-                header('Location: index.php?page=login_user');
+                header('Location: index.php?page=connexion');
                 exit;
             }
 
@@ -281,33 +282,40 @@ class UserController {
 
             if (!$email) {
                 $_SESSION['error'] = "Adresse email invalide.";
-                header('Location: index.php?page=login_user');
+                header('Location: index.php?page=connexion');
                 exit;
             }
 
             if (empty($password)) {
                 $_SESSION['error'] = "Le mot de passe est requis.";
-                header('Location: index.php?page=login_user');
+                header('Location: index.php?page=connexion');
                 exit;
             }
 
             $user_id = $this->model->login($email, $password);
             if ($user_id) {
                 $_SESSION['user_id'] = $user_id;
+                $_SESSION['message'] = "connexion avec succès.";
                 unset($_SESSION['csrf_token']);
-                header('Location: index.php?page=userPage');
+                header('Location: index.php?page=connexion');
                 exit;
             } else {
                 $_SESSION['error'] = "Email ou mot de passe incorrect.";
                 error_log("Login failed for email: $email");
-                header('Location: index.php?page=login_user');
+                header('Location: index.php?page=connexion');
                 exit;
             }
         }
         if (!isset($_SESSION['csrf_token'])) {
             $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         }
-        include BASE_PATH . 'view/user/login_user.php';
+         //pour nav menu
+            $categories = $this->model->getCategories();
+            $data = [
+                'categories' => $categories,
+            ];
+
+        include BASE_PATH . 'view/user/connexion.php';
     }
 
     // Gère l'inscription d'un nouvel utilisateur
@@ -353,7 +361,7 @@ class UserController {
             if ($this->model->register($data)) {
                 $_SESSION['message'] = "Inscription réussie ! Veuillez vous connecter.";
                 unset($_SESSION['csrf_token']);
-                header('Location: index.php?page=login_user');
+                header('Location: index.php?page=connexion');
                 exit;
             } else {
                 $_SESSION['error'] = "Erreur lors de l'inscription. L'email ou le nom d'utilisateur existe déjà.";
@@ -364,6 +372,11 @@ class UserController {
         if (!isset($_SESSION['csrf_token'])) {
             $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         }
+                 //pour nav menu
+            $categories = $this->model->getCategories();
+            $data = [
+                'categories' => $categories,
+            ];
         include BASE_PATH . 'view/user/register_user.php';
     }
 
@@ -394,7 +407,7 @@ class UserController {
     // Déconnecte l'utilisateur
     private function logout() {
         session_destroy();
-        header('Location: index.php?page=login_user');
+        header('Location: index.php?page=connexion');
         exit;
     }
 }

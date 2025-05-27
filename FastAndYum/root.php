@@ -90,7 +90,7 @@ switch ($page) {
     case 'update_password':
     case 'delete_account':
     case 'cancel_order':
-    case 'login_user':
+    case 'connexion':
     case 'register_user':
     case 'logout_user':
     case 'export_facture':
@@ -98,7 +98,20 @@ switch ($page) {
         $userController = new UserController($pdo);
         $userController->gererDemande($page);
         break;
+    case 'details':
+    case 'panier':
+    case 'contact':
+    case 'Apropos':
+    case 'home':
+    case 'menu':
+    case 'promotions':
+    require_once BASE_PATH . 'controllers/homeController.php';
+        $homeController = new ControllerHome($pdo);
+        $homeController->gererDemande($page);
+        break;
     default:
-        echo "page home ";;
+        require_once BASE_PATH . 'controllers/homeController.php';
+        $homeController = new ControllerHome($pdo);
+        $homeController->gererDemande('home');
         break;
 }
