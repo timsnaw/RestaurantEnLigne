@@ -1,0 +1,92 @@
+:root {
+  --primary-orange: #ff6b35;
+  --dark-orange: #e85c2f;
+  --light-gray: #f8f9fa;
+  --gray: #dee2e6;
+  --dark: #343a40;
+  --white: #ffffff;
+  --success-green: #28a745;
+  --error-red: #dc3545;
+  --radius: 10px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: var(--light-gray);
+  padding: 40px;
+  color: var(--dark);
+}
+
+/* Container principale avec ombre orange */
+div {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 0 12px rgba(255, 107, 53, 0.4); /* Ombre orange */
+}
+
+/* Titre */
+h2 {
+  text-align: center;
+  color: var(--primary-orange);
+  margin-bottom: 30px;
+}
+
+/* Liens Ajout / Éditer / Supprimer */
+a[href*="promotion_add"],
+a[href*="promotion_edit"],
+a[href*="promotion_delete"] {
+  display: inline-block;
+  background-color: var(--primary-orange);
+  color: var(--white);
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: bold;
+  margin: 5px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+a[href*="promotion_add"]:hover,
+a[href*="promotion_edit"]:hover,
+a[href*="promotion_delete"]:hover {
+  background-color: var(--dark-orange);
+  box-shadow: 0 4px 8px rgba(232, 92, 47, 0.3);
+}
+
+/* Messages */
+p[style*="green"] {
+  color: var(--success-green);
+}
+
+p[style*="red"] {
+  color: var(--error-red);
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+  background-color: var(--primary-orange);
+  color: var(--white);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--gray);
+}
+
+tbody tr:hover {
+  background-color: #fff3ef;
+}

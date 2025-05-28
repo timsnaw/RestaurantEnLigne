@@ -144,7 +144,7 @@
                                     <div class="quantity d-flex align-items-center" style="gap: 4px;">
                                         <button class="btn btn-outline-secondary btn-sm px-1 py-0"
                                             style="font-size: 10px;">-</button>
-                                        <input type="text" name="quantity" value="1" readonly
+                                        <input type="" name="quantity" value="1" 
                                             style="width: 30px; height: 24px; text-align: center; font-size: 12px; border: 1px solid #ccc; border-radius: 4px;">
                                         <button class="btn btn-outline-secondary btn-sm px-1 py-0"
                                             style="font-size: 10px;">+</button>

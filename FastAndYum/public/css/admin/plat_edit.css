@@ -1,0 +1,189 @@
+:root {
+  --primary-orange: #ff6b35;
+  --dark-orange: #e85c2f;
+  --light-gray: #f8f9fa;
+  --gray: #dee2e6;
+  --dark: #343a40;
+  --success-green: #28a745;
+  --error-red: #dc3545;
+  --white: #ffffff;
+  --radius: 10px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: var(--light-gray);
+  padding: 40px;
+  color: var(--dark);
+}
+
+/* Title */
+h2 {
+  text-align: center;
+  color: var(--primary-orange);
+  margin-bottom: 30px;
+}
+
+/* Form Container */
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Elements */
+form > div {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  display: block;
+  color: var(--dark);
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--gray);
+  border-radius: var(--radius);
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 107, 53, 0.4);
+}
+
+/* Buttons */
+button[type="submit"],
+#add-secondary-image {
+  background-color: var(--primary-orange);
+  color: var(--white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button[type="submit"]:hover,
+#add-secondary-image:hover {
+  background-color: var(--dark-orange);
+  box-shadow: 0 4px 8px rgba(232, 92, 47, 0.3);
+}
+
+a[href*="plat_info"] {
+  display: inline-block;
+  margin-left: 15px;
+  color: var(--primary-orange);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a[href*="plat_info"]:hover {
+  color: var(--dark-orange);
+  text-decoration: underline;
+}
+
+/* Messages */
+.error-message {
+  color: var(--error-red);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.info-message {
+  font-size: 13px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Images */
+.image-preview,
+.secondary-image-preview {
+  max-width: 100px;
+  margin-top: 10px;
+  display: block;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.image-preview:hover,
+.secondary-image-preview:hover {
+  transform: scale(1.05);
+}
+
+/* Secondary Images */
+.secondary-image-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.secondary-image {
+  position: relative;
+  width: 100px;
+  transition: transform 0.3s ease;
+}
+
+.secondary-image:hover {
+  transform: scale(1.05);
+}
+
+.secondary-image img {
+  max-width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.remove-btn,
+.remove-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--error-red);
+  color: white;
+  border: none;
+  font-size: 12px;
+  border-radius: 0 6px 0 6px;
+  padding: 4px 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover,
+.remove-image:hover {
+  background-color: #c82333;
+}
+
+/* Image group file + delete btn */
+.image-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.image-group input[type="file"] {
+  flex-grow: 1;
+}
+
+.image-group .remove-image {
+  position: static;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+}

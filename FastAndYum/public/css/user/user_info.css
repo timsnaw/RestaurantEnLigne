@@ -1,0 +1,180 @@
+  *{ text-decoration: none !important; }
+        :root {
+            --orange: #f97316;
+            --brown: #7c3f00;
+            --red: #ef4444;
+            --blue-ciel: #38bdf8;
+            --light-bg: #fff7ed;
+            --light-border: #f5c9a0;
+            --dark-text: #3e2f1c;
+            --shadow-color: rgba(249, 115, 22, 0.3);
+        }
+
+        body.user_details {
+            background-color: #fafafa;
+            color: var(--dark-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+
+        .card-custom {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 6px 15px var(--shadow-color);
+            padding: 30px;
+            max-width: 900px;
+            margin: 3rem auto;
+            transition: box-shadow 0.3s ease;
+        }
+        .card-custom:hover {
+            box-shadow: 0 10px 25px var(--shadow-color);
+        }
+
+        h2, h4 {
+            color: var(--brown);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.8rem;
+        }
+
+        /* Structure flex pour profil + bouton + infos */
+        .profile-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        /* Colonne gauche : image + bouton */
+        .profile-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-width: 180px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--orange);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        .profile-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px var(--orange);
+        }
+
+        .btn-orange {
+            background-color: var(--orange);
+            border: none;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+        }
+        .btn-orange:hover {
+            background-color: var(--brown);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Colonne droite : nom + username + infos */
+        .profile-right {
+            flex-grow: 1;
+            min-width: 250px;
+        }
+
+        .name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--brown);
+            margin-bottom: 0.3rem;
+        }
+        .username {
+            color: var(--orange);
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .table-responsive {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        table {
+            border-collapse: separate !important;
+            border-spacing: 0 !important;
+            width: 100%;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--light-border);
+            vertical-align: middle;
+        }
+        th {
+            background-color: var(--orange);
+            color: black;
+            font-weight: 600;
+            text-align: left;
+        }
+        tbody tr:hover {
+            background-color: var(--light-bg);
+            cursor: default;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Messages session */
+        .session-message {
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        .session-message.success {
+            color: green;
+        }
+        .session-message.error {
+            color: red;
+        }
+
+        @media (max-width: 576px) {
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-left {
+                align-items: center;
+                min-width: auto;
+            }
+            .profile-right {
+                width: 100%;
+                min-width: auto;
+            }
+            .name {
+                font-size: 1.5rem;
+            }
+            .username {
+                font-size: 1rem;
+            }
+            th, td {
+                padding: 10px 8px;
+                font-size: 0.85rem;
+            }
+            .btn-orange {
+                padding: 6px 14px;
+                font-size: 0.9rem;
+            }
+        }

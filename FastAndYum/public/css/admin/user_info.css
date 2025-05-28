@@ -1,0 +1,83 @@
+/* user-infos tableau */
+h2{
+  color: brown;
+}
+.user-table-container {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  background-color: #fff;
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+/* Table header */
+.table thead {
+  background-color: orange; /* bleu ciel */
+  color: white;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+  padding: 10px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  border: none;
+}
+
+/* Arrondi en haut à gauche et droite pour l'en-tête */
+.table thead tr:first-child th:first-child {
+  border-top-left-radius: 14px;
+}
+.table thead tr:first-child th:last-child {
+  border-top-right-radius: 14px;
+}
+
+/* Arrondi en bas à gauche et droite pour le dernier TR */
+.table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 14px;
+}
+.table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 14px;
+}
+
+/* Hover effect */
+.table-hover tbody tr:hover {
+  background-color: #fffae0; /* léger bleu ciel */
+  transition: 0.3s ease;
+}
+
+/* Bouton */
+.btn-view {
+  background-color: orange;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 0.8rem;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.btn-view:hover {
+  background-color: cornflowerblue;
+}
+
+/* Scroll responsive */
+.responsive-overflow {
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .table td,
+  .table th {
+    font-size: 0.78rem;
+  }
+
+  .btn-view {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+  }
+}

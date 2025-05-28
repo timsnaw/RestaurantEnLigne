@@ -1,0 +1,51 @@
+:root {
+  --orange: #ff7f50;
+  --light-orange: #ffa07a;
+  --background: linear-gradient(to right, #ffe5d9, #fff1e6);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--background);
+  min-height: 100vh;
+}
+
+.login-container {
+  height: 100vh;
+  padding: 20px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 127, 80, 0.4);
+}
+
+.login-logo {
+  width: 80px;
+  height: auto;
+}
+
+.text-orange {
+  color: var(--orange);
+  font-weight: bold;
+}
+
+.btn-orange {
+  background-color: var(--orange);
+  border: none;
+  color: white;
+  padding: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-orange:hover {
+  background-color: var(--light-orange);
+  transform: scale(1.05);
+}
+
+.alert {
+  font-size: 14px;
+}

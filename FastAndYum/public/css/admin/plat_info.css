@@ -1,0 +1,124 @@
+:root {
+  --primary-orange: #ff6b35;
+  --dark-orange: #e85c2f;
+  --light-gray: #f8f9fa;
+  --gray: #dee2e6;
+  --dark: #343a40;
+  --success-green: #28a745;
+  --error-red: #dc3545;
+  --white: #ffffff;
+  --radius: 10px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: var(--light-gray);
+  padding: 30px;
+  color: var(--dark);
+}
+
+h2 {
+  text-align: center;
+  color: var(--primary-orange);
+  margin-bottom: 30px;
+}
+
+/* Messages */
+div > div:not(:has(table)) {
+  background-color: #e2fbe4;
+  border-left: 5px solid var(--success-green);
+  color: var(--success-green);
+  padding: 10px;
+  border-radius: var(--radius);
+  font-weight: bold;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+}
+
+/* Boutons */
+a[href*="plat_edit"],
+a[href*="plats"] {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--primary-orange);
+  color: var(--white);
+  border-radius: 6px;
+  margin-right: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+a[href*="plat_edit"]:hover,
+a[href*="plats"]:hover {
+  background-color: var(--dark-orange);
+}
+
+div > a {
+  margin: 0 10px 20px 0;
+}
+
+/* Tableau */
+table {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+thead {
+  background-color: var(--primary-orange);
+  color: var(--white);
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--gray);
+}
+
+td img {
+  max-width: 100px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  td {
+    position: relative;
+    padding-left: 50%;
+    border-bottom: 1px solid var(--gray);
+  }
+
+  td:before {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: bold;
+    color: var(--dark);
+  }
+
+  td:nth-of-type(1)::before { content: "ID"; }
+  td:nth-of-type(2)::before { content: "Titre"; }
+  td:nth-of-type(3)::before { content: "Catégorie"; }
+  td:nth-of-type(4)::before { content: "Description"; }
+  td:nth-of-type(5)::before { content: "Prix"; }
+  td:nth-of-type(6)::before { content: "Image"; }
+}

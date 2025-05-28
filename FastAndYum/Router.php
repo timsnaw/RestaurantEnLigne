@@ -2,13 +2,22 @@
 
 class Router {
     public static function route($view) {
-        $viewPath = "view/{$view}.php";
+        $basePath = "view/";
 
-        if (file_exists($viewPath)) {
-            require_once($viewPath);
-        } else {
-            echo "404 - Page not found";
+        // ✅ Vérifie si c'est un fichier direct (view/home.php)
+        if (file_exists($basePath . $view . ".php")) {
+            require_once($basePath . $view . ".php");
+            return;
         }
+
+        // ✅ Vérifie si c'est un chemin avec sous-dossier (view/admin/dashboard.php)
+        $nestedPath = $basePath . $view;
+        if (file_exists($nestedPath)) {
+            require_once($nestedPath);
+            return;
+        }
+
+        // ❌ Sinon, 404
+        echo "404 - Page '{$view}' not found";
     }
 }
- 

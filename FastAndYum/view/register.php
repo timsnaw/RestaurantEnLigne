@@ -100,7 +100,7 @@
           <button type="submit" class="btn btn-danger w-100 rounded-pill btn-sm">S'inscrire</button>
 
           <p class="mt-3 text-center small">Déjà inscrit ?
-            <a href="index.php?url=login" class="text-decoration-none text-warning fw-bold">Se connecter</a>
+            <a href="index.php?url=CONNEXION" class="text-decoration-none text-warning fw-bold">Se connecter</a>
           </p>
         </form>
       </div>

@@ -1,0 +1,106 @@
+:root {
+  --primary-orange: #ff6b35;
+  --dark-orange: #e85c2f;
+  --light-gray: #f8f9fa;
+  --gray: #dee2e6;
+  --dark: #343a40;
+  --white: #ffffff;
+  --success-green: #28a745;
+  --error-red: #dc3545;
+  --radius: 10px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: var(--light-gray);
+  padding: 40px;
+  color: var(--dark);
+}
+
+/* Container principal avec shadow orange */
+div {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 0 12px rgba(255, 107, 53, 0.4); /* Ombre orange */
+}
+
+/* Titre */
+h2 {
+  text-align: center;
+  color: var(--primary-orange);
+  margin-bottom: 30px;
+}
+
+/* Labels et inputs */
+form div {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input[type="number"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--gray);
+  border-radius: var(--radius);
+  background-color: var(--light-gray);
+}
+
+/* Boutons */
+button[type="submit"],
+a[href*="promotion_info"] {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: var(--radius);
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Bouton Modifier */
+button[type="submit"] {
+  background-color: var(--primary-orange);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--dark-orange);
+  box-shadow: 0 4px 8px rgba(232, 92, 47, 0.3);
+}
+
+/* Lien Annuler */
+a[href*="promotion_info"] {
+  background-color: #6c757d;
+  color: var(--white);
+  margin-left: 10px;
+}
+
+a[href*="promotion_info"]:hover {
+  background-color: #5a6268;
+  box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+}
+
+/* Messages */
+p {
+  font-size: 14px;
+}
+
+p[style*="red"] {
+  color: var(--error-red);
+}
+
+p[style*="green"] {
+  color: var(--success-green);
+}

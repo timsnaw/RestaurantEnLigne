@@ -1,0 +1,137 @@
+:root {
+  --blue-primary: #0d6efd;
+  --orange-accent: #f97316;
+  --gray-light: #f8f9fa;
+  --gray-dark: #212529;
+  --shadow-light: rgba(0, 0, 0, 0.12);
+}
+
+.add-category-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--gray-dark);
+  background-color: var(--gray-light);
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.add-category-page h2 {
+  font-weight: 700;
+  color: var(--blue-primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.form-container {
+  background: white;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 28px var(--shadow-light);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--gray-dark);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 1.8px solid #ced4da;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--blue-primary);
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.3);
+  outline: none;
+}
+
+.error-message {
+  color: #dc3545; /* bootstrap red */
+  font-size: 0.875rem;
+  margin-top: 0.4rem;
+  display: none;
+}
+
+.image-preview {
+  margin-top: 10px;
+  max-width: 150px;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 10px var(--shadow-light);
+  display: none;
+  object-fit: cover;
+}
+
+/* Boutons */
+.btn-submit {
+  background-color: var(--orange-accent);
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.6rem 2rem;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.45);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-submit:hover,
+.btn-submit:focus {
+  background-color: #ea580c;
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.6);
+  outline: none;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-cancel {
+  margin-left: 1rem;
+  padding: 0.55rem 1.8rem;
+  font-weight: 600;
+  border-radius: 0.6rem;
+  background-color: #6c757d; /* bootstrap secondary */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-cancel:hover,
+.btn-cancel:focus {
+  background-color: #5a6268;
+  text-decoration: none;
+  color: white;
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .form-container {
+    padding: 1.5rem 1.5rem;
+  }
+  .btn-submit, .btn-cancel {
+    width: 100%;
+    margin: 0.5rem 0 0 0;
+  }
+  .btn-cancel {
+    margin-left: 0;
+  }
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+}

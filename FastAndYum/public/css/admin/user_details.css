@@ -1,0 +1,163 @@
+
+    /* user_details */
+    *{ text-decoration: none !important; }
+    :root {
+     --orange: #f97316;
+      --brown: #7c3f00;
+      --red: #ef4444;
+      --blue-ciel: #38bdf8;
+      --light-bg: #fff7ed;
+      --light-border: #f5c9a0;
+      --dark-text: #3e2f1c;
+      --shadow-color: rgba(249, 115, 22, 0.3);
+    }
+
+    .user_details {
+      background-color: #fafafa;
+      color: var(--dark-text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .card-custom {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px var(--shadow-color);
+      padding: 30px;
+      max-width: 900px;
+      margin: 3rem auto;
+      transition: box-shadow 0.3s ease;
+    }
+    .card-custom:hover {
+      box-shadow: 0 10px 25px var(--shadow-color);
+    }
+
+    h2, h4 {
+      color: var(--brown);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .profile-img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--orange);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .profile-img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px var(--orange);
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .user-info .name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--brown);
+    }
+    .user-info .username {
+      color: var(--orange);
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    .table-responsive {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    table {
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      width: 100%;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--light-border);
+      vertical-align: middle;
+    }
+    th {
+      background-color: var(--orange);
+      color: black;
+      font-weight: 600;
+      text-align: left;
+    }
+    tbody tr:hover {
+      background-color: var(--light-bg);
+      cursor: default;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Buttons */
+    .btn-orange {
+      background-color: var(--orange);
+      border: none;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .btn-orange:hover {
+      background-color: var(--brown);
+      color: #fff;
+      text-decoration: none;
+    }
+    .btn-danger {
+      border-radius: 30px;
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--orange);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--brown);
+      text-decoration: underline;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 576px) {
+      .user-info {
+        flex-direction: column;
+        text-align: center;
+      }
+      .user-info .name {
+        font-size: 1.3rem;
+      }
+      .user-info .username {
+        font-size: 0.9rem;
+      }
+      th, td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+      }
+      .btn-orange, .btn-danger {
+        padding: 6px 14px;
+        font-size: 0.85rem;
+      }
+    }
