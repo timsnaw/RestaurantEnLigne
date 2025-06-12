@@ -25,19 +25,20 @@
                 </div>
             </div>
 
-            <a href="index.php?page=Apropos">À propos</a>
+            <a href="index.php?page=apropos">À propos</a>
             <a href="index.php?page=promotions">Promotions</a>
             <a href="index.php?page=contact">Contact</a>
 <!--recherche-->
-            <form class="search-form" action="#" method="get">
-                <input type="text" name="q" class="search-input" placeholder="Rechercher...">
+           <form class="search-form" action="#" method="get" id="search-form">
+                <input type="text" name="q" class="search-input" id="search-input" placeholder="Rechercher...">
                 <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                <div id="search-results" class="search-results"></div>
             </form>
 <!--end recherche-->
             <a href="index.php?page=panier" class="btn btn-outline-secondary rounded-pill" style="margin-left: 10px;">
                 <i class="fas fa-shopping-cart"></i> Panier
             </a>
-            <?php if (!isset($_SESSION['user_id'])): ?>
+            <?php if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== "client"): ?>
              <a href="index.php?page=connexion" class="btn btn-outline-secondary rounded-pill" style="margin-left: 10px;">
                             <i class="fas fa-user"></i> connexion
                         </a>
@@ -47,5 +48,5 @@
 
         </nav>
     </header>
-
+<script src="public/js/search.js"></script>
     <!-- Navbar End -->

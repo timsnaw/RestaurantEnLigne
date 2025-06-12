@@ -1,0 +1,101 @@
+:root {
+  --primary-orange: #ff6b35;
+  --dark-orange: #e85c2f;
+  --light-gray: #f8f9fa;
+  --gray: #dee2e6;
+  --dark: #343a40;
+  --success-green: #28a745;
+  --error-red: #dc3545;
+  --white: #ffffff;
+  --radius: 10px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: var(--light-gray);
+  padding: 40px;
+  color: var(--dark);
+}
+
+/* Title */
+h2 {
+  text-align: center;
+  color: var(--primary-orange);
+  margin-bottom: 30px;
+}
+
+/* Form Container */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Elements */
+form > div {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  display: block;
+  color: var(--dark);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--gray);
+  border-radius: var(--radius);
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 107, 53, 0.4);
+}
+
+/* Messages */
+.error-message,
+p[style*="red"] {
+  color: var(--error-red);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+p[style]:not([style*="red"]) {
+  color: var(--success-green);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Buttons */
+button[type="submit"],
+a[href*="promotion_info"] {
+  background-color: var(--primary-orange);
+  color: var(--white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button[type="submit"]:hover,
+a[href*="promotion_info"]:hover {
+  background-color: var(--dark-orange);
+  box-shadow: 0 4px 8px rgba(232, 92, 47, 0.3);
+}

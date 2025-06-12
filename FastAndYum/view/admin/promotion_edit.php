@@ -10,6 +10,14 @@
             margin-top: 5px;
         }
     </style>
+    <!-- Favicon -->
+  <link href="public/img/logo1.png" rel="icon" />
+
+  <!-- Bootstrap CSS -->
+  <link href="public/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="public/css/admin/promotion_edit.css" rel="stylesheet" />
 </head>
 <body>
     <div>

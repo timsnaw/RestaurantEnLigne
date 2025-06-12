@@ -11,6 +11,75 @@ if (!isset($orders)) {
     <link rel="stylesheet" href="./public/css/bootstrap.min.css">
     <title>Mes Commandes</title>
 </head>
+<style>
+    /* commandes.css */
+
+/* Améliorer le style du tableau */
+table.table {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table.table thead {
+    background-color: #2980b9;
+    color: white;
+}
+
+table.table thead th {
+    border: none;
+    font-weight: 600;
+    text-align: center;
+}
+
+table.table tbody tr:hover {
+    background-color: #f0f8ff;
+}
+
+table.table tbody td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Boutons */
+.btn-sm {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+    border-color: #c0392b;
+}
+
+.btn-primary {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.btn-primary:hover {
+    background-color: #1c5980;
+    border-color: #1c5980;
+}
+
+/* Messages d'alerte */
+.alert {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Container margin top plus grand */
+.container.mt-4 {
+    margin-top: 2.5rem !important;
+}
+
+</style>
 <body>
     <div class="container mt-4">
         <h2>Mes Commandes</h2>

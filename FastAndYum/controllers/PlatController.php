@@ -1,4 +1,9 @@
 <?php
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', __DIR__ . '/../../');
+}
+
+require_once BASE_PATH . 'config/connexion.php';
 require_once BASE_PATH . 'models/PlatModel.php';
 
 class PlatController {
@@ -11,6 +16,11 @@ class PlatController {
     }
 
     public function gererDemande() {
+        if (!isset($_SESSION['admin_id']) || $_SESSION['role'] !== 'admin') {
+            header("Location: index.php?page=admin_login");
+            exit;
+        }
+        
         $action = $_GET['page'] ?? 'plats';
 
         switch ($action) {

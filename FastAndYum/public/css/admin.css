@@ -1,3 +1,5 @@
+/*admin*/
+*{ text-decoration: none !important; }
 body {
     margin: 0;
     padding: 0;
@@ -60,3 +62,55 @@ body {
     height: 100%;
     border: none;
 }
+.view-btn {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-btn:hover {
+    background-color: #0056b3; /* couleur hover */
+    transform: scale(1.05);    /* léger zoom */
+}
+
+/* Sidebar Part */
+
+  .logo-img {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .logo-img:hover {
+    transform: scale(1.08);
+    opacity: 0.9;
+  }
+
+  .nav-link {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 8px;
+  }
+
+  .nav-link:hover {
+    background-color: #ffc107 !important; 
+    color: #212529 !important; 
+    transform: translateX(5px);
+  }
+
+  .nav-link i {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-link:hover i {
+    transform: rotate(-10deg) scale(1.2);
+  }
+
+
+  .btn-danger {
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+
+
+
+  

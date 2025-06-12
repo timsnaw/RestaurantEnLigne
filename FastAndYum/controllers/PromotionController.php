@@ -14,6 +14,11 @@ class PromotionController {
     }
 
     public function gererDemande() {
+        if (!isset($_SESSION['admin_id']) || $_SESSION['role'] !== 'admin') {
+            header("Location: index.php?page=admin_login");
+            exit;
+        }
+        
         $page = isset($_GET['page']) ? $_GET['page'] : 'promotion_info';
         switch ($page) {
             case 'promotion_info':

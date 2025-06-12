@@ -13,8 +13,13 @@ class AdminModificationController {
         $this->model = new AdminModificationModel($pdo);
     }
 
-    // Gère les demandes pour les différentes pages
+    // Gere les demandes pour les differentes pages
     public function gererDemande() {
+        if (!isset($_SESSION['admin_id']) || $_SESSION['role'] !== 'admin') {
+            header("Location: index.php?page=admin_login");
+            exit;
+        }
+        
         $action = isset($_GET['page']) ? $_GET['page'] : 'admin_info';
 
         switch ($action) {

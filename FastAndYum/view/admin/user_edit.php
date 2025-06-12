@@ -1,72 +1,81 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="public/css/bootstrap.min.css">
-    <title>Modifier un utilisateur</title>
+  <meta charset="UTF-8" />
+  <title>Modifier un utilisateur</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="public/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <!-- Favicon -->
+  <link href="public/img/logo1.png" rel="icon" />
+
+  <!-- Libraries -->
+  <link href="public/lib/animate/animate.min.css" rel="stylesheet" />
+  <link href="public/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap -->
+  <link href="public/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="public/css/fastyum.css" rel="stylesheet" />
+  <link href="public/css/admin/user_edit.css" rel="stylesheet" />
+
+  
 </head>
-<body>
-    <div>
-        <h2>Modifier un utilisateur</h2>
+<body class="user_edit">
 
-        <?php if (isset($_SESSION['error'])): ?>
-            <div><?php echo htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?></div>
-        <?php endif; ?>
+  <div class="card-custom">
 
-        <?php if (isset($_SESSION['success'])): ?>
-            <div><?php echo htmlspecialchars($_SESSION['success']); unset($_SESSION['success']); ?></div>
-        <?php endif; ?>
+    <h2>Modifier un utilisateur</h2>
 
-        <?php if (isset($userInfo) && $userInfo): ?>
-            <form method="POST" action="index.php?page=user_edit&user_id=<?php echo $userInfo['user_id']; ?>">
+    <?php if (isset($_SESSION['error'])): ?>
+      <div class="alert alert-error"><?php echo htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?></div>
+    <?php endif; ?>
 
-                <div>
-                    <label>Nom d'utilisateur</label>
-                    <input type="text" name="username" value="<?php echo htmlspecialchars($userInfo['username']); ?>" required>
-                </div>
+    <?php if (isset($_SESSION['success'])): ?>
+      <div class="alert alert-success"><?php echo htmlspecialchars($_SESSION['success']); unset($_SESSION['success']); ?></div>
+    <?php endif; ?>
 
-                <div>
-                    <label>Prénom</label>
-                    <input type="text" name="prenom" value="<?php echo htmlspecialchars($userInfo['prenom']); ?>" required>
-                </div>
+    <?php if (isset($userInfo) && $userInfo): ?>
+      <form method="POST" action="index.php?page=user_edit&user_id=<?php echo $userInfo['user_id']; ?>">
 
-                <div>
-                    <label>Nom</label>
-                    <input type="text" name="nom" value="<?php echo htmlspecialchars($userInfo['nom']); ?>" required>
-                </div>
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($userInfo['username']); ?>" required>
 
-                <div>
-                    <label>Email</label>
-                    <input type="email" name="email" value="<?php echo htmlspecialchars($userInfo['email']); ?>" required>
-                </div>
+        <label for="prenom">Prénom</label>
+        <input type="text" id="prenom" name="prenom" value="<?php echo htmlspecialchars($userInfo['prenom']); ?>" required>
 
-                <div>
-                    <label>Téléphone</label>
-                    <input type="text" name="telephone" value="<?php echo htmlspecialchars($userInfo['telephone']); ?>" required>
-                </div>
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" value="<?php echo htmlspecialchars($userInfo['nom']); ?>" required>
 
-                <div>
-                    <label>Adresse</label>
-                    <textarea name="adresse" required><?php echo htmlspecialchars($userInfo['adresse']); ?></textarea>
-                </div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($userInfo['email']); ?>" required>
 
-                <div>
-                    <label>Nouveau mot de passe (laisser vide pour ne pas le modifier)</label>
-                    <input type="password" name="password">
-                </div>
+        <label for="telephone">Téléphone</label>
+        <input type="text" id="telephone" name="telephone" value="<?php echo htmlspecialchars($userInfo['telephone']); ?>" required>
 
-                <div>
-                    <label>Confirmer le mot de passe</label>
-                    <input type="password" name="confirm_password">
-                </div>
+        <label for="adresse">Adresse</label>
+        <textarea id="adresse" name="adresse" required><?php echo htmlspecialchars($userInfo['adresse']); ?></textarea>
 
-                <button type="submit">Mettre à jour</button>
-                <a href="index.php?page=user_details&user_id=<?php echo $userInfo['user_id']; ?>">Annuler</a>
-            </form>
-        <?php else: ?>
-            <p>Aucune information disponible pour cet utilisateur.</p>
-            <a href="index.php?page=user_info">Retour à la liste</a>
-        <?php endif; ?>
-    </div>
+        <label for="password">Nouveau mot de passe (laisser vide pour ne pas le modifier)</label>
+        <input type="password" id="password" name="password">
+
+        <label for="confirm_password">Confirmer le mot de passe</label>
+        <input type="password" id="confirm_password" name="confirm_password">
+
+        <button type="submit">Mettre à jour</button>
+      </form>
+
+      <a href="index.php?page=user_details&user_id=<?php echo $userInfo['user_id']; ?>" class="btn-cancel">Annuler</a>
+
+    <?php else: ?>
+      <p>Aucune information disponible pour cet utilisateur.</p>
+      <a href="index.php?page=user_info" class="btn-cancel">Retour à la liste</a>
+    <?php endif; ?>
+
+  </div>
+
+  <script src="public/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

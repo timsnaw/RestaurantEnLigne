@@ -3,36 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajouter Plat</title>
-    <style>
-        .error-message {
-            color: red;
-            display: none;
-            margin-top: 5px;
-            font-size: 14px;
-        }
-        .image-preview {
-            max-width: 100px;
-            margin-top: 10px;
-            display: none;
-        }
-        .secondary-image-preview {
-            max-width: 100px;
-            margin: 10px 0;
-        }
-        .image-group {
-            margin-bottom: 10px;
-        }
-        .info-message {
-            color: #555;
-            font-size: 12px;
-            margin-top: 5px;
-        }
-        button {
-            margin: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-    </style>
+  
+    <!-- Favicon -->
+  <link href="public/img/logo1.png" rel="icon" />
+
+  <!-- Bootstrap CSS -->
+  <link href="public/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="public/css/admin/plat_add.css" rel="stylesheet" />
 </head>
 <body>
     <div>

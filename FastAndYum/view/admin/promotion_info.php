@@ -5,6 +5,14 @@
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <title>Liste des promotions</title>
 </head>
+<!-- Favicon -->
+  <link href="public/img/logo1.png" rel="icon" />
+
+  <!-- Bootstrap CSS -->
+  <link href="public/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="public/css/admin/promotion_info.css" rel="stylesheet" />
 <body>
     <div >
         <h2>Liste des promotions</h2>

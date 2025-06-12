@@ -10,7 +10,7 @@ class AdminModificationModel {
     // Récupère tous les administrateurs depuis la base de données
     public function getToutAdmin() {
         try {
-            $stmt = $this->pdo->prepare("SELECT user_id, username, prenom, nom, email, date_inscription FROM utilisateur WHERE role = 'admin'");
+            $stmt = $this->pdo->prepare("SELECT * FROM utilisateur WHERE role = 'admin'");
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
@@ -21,7 +21,7 @@ class AdminModificationModel {
     // Récupère les informations d’un administrateur à partir de son ID
     public function getAdminById($user_id) {
         try {
-            $stmt = $this->pdo->prepare("SELECT user_id, username, prenom, nom, email, date_inscription FROM utilisateur WHERE user_id = ? AND role = 'admin'");
+            $stmt = $this->pdo->prepare("SELECT * FROM utilisateur WHERE user_id = ? AND role = 'admin'");
             $stmt->execute([$user_id]);
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {

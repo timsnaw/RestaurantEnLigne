@@ -18,6 +18,11 @@ class CommandeController {
 
     // Gère les différentes pages selon la valeur de "page" dans l'URL
     public function gererDemande() {
+        if (!isset($_SESSION['admin_id']) || $_SESSION['role'] !== 'admin') {
+            header("Location: index.php?page=admin_login");
+            exit;
+        }
+        
         $page = isset($_GET['page']) ? $_GET['page'] : 'commandes_info';
         switch ($page) {
             case 'commandes_info':

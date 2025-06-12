@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>Informations sur le plat</title>
 </head>
+<!-- Favicon -->
+  <link href="public/img/logo1.png" rel="icon" />
+
+  <!-- Bootstrap CSS -->
+  <link href="public/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="public/css/admin/plat_info.css" rel="stylesheet" />
 <body>
     <div>
         <h2>Informations sur le plat - <?= htmlspecialchars($plat['titre'] ?? 'Plat'); ?></h2>

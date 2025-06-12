@@ -18,15 +18,6 @@ class UserController {
 
     // Gérer les pages
     public function gererDemande($page = 'userPage') {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-
-        if (!isset($_SESSION['user_id']) && !in_array($page, ['connexion', 'register_user'])) {
-            header('Location: index.php?page=connexion');
-            exit;
-        }
-
         switch ($page) {
             case 'utilisateur_info':
                 $this->userInfo();
@@ -35,7 +26,7 @@ class UserController {
                 $this->userEdit();
                 break;
             case 'userPage':
-                include BASE_PATH . 'view/user/userPage.php';
+                $this->userPage();
                 break;
             case 'commande_user_info':
                 $this->commandesInfo();
@@ -70,9 +61,19 @@ class UserController {
         }
     }
 
+    //permet de tester si utilisateur et autentifier ou non 
+    private function userPage() {
+        if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== "client") {
+            header('Location: index.php?page=connexion');
+            exit;
+        }
+        $user = $this->model->getUserInfo($_SESSION['user_id']);
+        include BASE_PATH . 'view/user/userPage.php';
+    }
+
     // Affiche les informations de l'utilisateur
     private function userInfo() {
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== "client") {
             header('Location: index.php?page=connexion');
             exit;
         }
@@ -82,7 +83,7 @@ class UserController {
 
     // Affiche le formulaire d'édition du profil
     private function userEdit() {
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== "client") {
             header('Location: index.php?page=connexion');
             exit;
         }
@@ -92,7 +93,7 @@ class UserController {
 
     // Affiche les commandes de l'utilisateur
     private function commandesInfo() {
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== "client") {
             header('Location: index.php?page=connexion');
             exit;
         }
@@ -292,9 +293,10 @@ class UserController {
                 exit;
             }
 
-            $user_id = $this->model->login($email, $password);
-            if ($user_id) {
-                $_SESSION['user_id'] = $user_id;
+            $user = $this->model->login($email, $password);
+            if ($user) {
+                $_SESSION['user_id'] = $user['user_id'];
+                $_SESSION['role'] = $user['role'];
                 $_SESSION['message'] = "connexion avec succès.";
                 unset($_SESSION['csrf_token']);
                 header('Location: index.php?page=connexion');
@@ -406,6 +408,8 @@ class UserController {
 
     // Déconnecte l'utilisateur
     private function logout() {
+        session_start();
+        session_unset();
         session_destroy();
         header('Location: index.php?page=connexion');
         exit;

@@ -122,11 +122,11 @@ class UserModel {
 
     // Authentifie un utilisateur avec email et mot de passe
     public function login($email, $password) {
-        $stmt = $this->pdo->prepare("SELECT user_id, password FROM utilisateur WHERE email = ?");
+        $stmt = $this->pdo->prepare("SELECT user_id, password ,role FROM utilisateur WHERE email = ? AND role = 'client'");
         $stmt->execute([$email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($user && password_verify($password, $user['password'])) {
-            return $user['user_id'];
+            return $user;
         }
         return false;
     }
@@ -134,8 +134,8 @@ class UserModel {
     // Enregistre un nouvel utilisateur dans la base de données
     public function register($data) {
         $stmt = $this->pdo->prepare(
-            "INSERT INTO utilisateur (username, prenom, nom, email, telephone, adresse, password, role, date_inscription)
-             VALUES (?, ?, ?, ?, ?, ?, ?, 'client', NOW())"
+            "INSERT INTO utilisateur (username, prenom, nom, email, telephone, adresse,image_client, password, role, date_inscription)
+             VALUES (?, ?, ?, ?, ?, ?,'user.png', ?, 'client', NOW())"
         );
         $hashed_password = password_hash($data['password'], PASSWORD_DEFAULT);
         try {

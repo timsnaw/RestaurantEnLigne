@@ -54,14 +54,14 @@
                                 <div class="col-lg-7">
 
                                     <br><br><br><br><br><br><br><br><br><br><br>
-                                    <a href="index.php?url=promotions" class="btn py-sm-2 px-sm-4 me-2"
+                                    <a href="index.php?page=promotions" class="btn py-sm-2 px-sm-4 me-2"
                                         style="border: 2px solid red; color: red; border-radius: 8px; background-color: transparent; font-weight: bold;"
                                         onmouseover="this.style.backgroundColor='red'; this.style.color='white';"
                                         onmouseout="this.style.backgroundColor='transparent'; this.style.color='red';">
                                         Afficher plus
                                     </a>
 
-                                    <a href="index.php?url=menu" class="btn py-sm-2 px-sm-4"
+                                    <a href="index.php?page=menu" class="btn py-sm-2 px-sm-4"
                                         style="border: 2px solid red; background-color: red; color: white; border-radius: 8px; font-weight: bold;"
                                         onmouseover="this.style.backgroundColor='transparent'; this.style.color='red';"
                                         onmouseout="this.style.backgroundColor='red'; this.style.color='white';">
@@ -187,7 +187,7 @@
     <br><br>
     <!--promo-->
     <section class="promo-section">
-        <a href="index.php?url=promotions" class="promo-button">Order Now</a>
+        <a href="index.php?page=promotions" class="promo-button">Order Now</a>
     </section>
     <!--end promo-->
 
@@ -195,7 +195,7 @@
     <br><br><br>
 
 
-        <!-- AVIS -->
+       <!-- AVIS -->
 <div class="container-fluid py-6 mb-5"
      style="background: linear-gradient(to bottom, rgba(255, 165, 0, 0.4), rgba(255, 255, 255, 0.8));">
     <div class="container">
@@ -214,7 +214,20 @@
                              alt="<?php echo htmlspecialchars($review['prenom'] . ' ' . $review['nom']); ?>">
                         <div class="ms-3">
                             <h5 class="mb-1"><?php echo htmlspecialchars($review['prenom'] . ' ' . $review['nom']); ?></h5>
-                            <span><?php echo htmlspecialchars($review['note']); ?>/5</span>
+                            <div class="product-rating text-warning">
+                                <?php
+                                $rating = $review['note'] ?: 5;
+                                for ($i = 1; $i <= 5; $i++) {
+                                    if ($rating >= $i) {
+                                        echo '<i class="fas fa-star" style="font-size: 12px;"></i>';
+                                    } elseif ($rating >= $i - 0.5) {
+                                        echo '<i class="fas fa-star-half-alt" style="font-size: 12px;"></i>';
+                                    } else {
+                                        echo '<i class="far fa-star" style="font-size: 12px;"></i>';
+                                    }
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -223,56 +236,6 @@
     </div>
 </div>
 <!-- Avis End -->
-
-
-    <!--footer-->
-    <footer class="modern-footer observe">
-
-        <div class="footer-col brand">
-            <a href="/index.html"><img src="public/img/logo1.png" width="70px"></a><br><br>
-            <font color="black">
-                <p>Mardi – Samedi : 12h00 – 23h00</p>
-                <p><strong>Fermé le dimanche</strong></p>
-                <p>La meilleure nourriture du pays</p>
-            </font>
-        </div>
-
-        <div class="footer-col">
-            <h4>Contact</h4>
-            <p><strong>Adresse :</strong> 12 Rue des Délices, Casablanca, Maroc</p>
-            <p>Téléphone : +212 5 22 33 44 XX</p>
-            <p>Email : fastyum@gmail.ma</p>
-        </div>
-
-        <div class="footer-col">
-            <h4>Menu</h4>
-            <ul>
-                <a href="index.php?url=menu#tab-1">
-                    <li>&rsaquo; Burgers</li>
-                </a>
-                <a href="index.php?url=menu#tab-3">
-                    <li>&rsaquo; Pizza</li>
-                </a>
-                <a href="index.php?url=menu#tab-2">
-                    <li>&rsaquo; Tacos</li>
-                </a>
-                <a href="index.php?url=menu#tab-4">
-                    <li>&rsaquo; Salades</li>
-                </a>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>Contactez-nous</h4>
-            <form onsubmit="sendToWhatsApp(event)">
-                <textarea id="whatsappMessage" placeholder="Message" required></textarea>
-                <button type="submit">Envoyer</button>
-            </form>
-        </div>
-
-    </footer>
-    <!-- Footer End -->
-
 
 
 

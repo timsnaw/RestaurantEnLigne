@@ -105,7 +105,7 @@ function sendToWhatsApp(event) {
     function showTabFromHash() {
         let hash = window.location.hash;
         if (!hash || hash === "#") {
-            hash = "#tab-1"; 
+            hash = "#tab-12"; 
         }
 
         const tabPanes = document.querySelectorAll(".tab-pane");
@@ -163,6 +163,21 @@ function changeImage(src) {
                 qty.value = parseInt(qty.value) - 1;
             }
         }
+// pour details plat
+        function decreaseQuantity() {
+    let quantity = parseInt(document.getElementById('quantity').value);
+    if (quantity > 1) {
+        document.getElementById('quantity').value = quantity - 1;
+    }
+}
 
+function increaseQuantity() {
+    let quantity = parseInt(document.getElementById('quantity').value);
+    document.getElementById('quantity').value = quantity + 1;
+}
+
+function changeImage(src) {
+    document.getElementById('mainImage').src = src;
+}
 
   

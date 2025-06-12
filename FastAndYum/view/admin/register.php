@@ -2,52 +2,65 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inscription Administrateur</title>
+
+  <!-- Favicon -->
+  <link href="public/img/logo1.png" rel="icon" />
+
+  <!-- Bootstrap -->
+  <link href="public/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- CSS personnalisé -->
+  <link href="public/css/admin/register.css" rel="stylesheet" />
 </head>
 <body>
+  <div class="container user_register">
+    <h2>Inscription Administrateur</h2>
 
-  <h2>Inscription Administrateur</h2>
+    <?php if (!empty($_SESSION['error'])): ?>
+      <div class="alert alert-danger"><?= htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?></div>
+    <?php elseif (!empty($_SESSION['success'])): ?>
+      <div class="alert alert-success"><?= htmlspecialchars($_SESSION['success']); unset($_SESSION['success']); ?></div>
+    <?php endif; ?>
 
-  <?php
-    // Affichage conditionnel des messages (sans classe, seulement inline style)
-    if (!empty($_SESSION['error'])) {
-      echo '<div style="color: red; margin-bottom: 15px;">' . htmlspecialchars($_SESSION['error']) . '</div>';
-      unset($_SESSION['error']);
-    } elseif (!empty($_SESSION['success'])) {
-      echo '<div style="color: green; margin-bottom: 15px;">' . htmlspecialchars($_SESSION['success']) . '</div>';
-      unset($_SESSION['success']);
-    }
-  ?>
+    <form class="form-custom" method="POST" action="index.php?page=register">
 
-  <form method="POST" action="index.php?page=register">
+      <div class="form-group">
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" id="username" name="username" required />
+      </div>
 
-    <label>Nom d'utilisateur<br />
-      <input type="text" name="username" required />
-    </label><br /><br />
+      <div class="form-group">
+        <label for="prenom">Prénom</label>
+        <input type="text" id="prenom" name="prenom" required />
+      </div>
 
-    <label>Prénom<br />
-      <input type="text" name="prenom" required />
-    </label><br /><br />
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" required />
+      </div>
 
-    <label>Nom<br />
-      <input type="text" name="nom" required />
-    </label><br /><br />
+      <div class="form-group">
+        <label for="email">Adresse e-mail</label>
+        <input type="email" id="email" name="email" required />
+      </div>
 
-    <label>Adresse e-mail<br />
-      <input type="email" name="email" required />
-    </label><br /><br />
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" required />
+      </div>
 
-    <label>Mot de passe<br />
-      <input type="password" name="password" required />
-    </label><br /><br />
+      <div class="form-group">
+        <label for="confirm_password">Confirmer le mot de passe</label>
+        <input type="password" id="confirm_password" name="confirm_password" required />
+      </div>
 
-    <label>Confirmer le mot de passe<br />
-      <input type="password" name="confirm_password" required />
-    </label><br /><br />
-
-    <input type="submit" value="S'inscrire" name="inscrire" />
-
-  </form>
-  <a href="index.php?page=admin_info">Retour à la liste</a>
+      <div class="actions">
+        <input type="submit" name="inscrire" value="S'inscrire" class="btn-blue" />
+        <a href="index.php?page=admin_info" class="btn btn-secondary">Retour à la liste</a>
+      </div>
+    </form>
+  </div>
 </body>
 </html>

@@ -106,7 +106,77 @@ include 'view/includes/header.php';
         </form>
     </div>
     <br><br><br><br>
+<!-- Comments Section -->
+<div class="mt-5">
+    <h3 class="fw-bold">Avis des clients</h3>
+    <div id="alert-container"></div>
+    <div class="comments-list" id="comments-list">
+        <?php if (!empty($data['avis'])): ?>
+            <?php foreach ($data['avis'] as $avis): ?>
+                <div class="comment-item border p-3 mb-3 rounded" data-avis-id="<?php echo htmlspecialchars($avis['avis_id']); ?>">
+                    <div class="d-flex align-items-center">
+                        <img src="public/img/<?php echo htmlspecialchars($avis['image_client'] ?: 'default_user.png'); ?>" alt="User" class="rounded-circle" style="width: 40px; height: 40px;">
+                        <div class="ms-3">
+                            <strong><?php echo htmlspecialchars($avis['prenom'] . ' ' . $avis['nom']); ?></strong>
+                            <div class="text-warning">
+                                <?php
+                                $note = $avis['note'];
+                                if ($note == 0) {
+                                    echo '<span class="text-muted">Aucune étoile</span>';
+                                } else {
+                                    for ($i = 1; $i <= 5; $i++) {
+                                        echo '<i class="' . ($note >= $i ? 'fas' : 'far') . ' fa-star" style="font-size: 12px;"></i>';
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-2"><?php echo htmlspecialchars($avis['commentaire']); ?></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted"><?php echo date('d/m/Y H:i', strtotime($avis['date_avis'])); ?></small>
+                        <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $avis['user_id']): ?>
+                            <form class="delete-comment-form" method="POST" action="index.php?page=details&action=delete_comment&plat_id=<?php echo htmlspecialchars($data['product']['plat_id']); ?>&avis_id=<?php echo htmlspecialchars($avis['avis_id']); ?>">
+                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                                <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+                            </form>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p id="no-comments">Aucun avis pour ce plat pour le moment.</p>
+        <?php endif; ?>
+    </div>
 
+<!-- Comment Form for Authenticated Clients -->
+<?php if (isset($_SESSION['user_id'])): ?>
+    <div class="mt-4">
+        <h4>Ajouter un avis</h4>
+        <form id="add-comment-form" method="POST" action="index.php?page=details&action=add_comment&plat_id=<?php echo htmlspecialchars($data['product']['plat_id']); ?>">
+            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
+            <div class="mb-3">
+                <label for="note" class="form-label">Note :</label>
+                <div class="star-rating">
+                    <input type="radio" name="note" id="star5" value="5" checked><label for="star5"><i class="fas fa-star"></i></label>
+                    <input type="radio" name="note" id="star4" value="4"><label for="star4"><i class="fas fa-star"></i></label>
+                    <input type="radio" name="note" id="star3" value="3"><label for="star3"><i class="fas fa-star"></i></label>
+                    <input type="radio" name="note" id="star2" value="2"><label for="star2"><i class="fas fa-star"></i></label>
+                    <input type="radio" name="note" id="star1" value="1"><label for="star1"><i class="fas fa-star"></i></label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="commentaire" class="form-label">Commentaire :</label>
+                <textarea name="commentaire" id="commentaire" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+    </div>
+<?php else: ?>
+    <p class="mt-3">Vous devez être connecté en tant que client pour laisser un avis. <a href="index.php?page=connexion">Se connecter</a></p>
+<?php endif; ?>
+</div>
+<!-- fin commentaire section -->
    <!-- Categories Start -->
     <div class="container-fluid py-5" style="background: linear-gradient(135deg, #f9f7f1, #e6d9b8);">
         <section class="section2">
@@ -137,6 +207,7 @@ include 'view/includes/header.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="public/lib/wow/wow.min.js"></script>
     <script src="public/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="public/js/comments.js"></script>
 
     <!-- Javascript -->
     <script src="public/js/main.js"></script>

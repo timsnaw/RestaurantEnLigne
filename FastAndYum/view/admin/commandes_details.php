@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Détails de la commande</title>
+          <!-- Favicon -->
+  <link href="public/img/logo1.png" rel="icon" />
+
+  <!-- Bootstrap CSS -->
+  <link href="public/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="public/css/admin/commandes_details.css" rel="stylesheet" />
 </head>
 <body>
     <div>
@@ -65,7 +73,6 @@
                             <th>Plat</th>
                             <th>Prix</th>
                             <th>Quantité</th>
-                            <th>Ajout</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -75,7 +82,6 @@
                                 <td><?php echo htmlspecialchars($ligne['titre'] ?? 'Plat ID: ' . $ligne['plat_id']); ?></td>
                                 <td><?php echo htmlspecialchars($ligne['prix']); ?></td>
                                 <td><?php echo htmlspecialchars($ligne['quantite']); ?></td>
-                                <td><?php echo htmlspecialchars($ligne['ajout']); ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

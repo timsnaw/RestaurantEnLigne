@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajouter une promotion</title>
-    <style>
-        .error-message {
-            color: red;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-    </style>
+    
+       <!-- Favicon -->
+  <link href="public/img/logo1.png" rel="icon" />
+
+  <!-- Bootstrap CSS -->
+  <link href="public/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="public/css/admin/promotion_add.css" rel="stylesheet" />
 </head>
 <body>
     <div>

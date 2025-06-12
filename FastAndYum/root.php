@@ -2,29 +2,14 @@
 session_start();
 define('BASE_PATH', __DIR__ . '/');
 
-//  configuration de la base de donnees 
-require_once BASE_PATH . 'config/connexion.php';
-
 // Root de toutes les pages
 $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : '';
 error_log("index.php traitement de la page: $page");
 
 switch ($page) {
-    case 'logout':
-        session_unset();
-        session_destroy();
-        $_SESSION['success'] = "You have been logged out successfully.";
-        header("Location: index.php?page=admin_login");
-        break;
     case 'admin':
-        if (!isset($_SESSION['user_id'])) {
-            header("Location: index.php?page=admin_login");
-            exit;
-        }
-        require_once BASE_PATH . 'view/admin/adminPage.php';
-        break;
-
     case 'admin_login':
+    case 'logout':
     case 'register':
     case 'export_pdf':
     case 'statistique':
@@ -98,10 +83,16 @@ switch ($page) {
         $userController = new UserController($pdo);
         $userController->gererDemande($page);
         break;
+    case 'checkout':
+        require_once BASE_PATH . 'controllers/ControllerCheckout.php';
+        $ControllerCheckout = new ControllerCheckout($pdo);
+        $ControllerCheckout->gererDemande($page, $_GET['action'] ?? null);
+        break;
+    case 'search':
     case 'details':
     case 'panier':
     case 'contact':
-    case 'Apropos':
+    case 'apropos':
     case 'home':
     case 'menu':
     case 'promotions':

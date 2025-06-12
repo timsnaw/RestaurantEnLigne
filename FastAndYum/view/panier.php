@@ -46,7 +46,7 @@ include 'view/includes/header.php';
     <form action="index.php?page=panier&action=modifier" method="post">
         <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <div class="mb-3">
-            <a href="index.php?page=menu" class="text-decoration-none">← Poursuivre les achats</a>
+            <a href="index.php?page=menu#tab-12" class="text-decoration-none">← Poursuivre les achats</a>
         </div>
 
         <h5 class="text-warning mb-4">Panier</h5>
@@ -87,7 +87,7 @@ include 'view/includes/header.php';
                         <strong><?php echo number_format($data['total'], 2); ?>DH</strong>
                     </div>
                     <div class="d-grid gap-2">
-                        <button type="submit" formaction="index.php?page=panier&action=acheter" class="btn btn-buy">Acheter →</button>
+                        <button type="submit" formaction="index.php?page=checkout" class="btn btn-buy">Acheter →</button>
                         <button type="submit"  class="btn btn-buy">modifier →</button>
                         <a href="index.php?page=menu" class="btn btn-return">Retour</a>
                     </div>

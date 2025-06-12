@@ -15,6 +15,11 @@ class UserModificationController {
 
     // Gere les actions selon la page demandée
     public function gererDemande() {
+        if (!isset($_SESSION['admin_id']) || $_SESSION['role'] !== 'admin') {
+            header("Location: index.php?page=admin_login");
+            exit;
+        }
+        
         $page = $_GET['page'] ?? '';
         switch ($page) {
             case 'user_info':

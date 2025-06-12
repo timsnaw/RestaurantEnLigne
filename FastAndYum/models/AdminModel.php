@@ -9,21 +9,24 @@ class AdminModel {
 
     // Permet de vérifier l'existence d'un admin
     public function verifieAdmin($email, $password) {
-        try {
-            $stmt = $this->pdo->prepare("SELECT user_id, password FROM utilisateur WHERE email = ? AND role = 'admin'");
-            $stmt->execute([$email]);
-            $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-            return ($admin && password_verify($password, $admin['password'])) ? $admin['user_id'] : false;
-        } catch (PDOException $e) {
-            return false;
-        }
+    try {
+        $stmt = $this->pdo->prepare("SELECT user_id, password, role FROM utilisateur WHERE email = ? AND role = 'admin'");
+        $stmt->execute([$email]);
+        $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Check password and return full admin data if valid
+        return ($admin && password_verify($password, $admin['password'])) ? $admin : false;
+    } catch (PDOException $e) {
+        return false;
     }
+}
+
 
     // Permet de créer un admin 
     public function creerAdmin($username, $email, $password, $prenom = '', $nom = '') {
         try {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-            $stmt = $this->pdo->prepare("INSERT INTO utilisateur (username, prenom, nom, email, password, role) VALUES (?, ?, ?, ?, ?, 'admin')");
+            $stmt = $this->pdo->prepare("INSERT INTO utilisateur (username, prenom, nom, email,image_client, password, role) VALUES (?, ?, ?, ?,'user.png', ?, 'admin')");
             return $stmt->execute([$username, $prenom, $nom, $email, $hashedPassword]);
         } catch (PDOException $e) {
             return false;

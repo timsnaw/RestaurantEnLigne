@@ -1,68 +1,18 @@
-```html
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Modifier Plat</title>
-    <style>
-        .error-message {
-            color: red;
-            display: none;
-            margin-top: 5px;
-            font-size: 14px;
-        }
-        .image-preview {
-            max-width: 100px;
-            margin-top: 10px;
-            display: none;
-        }
-        .secondary-image-container {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-        .secondary-image {
-            max-width: 100px;
-            margin: 10px;
-            position: relative;
-        }
-        .secondary-image img {
-            max-width: 100%;
-        }
-        .secondary-image .remove-btn {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: red;
-            color: white;
-            border: none;
-            cursor: pointer;
-            padding: 2px 5px;
-        }
-        .info-message {
-            color: #555;
-            font-size: 12px;
-            margin-top: 5px;
-        }
-        .image-group {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        .image-group input[type="file"] {
-            margin-right: 10px;
-        }
-        .image-group button {
-            margin: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        .secondary-image-preview {
-            max-width: 100px;
-            margin: 10px 0;
-            display: none;
-        }
-    </style>
+  
+    <!-- Favicon -->
+  <link href="public/img/logo1.png" rel="icon" />
+
+  <!-- Bootstrap CSS -->
+  <link href="public/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="public/css/admin/plat_edit.css" rel="stylesheet" />
 </head>
 <body>
     <div>

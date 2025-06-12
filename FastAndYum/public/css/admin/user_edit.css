@@ -1,0 +1,122 @@
+/* user-edit */
+  :root {
+      --orange: #f97316;
+      --brown: #7c3f00;
+      --red: #ef4444;
+      --blue-ciel: #38bdf8;
+      --light-bg: #fff7ed;
+      --light-border: #f5c9a0;
+      --dark-text: #3e2f1c;
+      --shadow-color: rgba(249, 115, 22, 0.3);
+    }
+
+    .user_edit {
+      background-color: #fafafa;
+      color: var(--dark-text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 2rem 1rem;
+    }
+
+    .card-custom {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px var(--shadow-color);
+      padding: 2.5rem;
+      transition: box-shadow 0.3s ease;
+    }
+    .card-custom:hover {
+      box-shadow: 0 10px 25px var(--shadow-color);
+    }
+
+    h2 {
+      color: var(--brown);
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 2px solid var(--light-border);
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    textarea:focus {
+      border-color: var(--orange);
+      outline: none;
+      box-shadow: 0 0 6px var(--orange);
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    button[type="submit"] {
+      background-color: var(--orange);
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+    button[type="submit"]:hover {
+      background-color: var(--brown);
+    }
+
+    .btn-cancel {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--orange);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .btn-cancel:hover {
+      color: var(--brown);
+      text-decoration: underline;
+    }
+
+    .alert {
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .alert-error {
+      background-color: #fdecea;
+      color: var(--red);
+      border: 1px solid #f5c6cb;
+    }
+
+    .alert-success {
+      background-color: #e6f4ea;
+      color: #256029;
+      border: 1px solid #c3e6cb;
+    }
+    

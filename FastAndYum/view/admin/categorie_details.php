@@ -1,89 +1,121 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Détails de la catégorie</title>
+
+    <!-- Favicon -->
+    <link href="public/img/logo1.png" rel="icon" />
+
+    <!-- Bootstrap -->
+    <link href="public/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="public/css/admin/categorie_details.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        
-        <?php if (isset($_SESSION['error'])): ?>
-            <p style="color: red;">
-                <?php echo htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?>
-            </p>
-        <?php endif; ?>
 
-        <?php if (isset($_SESSION['success'])): ?>
-            <p style="color: green;">
-                <?php echo htmlspecialchars($_SESSION['success']); unset($_SESSION['success']); ?>
-            </p>
-        <?php endif; ?>
-        <h2>Détails de la catégorie</h2>
-        <?php if (isset($categorieInfo) && $categorieInfo): ?>
-            <table border="1" cellpadding="8" cellspacing="0">
-                <tr>
-                    <th>Identifiant</th>
-                    <td><?php echo htmlspecialchars($categorieInfo['categorie_id']); ?></td>
-                </tr>
-                <tr>
-                    <th>Nom</th>
-                    <td><?php echo htmlspecialchars($categorieInfo['nom_categorie']); ?></td>
-                </tr>
-                <tr>
-                    <th>Image</th>
-                    <td>
-                        <?php if ($categorieInfo['image_categorie']): ?>
-                            <img src="public/img/<?php echo htmlspecialchars($categorieInfo['image_categorie']); ?>" alt="Image Catégorie" style="max-width: 100px;">
-                        <?php else: ?>
-                            Aucune image
-                        <?php endif; ?>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Date de création</th>
-                    <td><?php echo htmlspecialchars($categorieInfo['date_ajout'] ?? 'Non disponible'); ?></td>
-                </tr>
-            </table>
+<div class="container categorie-details-page my-5">
 
-            <h3>Plats dans cette catégorie</h3>
-            <?php if (empty($plats)): ?>
-                <p>Aucun plat trouvé.</p>
-            <?php else: ?>
-                <table border="1" cellpadding="8" cellspacing="0">
+    <?php if (isset($_SESSION['error'])): ?>
+        <div class="alert alert-danger text-center" role="alert">
+            <?= htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['success'])): ?>
+        <div class="alert alert-success text-center" role="alert">
+            <?= htmlspecialchars($_SESSION['success']); unset($_SESSION['success']); ?>
+        </div>
+    <?php endif; ?>
+
+    <h2 class="mb-4 text-center">Détails de la catégorie</h2>
+
+    <?php if (isset($categorieInfo) && $categorieInfo): ?>
+        <div class="table-responsive mb-5 shadow rounded p-3 bg-white">
+            <table class="table table-bordered mb-0">
+                <tbody>
                     <tr>
-                        <th>ID du plat</th>
-                        <th>Titre</th>
-                        <th>Description</th>
-                        <th>Prix</th>
-                        <th>Image</th>
+                        <th>Identifiant</th>
+                        <td><?= htmlspecialchars($categorieInfo['categorie_id']); ?></td>
                     </tr>
-                    <?php foreach ($plats as $plat): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($plat['plat_id']); ?></td>
-                            <td><?php echo htmlspecialchars($plat['titre']); ?></td>
-                            <td><?php echo htmlspecialchars($plat['description'] ?? 'Non disponible'); ?></td>
-                            <td><?php echo htmlspecialchars($plat['prix']); ?></td>
-                            <td>
-                                <?php if ($plat['image']): ?>
-                                    <img src="public/img/<?php echo htmlspecialchars($plat['image']); ?>" alt="Image Plat" style="max-width: 50px;">
-                                <?php else: ?>
-                                    Aucune image
-                                <?php endif; ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </table>
-            <?php endif; ?>
+                    <tr>
+                        <th>Nom</th>
+                        <td><?= htmlspecialchars($categorieInfo['nom_categorie']); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Image</th>
+                        <td>
+                            <?php if ($categorieInfo['image_categorie']): ?>
+                                <img src="public/img/<?= htmlspecialchars($categorieInfo['image_categorie']); ?>" alt="Image Catégorie" class="img-thumbnail" style="max-width: 150px;">
+                            <?php else: ?>
+                                <span class="text-muted">Aucune image</span>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Date de création</th>
+                        <td><?= htmlspecialchars($categorieInfo['date_ajout'] ?? 'Non disponible'); ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-            <p>
-                <a href="index.php?page=categorie_edit&categorie_id=<?php echo $categorieInfo['categorie_id']; ?>">Modifier</a> |
-                <a href="index.php?page=categorie_delete&categorie_id=<?php echo $categorieInfo['categorie_id']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cette catégorie ?');">Supprimer</a>
-            </p>
+        <h3 class="mb-3">Plats dans cette catégorie</h3>
+
+        <?php if (empty($plats)): ?>
+            <p class="text-muted">Aucun plat trouvé.</p>
         <?php else: ?>
-            <p>Aucune information disponible pour cette catégorie.</p>
+            <div class="table-responsive shadow rounded p-3 bg-white">
+                <table class="table table-hover table-bordered mb-0 plats-table">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>ID du plat</th>
+                            <th>Titre</th>
+                            <th>Description</th>
+                            <th>Prix</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($plats as $plat): ?>
+                            <tr>
+                                <td data-label="ID du plat"><?= htmlspecialchars($plat['plat_id']); ?></td>
+                                <td data-label="Titre"><?= htmlspecialchars($plat['titre']); ?></td>
+                                <td data-label="Description"><?= htmlspecialchars($plat['description'] ?? 'Non disponible'); ?></td>
+                                <td data-label="Prix"><?= htmlspecialchars($plat['prix']); ?> €</td>
+                                <td data-label="Image">
+                                    <?php if ($plat['image']): ?>
+                                        <img src="public/img/<?= htmlspecialchars($plat['image']); ?>" alt="Image Plat" class="img-thumbnail" />
+                                    <?php else: ?>
+                                        <span class="text-muted">Aucune image</span>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         <?php endif; ?>
 
-        <p><a href="index.php?page=categorie_info">Retour à la liste</a></p>
-    </div>
+        <div class="mt-4 d-flex justify-content-center gap-3 btn-group">
+            <a href="index.php?page=categorie_edit&categorie_id=<?= $categorieInfo['categorie_id']; ?>" class="btn btn-warning">
+                Modifier
+            </a>
+            <a href="index.php?page=categorie_delete&categorie_id=<?= $categorieInfo['categorie_id']; ?>" 
+               class="btn btn-danger" 
+               onclick="return confirm('Voulez-vous vraiment supprimer cette catégorie ?');">
+                Supprimer
+            </a>
+        </div>
+    <?php else: ?>
+        <p class="text-center text-muted">Aucune information disponible pour cette catégorie.</p>
+    <?php endif; ?>
+
+    <p class="text-center mt-5">
+        <a href="index.php?page=categorie_info" class="btn btn-secondary">Retour à la liste</a>
+    </p>
+</div>
+
 </body>
 </html>

@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Liste des Plats</title>
+    <!-- Favicon -->
+  <link href="public/img/logo1.png" rel="icon" />
+
+  <!-- Bootstrap CSS -->
+  <link href="public/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="public/css/admin/plats.css" rel="stylesheet" />
 </head>
 <body>
     <div>

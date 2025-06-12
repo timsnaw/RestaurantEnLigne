@@ -5,7 +5,6 @@ class PlatModel {
     // Constructeur : initialise la connexion à la base de données avec gestion des erreurs
     public function __construct($pdo) {
         $this->pdo = $pdo;
-        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
     // Recupere toutes les catégories de plats depuis la base de données

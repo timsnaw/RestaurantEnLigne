@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Informations de commande</title>
+      <!-- Favicon -->
+  <link href="public/img/logo1.png" rel="icon" />
+
+  <!-- Bootstrap CSS -->
+  <link href="public/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="public/css/admin/commandes_info.css" rel="stylesheet" />
 </head>
 <body>
     <div>

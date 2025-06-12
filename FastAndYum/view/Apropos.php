@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Fast&Yum</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -56,14 +56,14 @@
                                        
                                     </h5>
 
-                                    <a href="index.php?url=apropos" class="btn py-sm-2 px-sm-4 me-2"
+                                    <a href="index.php?page=apropos" class="btn py-sm-2 px-sm-4 me-2"
                                         style="border: 2px solid red; color: red; border-radius: 8px; background-color: transparent; font-weight: bold;"
                                         onmouseover="this.style.backgroundColor='red'; this.style.color='white';"
                                         onmouseout="this.style.backgroundColor='transparent'; this.style.color='red';">
                                         Afficher plus
                                     </a>
 
-                                    <a href="index.php?url=menu" class="btn py-sm-2 px-sm-4"
+                                    <a href="index.php?page=menu" class="btn py-sm-2 px-sm-4"
                                         style="border: 2px solid red; background-color: red; color: white; border-radius: 8px; font-weight: bold;"
                                         onmouseover="this.style.backgroundColor='transparent'; this.style.color='red';"
                                         onmouseout="this.style.backgroundColor='red'; this.style.color='white';">

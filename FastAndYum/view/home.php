@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Fast&Yum</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -58,7 +58,7 @@
                                         Afficher plus
                                     </a>
 
-                                    <a href="index.php?page=menu" class="btn py-sm-2 px-sm-4"
+                                    <a href="index.php?page=menu#tab-12" class="btn py-sm-2 px-sm-4"
                                         style="border: 2px solid red; background-color: red; color: white; border-radius: 8px; font-weight: bold;"
                                         onmouseover="this.style.backgroundColor='transparent'; this.style.color='red';"
                                         onmouseout="this.style.backgroundColor='red'; this.style.color='white';">
@@ -101,7 +101,7 @@
                                         Afficher plus
                                     </a>
 
-                                    <a href="index.php?page=menu" class="btn py-sm-2 px-sm-4"
+                                    <a href="index.php?page=menu#tab-12" class="btn py-sm-2 px-sm-4"
                                         style="border: 2px solid red; background-color: red; color: white; border-radius: 8px; font-weight: bold;"
                                         onmouseover="this.style.backgroundColor='transparent'; this.style.color='red';"
                                         onmouseout="this.style.backgroundColor='red'; this.style.color='white';">
@@ -153,7 +153,7 @@
                 <?php endforeach; ?>
             </div>
             <div class="text-center mt-5">
-                <a href="index.php?page=menu">
+                <a href="index.php?page=menu#tab-12">
                     <button class="btn btn-warning btn-lg rounded shadow-sm">Voir plus de produits</button>
                 </a>
             </div>
@@ -282,7 +282,7 @@
 
     <!--promo-->
     <section class="promo-section">
-        <a href="index.php?page=menu" class="promo-button">Order Now</a>
+        <a href="index.php?page=promotions" class="promo-button">Order Now</a>
     </section>
     <!--end promo-->
 
@@ -309,7 +309,20 @@
                              alt="<?php echo htmlspecialchars($review['prenom'] . ' ' . $review['nom']); ?>">
                         <div class="ms-3">
                             <h5 class="mb-1"><?php echo htmlspecialchars($review['prenom'] . ' ' . $review['nom']); ?></h5>
-                            <span><?php echo htmlspecialchars($review['note']); ?>/5</span>
+                            <div class="product-rating text-warning">
+                                <?php
+                                $rating = $review['note'] ?: 5;
+                                for ($i = 1; $i <= 5; $i++) {
+                                    if ($rating >= $i) {
+                                        echo '<i class="fas fa-star" style="font-size: 12px;"></i>';
+                                    } elseif ($rating >= $i - 0.5) {
+                                        echo '<i class="fas fa-star-half-alt" style="font-size: 12px;"></i>';
+                                    } else {
+                                        echo '<i class="far fa-star" style="font-size: 12px;"></i>';
+                                    }
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </div>

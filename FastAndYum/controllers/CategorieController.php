@@ -18,6 +18,10 @@ class CategorieController {
 
     // Gère la page demandée via l'URL et appelle la methode correspondante
     public function gererDemande() {
+        if (!isset($_SESSION['admin_id']) || $_SESSION['role'] !== 'admin') {
+            header("Location: index.php?page=admin_login");
+            exit;
+        }
         $page = isset($_GET['page']) ? $_GET['page'] : 'categorie_info';
         switch ($page) {
             case 'categorie_info':

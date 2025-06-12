@@ -1314,3 +1314,78 @@ header.scrolled .logo {
         .panierbody{
            background: linear-gradient(to right,rgb(250, 221, 221),rgba(125, 211, 217, 0.7));
         }
+
+/*
+
+commentaire dans la pages details plat
+
+*/
+.star-rating {
+    direction: rtl;
+    display: inline-flex;
+}
+.star-rating input {
+    display: none;
+}
+.star-rating label {
+    cursor: pointer;
+    color: #ccc;
+    margin-right: 5px;
+}
+.star-rating input:checked ~ label i,
+.star-rating label:hover i,
+.star-rating label:hover ~ label i {
+    color: #ffc107;
+}
+.star-rating input#star0:checked ~ label i {
+    color: #ccc; /* Keep 0 stars gray */
+}
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/*pour la bare de recherche */
+
+.search-form {
+    position: relative; 
+    width: 200px;
+}
+
+.search-input {
+    width: 100%; 
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.search-results .result-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search-results .result-item:hover {
+    background-color: #f0f0f0;
+}
