@@ -109,19 +109,19 @@
                 <div class="col-12 mx-auto text-center wow slideInRight" data-wow-delay="0.1s">
                     <ul class="nav flex-wrap justify-content-center gap-5 mb-5 p-0">
                         <li class="nav-item">
-                            <a class="btn-orange border-2  active " data-bs-toggle="pill" href="#tab-1">Pizzas</a>
+                            <a class="btn-orange border-2" data-bs-toggle="pill" href="#tab-1">Pizzas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn-orange border-2" data-bs-toggle="pill" href="#tab-2">Tacos</a>
+                            <a class="btn-orange border-2 active " data-bs-toggle="pill" href="#tab-2">Tacos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn-orange border-2" data-bs-toggle="pill" href="#tab-3">Burgers</a>
+                            <a class="btn-orange border-2  " data-bs-toggle="pill" href="#tab-3">Burgers</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn-orange border-2" data-bs-toggle="pill" href="#tab-4">Salades</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn-orange border-2" data-bs-toggle="pill" href="#tab-5">Jus et Cocktails</a>
+                            <a class="btn-orange border-2 " data-bs-toggle="pill" href="#tab-5">Jus et Cocktails</a>
                         </li>
                     </ul>
                 </div>
@@ -130,7 +130,7 @@
             <!-- Tab Content -->
             <div class="tab-content">
                 <!-- PIZZAS -->
-                <div id="tab-1" class="tab-pane fade show active">
+                <div id="tab-1" class="tab-pane fade ">
                     <div class="row g-4">
                         <!-- Product 1 -->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -420,7 +420,7 @@
                 </div>
 
                 <!-- BURGERS -->
-                <div id="tab-3" class="tab-pane fade">
+                <div id="tab-3" class="tab-pane fade ">
                     <div class="row g-4">
                         <!-- B 1 -->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -696,7 +696,7 @@
                 </div>
 
                 <!-- TACOSES -->
-                <div id="tab-2" class="tab-pane fade">
+                <div id="tab-2" class="tab-pane fade show active ">
                     <div class="row g-4">
                         <!-- TACOS 1 -->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -1140,7 +1140,7 @@
                     </div>
                 </div>
                 <!-- Jus  -->
-                <div id="tab-5" class="tab-pane fade">
+                <div id="tab-5" class="tab-pane fade  " >
                     <div class="row g-4">
                         <!-- Jus 1 -->
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -1372,6 +1372,7 @@
 
     <!-- Javascript -->
     <script src="/FastAndYumProject/FastAndYum/public/js/main.js"></script>
+
 
 
 

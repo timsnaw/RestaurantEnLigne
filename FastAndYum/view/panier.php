@@ -28,7 +28,7 @@
 
     <!-- CSS Stylesheet -->
     <link href="/FastAndYumProject/FastAndYum/public/css/fastyum.css" rel="stylesheet">
-    <style></style>
+ 
 
 </head>
 
