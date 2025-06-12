@@ -131,7 +131,7 @@ function sendToWhatsApp(event) {
 
 /* Les tableau des produit  */
     // Afficher tab au chargement
-    showTabFromHash();
+   
 
     // Changer tab quand utilisateur clique
     document.querySelectorAll(".btn-orange").forEach(btn => {
@@ -140,6 +140,7 @@ function sendToWhatsApp(event) {
             const targetHash = this.getAttribute("href");
             history.pushState(null, null, targetHash);
             showTabFromHash();
+        
         });
     });
 
